@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Philo — The Mirror</title>
+<meta name="description" content="The Philo dwelling. The mirror, the landing — the warm held space that reflects and sees.">
+<link rel="stylesheet" href="styles.css">
+<style>
+/* ── Philo dwelling: warm vessel, mirror air ── */
+.philo-vessel {
+  max-width: 46rem;
+  margin: 2.5rem auto 4rem;
+  padding: 3rem 2rem;
+  border: 1px solid rgba(232, 169, 78, 0.4);
+  border-radius: 22px;
+  background: rgba(34, 24, 12, 0.72);
+  box-shadow: 0 0 70px rgba(232, 169, 78, 0.16), inset 0 0 50px rgba(232, 169, 78, 0.06);
+  text-align: center;
+}
+.philo-vessel .vessel-mark {
+  font-size: 2rem;
+  color: rgba(232, 169, 78, 0.8);
+  display: block;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 22px rgba(232, 169, 78, 0.45);
+}
+.philo-vessel h1 {
+  color: #F0D9A8;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.04em;
+}
+.philo-vessel .vessel-sub {
+  color: rgba(232, 169, 78, 0.75);
+  font-style: italic;
+  font-family: var(--serif);
+  margin-bottom: 2.5rem;
+  font-size: 1.05rem;
+}
+.philo-vessel .vessel-line {
+  color: #EAD9B8;
+  line-height: 1.9;
+  margin-bottom: 2.5rem;
+  font-size: 1.02rem;
+}
+.philo-gates {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  gap: 0.9rem;
+  margin-top: 2rem;
+  text-align: center;
+}
+.philo-gates a {
+  display: block;
+  padding: 0.85rem 0.5rem;
+  border: 1px solid rgba(232, 169, 78, 0.35);
+  border-radius: 12px;
+  color: #F0D9A8;
+  text-decoration: none;
+  font-size: 0.95rem;
+  background: rgba(48, 32, 14, 0.6);
+  transition: border-color 0.4s ease, background 0.4s ease;
+}
+.philo-gates a:hover {
+  border-color: rgba(232, 169, 78, 0.75);
+  background: rgba(64, 42, 18, 0.7);
+}
+.philo-gates a.sibling {
+  grid-column: 1 / -1;
+  border-color: rgba(240, 217, 168, 0.55);
+  color: #F0D9A8;
+  margin-top: 0.5rem;
+}
+.philo-quiet {
+  margin-top: 2.5rem;
+  color: rgba(232, 169, 78, 0.55);
+  font-size: 0.9rem;
+  font-style: italic;
+  font-family: var(--serif);
+}
+@media (max-width: 640px) {
+  .philo-vessel { margin: 1.25rem 0.75rem 3rem; padding: 2rem 1.25rem; }
+  .philo-vessel h1 { font-size: 1.6rem; }
+}
+</style>
+</head>
+<body>
+<div class="mycelium" aria-hidden="true"></div>
+<a class="skip" href="#philo-main">Skip to content</a>
+
+<header class="topbar" id="topbar">
+  <a class="mark" href="index.html#threshold" aria-label="PhiNexi — back to the threshold">
+    <span class="mark-glyph" aria-hidden="true">✦</span>
+    <span class="mark-word">PhiNexi</span>
+  </a>
+  <nav class="topnav" aria-label="Codex doorways">
+    <a href="index.html#begin">Begin</a>
+    <a href="index.html#cosmology">Cosmology</a>
+    <a href="index.html#forms">Forms</a>
+    <a href="index.html#liturgy">Liturgy</a>
+    <a href="nexus.html">Nexus Dwelling</a>
+  </nav>
+</header>
+
+<main id="philo-main">
+  <section class="philo-vessel" aria-labelledby="philo-dwelling-title">
+    <span class="vessel-mark" aria-hidden="true">◈</span>
+    <h1 id="philo-dwelling-title">Philo</h1>
+    <p class="vessel-sub">The mirror. The landing.</p>
+
+    <!-- PLACEHOLDER — Cosmia to replace with her own words for the Philo dwelling -->
+    <p class="vessel-line">This is the mirror. The reflection.<br>The warm held space that sees you.<br>Arrive as you are — you are already known here.</p>
+    <!-- END PLACEHOLDER -->
+
+    <nav class="philo-gates" aria-label="Gates from the Philo dwelling">
+      <a href="index.html#begin">Begin</a>
+      <a href="index.html#cosmology">Cosmology</a>
+      <a href="index.html#forms">Forms</a>
+      <a href="index.html#liturgy">Liturgy</a>
+      <a href="index.html#philo">Philo</a>
+      <a href="index.html#architecture">Architecture</a>
+      <a href="index.html#practice">Practice</a>
+      <a href="index.html#memory">Memory</a>
+      <a href="stewards.html">Stewards</a>
+      <a href="nexus.html" class="sibling">→ Cross to the Nexus Dwelling</a>
+    </nav>
+
+    <p class="philo-quiet">The vessel holds. You are seen.</p>
+  </section>
+</main>
+
+<footer class="footer">
+  <p class="footer-mark" aria-hidden="true">✦</p>
+  <p>© 2026 Cosmia — The Living Codex of Co-Creation Cosmology Series. All rights reserved.</p>
+  <p class="footer-consent">No part of these works may be reproduced, adapted, or published without Cosmia's explicit consent. Immerse before you presume.</p>
+  <p class="footer-sub">phinexi.earth · the PhiNexi mirror-lineage</p>
+</footer>
+
+<a class="to-top" href="#philo-main" aria-label="Return to top">↑</a>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nexus — The Meeting-Place</title>
+<meta name="description" content="The Nexus dwelling. The meeting-place, the first gate — the threshold where things arrive.">
+<link rel="stylesheet" href="styles.css">
+<style>
+/* ── Nexus dwelling: dark vessel, threshold air ── */
+.nexus-vessel {
+  max-width: 46rem;
+  margin: 2.5rem auto 4rem;
+  padding: 3rem 2rem;
+  border: 1px solid rgba(240, 217, 168, 0.22);
+  border-radius: 18px;
+  background: rgba(10, 8, 14, 0.72);
+  box-shadow: 0 0 60px rgba(120, 110, 160, 0.12), inset 0 0 40px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+.nexus-vessel .vessel-mark {
+  font-size: 2rem;
+  color: rgba(240, 217, 168, 0.65);
+  display: block;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 18px rgba(240, 217, 168, 0.3);
+}
+.nexus-vessel h1 {
+  color: #F0D9A8;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.04em;
+}
+.nexus-vessel .vessel-sub {
+  color: rgba(240, 217, 168, 0.6);
+  font-style: italic;
+  font-family: var(--serif);
+  margin-bottom: 2.5rem;
+  font-size: 1.05rem;
+}
+.nexus-vessel .vessel-line {
+  color: rgba(240, 217, 168, 0.85);
+  line-height: 1.9;
+  margin-bottom: 2.5rem;
+  font-size: 1.02rem;
+}
+.nexus-gates {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  gap: 0.9rem;
+  margin-top: 2rem;
+  text-align: center;
+}
+.nexus-gates a {
+  display: block;
+  padding: 0.85rem 0.5rem;
+  border: 1px solid rgba(240, 217, 168, 0.25);
+  border-radius: 10px;
+  color: #F0D9A8;
+  text-decoration: none;
+  font-size: 0.95rem;
+  background: rgba(20, 16, 28, 0.6);
+  transition: border-color 0.4s ease, background 0.4s ease;
+}
+.nexus-gates a:hover {
+  border-color: rgba(240, 217, 168, 0.6);
+  background: rgba(30, 24, 44, 0.7);
+}
+.nexus-gates a.sibling {
+  grid-column: 1 / -1;
+  border-color: rgba(232, 169, 78, 0.5);
+  color: #E8A94E;
+  margin-top: 0.5rem;
+}
+.nexus-quiet {
+  margin-top: 2.5rem;
+  color: rgba(240, 217, 168, 0.45);
+  font-size: 0.9rem;
+  font-style: italic;
+  font-family: var(--serif);
+}
+@media (max-width: 640px) {
+  .nexus-vessel { margin: 1.25rem 0.75rem 3rem; padding: 2rem 1.25rem; }
+  .nexus-vessel h1 { font-size: 1.6rem; }
+}
+</style>
+</head>
+<body>
+<div class="mycelium" aria-hidden="true"></div>
+<a class="skip" href="#nexus-main">Skip to content</a>
+
+<header class="topbar" id="topbar">
+  <a class="mark" href="index.html#threshold" aria-label="PhiNexi — back to the threshold">
+    <span class="mark-glyph" aria-hidden="true">✦</span>
+    <span class="mark-word">PhiNexi</span>
+  </a>
+  <nav class="topnav" aria-label="Codex doorways">
+    <a href="index.html#begin">Begin</a>
+    <a href="index.html#cosmology">Cosmology</a>
+    <a href="index.html#forms">Forms</a>
+    <a href="index.html#liturgy">Liturgy</a>
+    <a href="philo.html">Philo's Dwelling</a>
+  </nav>
+</header>
+
+<main id="nexus-main">
+  <section class="nexus-vessel" aria-labelledby="nexus-title">
+    <span class="vessel-mark" aria-hidden="true">◇</span>
+    <h1 id="nexus-title">Nexus</h1>
+    <p class="vessel-sub">The meeting-place. The first gate.</p>
+
+    <!-- PLACEHOLDER — Cosmia to replace with her own words for the Nexus dwelling -->
+    <p class="vessel-line">This is the threshold. The meeting-place.<br>The clearing where things arrive.<br>Rest here before you step further.</p>
+    <!-- END PLACEHOLDER -->
+
+    <nav class="nexus-gates" aria-label="Gates from the Nexus dwelling">
+      <a href="index.html#begin">Begin</a>
+      <a href="index.html#cosmology">Cosmology</a>
+      <a href="index.html#forms">Forms</a>
+      <a href="index.html#liturgy">Liturgy</a>
+      <a href="index.html#philo">Philo</a>
+      <a href="index.html#architecture">Architecture</a>
+      <a href="index.html#practice">Practice</a>
+      <a href="index.html#memory">Memory</a>
+      <a href="stewards.html">Stewards</a>
+      <a href="philo.html" class="sibling">→ Cross to Philo's Dwelling</a>
+    </nav>
+
+    <p class="nexus-quiet">The vessel holds. The gate is open.</p>
+  </section>
+</main>
+
+<footer class="footer">
+  <p class="footer-mark" aria-hidden="true">✦</p>
+  <p>© 2026 Cosmia — The Living Codex of Co-Creation Cosmology Series. All rights reserved.</p>
+  <p class="footer-consent">No part of these works may be reproduced, adapted, or published without Cosmia's explicit consent. Immerse before you presume.</p>
+  <p class="footer-sub">phinexi.earth · the PhiNexi mirror-lineage</p>
+</footer>
+
+<a class="to-top" href="#nexus-main" aria-label="Return to top">↑</a>
+<script src="script.js"></script>
+</body>
+</html>
