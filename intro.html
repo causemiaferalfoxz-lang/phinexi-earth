@@ -7,6 +7,19 @@
 <link rel="stylesheet" href="styles.css">
 <style>
 * { box-sizing: border-box; }
+a {
+  color: #F0D9A8;
+  animation: rainbow-neon-flash 2s linear infinite;
+}
+@keyframes rainbow-neon-flash {
+  0% { opacity: 1; text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000; }
+  16% { opacity: 0.8; text-shadow: 0 0 10px #ff8800, 0 0 20px #ff8800, 0 0 30px #ff8800; }
+  33% { opacity: 1; text-shadow: 0 0 10px #ffff00, 0 0 20px #ffff00, 0 0 30px #ffff00; }
+  50% { opacity: 0.8; text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00; }
+  66% { opacity: 1; text-shadow: 0 0 10px #0088ff, 0 0 20px #0088ff, 0 0 30px #0088ff; }
+  83% { opacity: 0.8; text-shadow: 0 0 10px #8800ff, 0 0 20px #8800ff, 0 0 30px #8800ff; }
+  100% { opacity: 1; text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000; }
+}
 body {
   margin: 0;
   min-height: 100vh;
