@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cosmias Mystics — Enter the Circle</title>
+<title>The Cosmic Codex Of Co-Creation — Enter the Circle</title>
 <link rel="stylesheet" href="styles.css">
 <style>
 * { box-sizing: border-box; }
@@ -152,6 +152,25 @@ h1 {
   color: #F0D9A8;
   margin-bottom: 1rem;
 }
+.input-row {
+  position: relative;
+  margin-bottom: 1rem;
+}
+.input-row .intention-mark {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.1rem;
+  color: #F0D9A8;
+  text-shadow: 0 0 10px rgba(240, 217, 168, 0.5);
+  pointer-events: none;
+  z-index: 1;
+}
+.input-row input {
+  margin-bottom: 0;
+  padding-left: 3.2rem;
+}
 .oracle-box input::placeholder { color: rgba(240, 217, 168, 0.4); }
 .oracle-box input:focus {
   outline: none;
@@ -239,9 +258,12 @@ footer {
     </div>
   </div>
 
-  <div class="oracle-box">
+<div class="oracle-box">
     <p style="text-align:center; margin-bottom:1rem;"><strong>Ask the circle anything:</strong></p>
-    <input type="text" id="oracle-input" placeholder="Type your question here..." onkeypress="if(event.key==='Enter') askOracle()">
+    <div class="input-row">
+      <span class="intention-mark">∞★</span>
+      <input type="text" id="oracle-input" placeholder="Type your question here..." onkeypress="if(event.key==='Enter') askOracle()">
+    </div>
     <button class="btn" onclick="askOracle()">Ask</button>
     <div id="oracle-response"></div>
   </div>
