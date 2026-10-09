@@ -1018,65 +1018,6 @@ main, .topbar, .footer { position: relative; z-index: 2; }
   pointer-events: none;
 }
 
-/* Moss handled by JS injection — see script.js */
-
-/* ── Touch-responsive moss — it answers your hand ── */
-.word::before, .practice-steps li::before,
-.form-card::before,
-.bloop::before,
-.movement::after, .cosmos-card::before {
-  transition: transform 0.6s ease, opacity 0.6s ease, filter 0.6s ease;
-}
-/* When you touch the card, the moss stirs */
-.word:hover::before, .practice-steps li:hover::before,
-.form-card:hover::before,
-.bloop:hover::before,
-.movement:hover::after, .cosmos-card:hover::before {
-  transform: scale(1.12);
-  opacity: 1;
-  filter: saturate(1.3) brightness(1.1);
-}
-/* Cards breathe with your touch */
-.form-card, .word, .bloop, .movement, .cosmos-card {
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
-}
-.form-card:hover, .word:hover, .bloop:hover,
-.movement:hover, .cosmos-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 32px rgba(122, 154, 92, 0.15);
-}
-/* Touch devices: active state */
-.form-card:active::before, .word:active::before,
-.bloop:active::before {
-  transform: scale(1.2);
-  opacity: 1;
-  filter: saturate(1.4) brightness(1.15);
-}
-@media (prefers-reduced-motion: reduce) {
-  .word::before, .form-card::before, .bloop::before,
-  .movement::after, .cosmos-card::before,
-  .form-card, .word, .bloop, .movement, .cosmos-card {
-    transition: none;
-  }
-  .form-card:hover, .word:hover, .bloop:hover,
-  .movement:hover, .cosmos-card:hover {
-    transform: none;
-  }
-}
-
-/* ── Mossy earth at the foot of the page — the ground reclaims ── */
-.footer { position: relative; }
-.footer::before {
-  content: "";
-  position: absolute; left: 0; right: 0; bottom: 0; height: 56px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 56'%3E%3Cg fill='%233d5a2e' opacity='0.8'%3E%3Cellipse cx='20' cy='52' rx='26' ry='12'/%3E%3Cellipse cx='70' cy='54' rx='30' ry='13'/%3E%3Cellipse cx='125' cy='52' rx='28' ry='12'/%3E%3Cellipse cx='175' cy='54' rx='26' ry='12'/%3E%3C/g%3E%3Cg fill='%235a7a44' opacity='0.75'%3E%3Cellipse cx='45' cy='48' rx='16' ry='8'/%3E%3Cellipse cx='100' cy='50' rx='18' ry='9'/%3E%3Cellipse cx='155' cy='48' rx='15' ry='8'/%3E%3C/g%3E%3Cg fill='%237a9a5c' opacity='0.7'%3E%3Ccircle cx='30' cy='44' r='2.4'/%3E%3Ccircle cx='60' cy='46' r='2'/%3E%3Ccircle cx='90' cy='43' r='2.4'/%3E%3Ccircle cx='120' cy='46' r='2'/%3E%3Ccircle cx='150' cy='44' r='2.4'/%3E%3Ccircle cx='180' cy='46' r='2'/%3E%3C/g%3E%3Cg fill='%23f5d67b' opacity='0.9'%3E%3Ccircle cx='42' cy='42' r='1.5'/%3E%3Ccircle cx='82' cy='44' r='1.3'/%3E%3Ccircle cx='118' cy='41' r='1.5'/%3E%3Ccircle cx='162' cy='43' r='1.3'/%3E%3Ccircle cx='16' cy='45' r='1.2'/%3E%3Ccircle cx='192' cy='44' r='1.2'/%3E%3C/g%3E%3C/svg%3E");
-  background-repeat: repeat-x;
-  background-size: 200px 56px;
-  background-position: bottom center;
-  opacity: 0.8;
-  pointer-events: none;
-}
-
 /* ── Keep it gentle on small screens ── */
 @media (max-width: 640px) {
   .topbar::after { display: none; }
@@ -1087,8 +1028,6 @@ main, .topbar, .footer { position: relative; z-index: 2; }
   }
   .chapter { background-size: 130px 130px; }
   #forms.chapter, #memory.chapter { background-size: 110px 110px; }
-  .word::before, .form-card::before, .bloop::before, .practice-steps li::before,
-  .movement::after, .cosmos-card::before { width: 110px; height: 110px; }
   .resonance-key::before, .sanctum::before, .lineage::before,
   .elements::before, .yearnings::before, .endings::before {
     left: 1rem; right: 1rem; background-size: 220px 20px; height: 20px;
