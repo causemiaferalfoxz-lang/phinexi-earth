@@ -1018,52 +1018,7 @@ main, .topbar, .footer { position: relative; z-index: 2; }
   pointer-events: none;
 }
 
-/* ── Real moss — simple, visible, no masks ── */
-.word, .form-card, .bloop, .practice-steps li { position: relative; }
-
-.word::before, .practice-steps li::before,
-.form-card::before,
-.bloop::before,
-.movement::after, .cosmos-card::before {
-  content: "";
-  position: absolute;
-  background-image: url("assets/moss-texture.jpg");
-  background-size: cover;
-  background-position: center;
-  border-radius: 50%;
-  opacity: 0.85;
-  pointer-events: none;
-  filter: saturate(1.1);
-}
-.word::before, .practice-steps li::before {
-  left: 0; bottom: 0;
-  width: 160px; height: 120px;
-  border-radius: 0;
-  opacity: 1;
-}
-.form-card::before {
-  right: 0; bottom: 0;
-  width: 150px; height: 150px;
-  border-radius: 0;
-  background-position: 70% 30%;
-  filter: saturate(1.2);
-  opacity: 1;
-}
-.bloop::before {
-  left: 10px; bottom: 0;
-  width: 140px; height: 70px;
-  border-radius: 50% 50% 0 0;
-  background-position: 20% 70%;
-  opacity: 0.8;
-}
-.movement::after, .cosmos-card::before {
-  right: 0; top: 0;
-  width: 100px; height: 70px;
-  border-radius: 0 0 0 60%;
-  background-position: 85% 15%;
-  opacity: 0.7;
-}
-
+/* Moss handled by JS injection — see script.js */
 
 /* ── Touch-responsive moss — it answers your hand ── */
 .word::before, .practice-steps li::before,
