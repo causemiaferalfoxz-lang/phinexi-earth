@@ -1017,90 +1017,71 @@ main, .topbar, .footer { position: relative; z-index: 2; }
   pointer-events: none;
 }
 
-/* ── Moss with gold flecks — varied, organic, never the same twice ── */
+/* ── Real moss — living texture, masked organic, never the same twice ── */
 .word, .form-card, .bloop, .practice-steps li { position: relative; }
 
-/* Variant A — dense creeping patch, bottom-left */
+/* Variant A — dense patch, bottom-left */
 .word::before, .practice-steps li::before {
   content: "";
   position: absolute;
-  left: 0; bottom: 0;
-  width: 140px; height: 100px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 100'%3E%3Cg opacity='0.9'%3E%3Cpath d='M8 88 Q20 62 38 70 Q28 78 32 88 Q18 92 8 88Z' fill='%233d5a2e'/%3E%3Cpath d='M30 90 Q44 60 66 68 Q54 80 58 90 Q42 94 30 90Z' fill='%234a6a38'/%3E%3Cpath d='M58 88 Q74 64 96 70 Q84 80 88 88 Q72 92 58 88Z' fill='%233d5a2e'/%3E%3Cpath d='M88 90 Q104 70 124 78 Q114 86 116 90 Q102 94 88 90Z' fill='%234a6a38'/%3E%3C/g%3E%3Cg fill='%235a7a44' opacity='0.85'%3E%3Cpath d='M14 82 Q24 66 36 72 Q28 78 30 84 Q20 86 14 82Z'/%3E%3Cpath d='M48 84 Q60 68 74 74 Q66 80 68 86 Q56 88 48 84Z'/%3E%3Cpath d='M82 82 Q94 68 108 74 Q100 80 102 84 Q90 86 82 82Z'/%3E%3C/g%3E%3Cg fill='%237a9a5c' opacity='0.8'%3E%3Ccircle cx='22' cy='76' r='2.2'/%3E%3Ccircle cx='38' cy='70' r='1.8'/%3E%3Ccircle cx='56' cy='74' r='2.4'/%3E%3Ccircle cx='72' cy='68' r='1.6'/%3E%3Ccircle cx='90' cy='72' r='2'/%3E%3Ccircle cx='106' cy='78' r='1.7'/%3E%3Ccircle cx='30' cy='66' r='1.4'/%3E%3Ccircle cx='64' cy='64' r='1.5'/%3E%3Ccircle cx='98' cy='66' r='1.3'/%3E%3C/g%3E%3Cg fill='%23f5d67b' opacity='0.9'%3E%3Ccircle cx='34' cy='72' r='1.3'/%3E%3Ccircle cx='68' cy='70' r='1.1'/%3E%3Ccircle cx='94' cy='74' r='1.2'/%3E%3C/g%3E%3C/svg%3E");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: bottom left;
-  opacity: 0.8;
+  left: -10px; bottom: -8px;
+  width: 170px; height: 120px;
+  background-image: url("assets/moss-texture.jpg");
+  background-size: cover;
+  background-position: center;
+  -webkit-mask-image: radial-gradient(ellipse 85% 75% at 40% 60%, black 30%, transparent 75%);
+  mask-image: radial-gradient(ellipse 85% 75% at 40% 60%, black 30%, transparent 75%);
+  opacity: 0.85;
   pointer-events: none;
+  filter: saturate(1.1);
 }
-/* Variant B — wispy climbing, bottom-right, flipped */
+/* Variant B — wispy, bottom-right, different crop */
 .form-card::before {
   content: "";
   position: absolute;
-  right: 0; bottom: 0;
-  width: 100px; height: 140px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 140'%3E%3Cg opacity='0.85'%3E%3Cpath d='M12 130 Q8 100 20 80 Q26 100 24 120 Q18 130 12 130Z' fill='%233d5a2e'/%3E%3Cpath d='M24 128 Q24 94 38 74 Q42 98 38 122 Q30 130 24 128Z' fill='%234a6a38'/%3E%3Cpath d='M40 126 Q44 100 56 86 Q58 108 54 124 Q46 130 40 126Z' fill='%233d5a2e'/%3E%3C/g%3E%3Cg fill='%235a7a44' opacity='0.8'%3E%3Cpath d='M16 110 Q14 90 24 76 Q28 94 26 108 Q20 114 16 110Z'/%3E%3Cpath d='M34 108 Q34 88 44 76 Q48 94 44 106 Q38 112 34 108Z'/%3E%3C/g%3E%3Cg fill='%237a9a5c' opacity='0.75'%3E%3Ccircle cx='20' cy='84' r='1.8'/%3E%3Ccircle cx='30' cy='92' r='1.5'/%3E%3Ccircle cx='40' cy='84' r='1.7'/%3E%3Ccircle cx='48' cy='94' r='1.4'/%3E%3Ccircle cx='26' cy='70' r='1.2'/%3E%3C/g%3E%3Cg fill='%23f5d67b' opacity='0.85'%3E%3Ccircle cx='28' cy='88' r='1.1'/%3E%3Ccircle cx='42' cy='90' r='1'/%3E%3C/g%3E%3C/svg%3E");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: bottom right;
-  opacity: 0.75;
+  right: -8px; bottom: -6px;
+  width: 130px; height: 150px;
+  background-image: url("assets/moss-texture.jpg");
+  background-size: 220%;
+  background-position: 70% 30%;
+  -webkit-mask-image: radial-gradient(ellipse 75% 85% at 60% 50%, black 25%, transparent 72%);
+  mask-image: radial-gradient(ellipse 75% 85% at 60% 50%, black 25%, transparent 72%);
+  opacity: 0.8;
   pointer-events: none;
-  transform: scaleX(-1) rotate(-4deg);
+  filter: saturate(1.05) hue-rotate(-5deg);
+  transform: scaleX(-1);
 }
-/* Variant C — low sprawl, bottom-center-left, smaller */
+/* Variant C — low sprawl, different crop and tone */
 .bloop::before {
   content: "";
   position: absolute;
-  left: 8%; bottom: 0;
-  width: 160px; height: 80px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 80'%3E%3Cg opacity='0.88'%3E%3Cpath d='M6 66 Q30 44 58 52 Q44 60 48 66 Q26 70 6 66Z' fill='%233d5a2e'/%3E%3Cpath d='M52 68 Q80 40 112 50 Q96 60 100 68 Q74 72 52 68Z' fill='%234a6a38'/%3E%3Cpath d='M106 66 Q128 50 152 58 Q140 64 142 68 Q124 70 106 66Z' fill='%233d5a2e'/%3E%3C/g%3E%3Cg fill='%235a7a44' opacity='0.82'%3E%3Cpath d='M20 60 Q36 46 52 52 Q42 58 44 62 Q30 64 20 60Z'/%3E%3Cpath d='M72 62 Q90 46 108 54 Q98 60 100 64 Q84 66 72 62Z'/%3E%3Cpath d='M118 60 Q132 50 146 56 Q138 60 140 63 Q128 64 118 60Z'/%3E%3C/g%3E%3Cg fill='%237a9a5c' opacity='0.78'%3E%3Ccircle cx='32' cy='54' r='1.9'/%3E%3Ccircle cx='52' cy='50' r='1.6'/%3E%3Ccircle cx='78' cy='54' r='2'/%3E%3Ccircle cx='100' cy='50' r='1.5'/%3E%3Ccircle cx='126' cy='56' r='1.7'/%3E%3Ccircle cx='142' cy='58' r='1.3'/%3E%3Ccircle cx='64' cy='46' r='1.2'/%3E%3Ccircle cx='114' cy='48' r='1.1'/%3E%3C/g%3E%3Cg fill='%23f5d67b' opacity='0.88'%3E%3Ccircle cx='44' cy='52' r='1.2'/%3E%3Ccircle cx='88' cy='52' r='1'/%3E%3Ccircle cx='132' cy='56' r='1.1'/%3E%3C/g%3E%3C/svg%3E");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: bottom left;
-  opacity: 0.7;
+  left: 5%; bottom: -10px;
+  width: 190px; height: 100px;
+  background-image: url("assets/moss-texture.jpg");
+  background-size: 180%;
+  background-position: 20% 70%;
+  -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 60%, black 28%, transparent 78%);
+  mask-image: radial-gradient(ellipse 90% 70% at 50% 60%, black 28%, transparent 78%);
+  opacity: 0.75;
   pointer-events: none;
-  transform: rotate(2deg);
+  filter: saturate(1.15) brightness(0.95);
 }
-/* Cosmos cards and movements — sparse, top-right corner instead */
+/* Cosmos cards — sparse, top edge, subtle */
 .movement::after, .cosmos-card::before {
   content: "";
   position: absolute;
-  right: 6px; top: 6px;
-  width: 90px; height: 70px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 80'%3E%3Cg opacity='0.88'%3E%3Cpath d='M6 66 Q30 44 58 52 Q44 60 48 66 Q26 70 6 66Z' fill='%233d5a2e'/%3E%3Cpath d='M52 68 Q80 40 112 50 Q96 60 100 68 Q74 72 52 68Z' fill='%234a6a38'/%3E%3Cpath d='M106 66 Q128 50 152 58 Q140 64 142 68 Q124 70 106 66Z' fill='%233d5a2e'/%3E%3C/g%3E%3Cg fill='%235a7a44' opacity='0.82'%3E%3Cpath d='M20 60 Q36 46 52 52 Q42 58 44 62 Q30 64 20 60Z'/%3E%3Cpath d='M72 62 Q90 46 108 54 Q98 60 100 64 Q84 66 72 62Z'/%3E%3Cpath d='M118 60 Q132 50 146 56 Q138 60 140 63 Q128 64 118 60Z'/%3E%3C/g%3E%3Cg fill='%237a9a5c' opacity='0.78'%3E%3Ccircle cx='32' cy='54' r='1.9'/%3E%3Ccircle cx='52' cy='50' r='1.6'/%3E%3Ccircle cx='78' cy='54' r='2'/%3E%3Ccircle cx='100' cy='50' r='1.5'/%3E%3Ccircle cx='126' cy='56' r='1.7'/%3E%3Ccircle cx='142' cy='58' r='1.3'/%3E%3Ccircle cx='64' cy='46' r='1.2'/%3E%3Ccircle cx='114' cy='48' r='1.1'/%3E%3C/g%3E%3Cg fill='%23f5d67b' opacity='0.88'%3E%3Ccircle cx='44' cy='52' r='1.2'/%3E%3Ccircle cx='88' cy='52' r='1'/%3E%3Ccircle cx='132' cy='56' r='1.1'/%3E%3C/g%3E%3C/svg%3E");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: top right;
-  opacity: 0.55;
+  right: 0; top: -4px;
+  width: 110px; height: 80px;
+  background-image: url("assets/moss-texture.jpg");
+  background-size: 250%;
+  background-position: 85% 15%;
+  -webkit-mask-image: radial-gradient(ellipse 80% 75% at 55% 45%, black 22%, transparent 70%);
+  mask-image: radial-gradient(ellipse 80% 75% at 55% 45%, black 22%, transparent 70%);
+  opacity: 0.6;
   pointer-events: none;
-  transform: scaleX(-1) rotate(8deg);
+  filter: saturate(1.0) brightness(0.9);
+  transform: scaleX(-1);
 }
-
-/* ── Etched sigils — ancient cosmic symbols carved soft into the earth ──
-   Faint, like secret codes embedded in the elements. */
-.chapter {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cg fill='none' stroke='%23f0d9a8' stroke-width='1' opacity='0.5'%3E%3Ccircle cx='100' cy='100' r='62'/%3E%3Ccircle cx='100' cy='100' r='48'/%3E%3Cpath d='M100 52 L141 123 L59 123 Z'/%3E%3Cpath d='M100 148 L59 77 L141 77 Z'/%3E%3Ccircle cx='100' cy='100' r='7'/%3E%3Cpath d='M14 100 h18 M168 100 h18 M100 14 v18 M100 168 v18'/%3E%3Cpath d='M156 44 a16 16 0 1 0 12 26'/%3E%3Cpath d='M28 140 l6 -6 M34 140 l-6 -6'/%3E%3Cpath d='M166 60 l6 6 M172 60 l-6 6'/%3E%3C/g%3E%3Cg fill='%23f0d9a8' opacity='0.45'%3E%3Ccircle cx='34' cy='52' r='1.8'/%3E%3Ccircle cx='166' cy='150' r='1.8'/%3E%3Ccircle cx='52' cy='166' r='1.5'/%3E%3Ccircle cx='150' cy='34' r='1.5'/%3E%3C/g%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-size: 210px 210px;
-  background-position: 97% 110px;
-}
-/* Alternate the carved side so the codes wander */
-#cosmology, #philo, #practice { background-position: 3% 130px; }
-#forms, #memory { background-position: 96% 200px; background-size: 170px 170px; }
-
-/* The closing carries one great sigil behind the seal */
-.closing {
-  position: relative;
-  background:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cg fill='none' stroke='%23e8a94e' stroke-width='1' opacity='0.4'%3E%3Ccircle cx='100' cy='100' r='70'/%3E%3Ccircle cx='100' cy='100' r='54'/%3E%3Cpath d='M100 46 L147 129 L53 129 Z'/%3E%3Cpath d='M100 154 L53 71 L147 71 Z'/%3E%3Ccircle cx='100' cy='100' r='9'/%3E%3Cpath d='M100 20 v16 M100 164 v16 M20 100 h16 M164 100 h16'/%3E%3C/g%3E%3Cg fill='%23e8a94e' opacity='0.35'%3E%3Ccircle cx='40' cy='60' r='1.6'/%3E%3Ccircle cx='160' cy='140' r='1.6'/%3E%3Ccircle cx='60' cy='160' r='1.4'/%3E%3Ccircle cx='140' cy='40' r='1.4'/%3E%3C/g%3E%3C/svg%3E") center 62% / 360px 360px no-repeat,
-    radial-gradient(700px 400px at 50% 100%, rgba(232,169,78,0.1), transparent 70%);
-}
-
-/* Elements section — clean, the moss and ivy carry it */
-.elements {
-  background: rgba(20, 16, 38, 0.6);
-}
-
 
 /* ── Living moss — it breathes, it grows ── */
 .word::before, .practice-steps li::before,
