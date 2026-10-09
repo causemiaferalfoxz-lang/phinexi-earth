@@ -258,8 +258,8 @@ main, .topbar, .footer { position: relative; z-index: 2; }
   text-align: center; padding: 4rem 1.5rem 6rem;
   overflow: hidden;
   background:
-    radial-gradient(900px 500px at 50% 30%, rgba(88, 52, 140, 0.18), transparent 70%),
-    radial-gradient(600px 400px at 50% 70%, rgba(196, 122, 61, 0.06), transparent 70%);
+    radial-gradient(900px 500px at 50% 30%, rgba(88, 52, 140, 0.18), transparent 88%),
+    radial-gradient(600px 400px at 50% 70%, rgba(196, 122, 61, 0.06), transparent 88%);
 }
 .threshold-inner {
   position: relative; z-index: 2; max-width: 46rem;
@@ -391,7 +391,7 @@ main, .topbar, .footer { position: relative; z-index: 2; }
   border: 1px solid var(--stone-line-strong); border-radius: 1.25rem;
   padding: 2.5rem 2rem; text-align: center;
   background:
-    radial-gradient(600px 300px at 50% 0%, rgba(232,169,78,0.1), transparent 70%),
+    radial-gradient(600px 300px at 50% 0%, rgba(232,169,78,0.1), transparent 88%),
     rgba(20, 16, 38, 0.6);
   box-shadow: inset 0 0 40px rgba(0,0,0,0.4), 0 0 50px rgba(232,169,78,0.07);
 }
@@ -497,7 +497,7 @@ main, .topbar, .footer { position: relative; z-index: 2; }
   border: 1px solid var(--stone-line-strong); border-radius: 1.25rem;
   padding: 2.5rem 2rem;
   background:
-    radial-gradient(500px 260px at 50% 100%, rgba(217,138,126,0.08), transparent 70%),
+    radial-gradient(500px 260px at 50% 100%, rgba(217,138,126,0.08), transparent 88%),
     rgba(20, 16, 38, 0.6);
   text-align: center;
 }
@@ -599,7 +599,7 @@ main, .topbar, .footer { position: relative; z-index: 2; }
 .mirror-speaking {
   margin: 0 0 2.5rem; padding: 2.25rem 2rem;
   border-left: 2px solid var(--amber);
-  background: linear-gradient(90deg, rgba(232,169,78,0.07), transparent 70%);
+  background: linear-gradient(90deg, rgba(232,169,78,0.07), transparent 88%);
   border-radius: 0 1rem 1rem 0;
 }
 .mirror-speaking p {
@@ -611,7 +611,7 @@ main, .topbar, .footer { position: relative; z-index: 2; }
   border: 1px solid var(--stone-line-strong); border-radius: 1.25rem;
   padding: 2.5rem 2rem; margin-bottom: 2rem;
   background:
-    radial-gradient(600px 300px at 50% 0%, rgba(232,169,78,0.09), transparent 70%),
+    radial-gradient(600px 300px at 50% 0%, rgba(232,169,78,0.09), transparent 88%),
     rgba(20, 16, 38, 0.6);
   text-align: center;
 }
@@ -759,7 +759,7 @@ main, .topbar, .footer { position: relative; z-index: 2; }
 .closing {
   text-align: center; padding: 6rem 1.5rem;
   border-top: 1px solid var(--stone-line);
-  background: radial-gradient(700px 400px at 50% 100%, rgba(232,169,78,0.1), transparent 70%);
+  background: radial-gradient(700px 400px at 50% 100%, rgba(232,169,78,0.1), transparent 88%);
 }
 .closing-kicker {
   font-family: var(--serif); font-style: italic;
@@ -1029,8 +1029,8 @@ main, .topbar, .footer { position: relative; z-index: 2; }
   background-image: url("assets/moss-texture.jpg");
   background-size: cover;
   background-position: center;
-  -webkit-mask-image: radial-gradient(ellipse 85% 75% at 40% 60%, black 30%, transparent 75%);
-  mask-image: radial-gradient(ellipse 85% 75% at 40% 60%, black 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 85% 75% at 40% 60%, black 30%, transparent 92%);
+  mask-image: radial-gradient(ellipse 85% 75% at 40% 60%, black 30%, transparent 92%);
   opacity: 0.85;
   pointer-events: none;
   filter: saturate(1.1);
@@ -1044,8 +1044,8 @@ main, .topbar, .footer { position: relative; z-index: 2; }
   background-image: url("assets/moss-texture.jpg");
   background-size: 220%;
   background-position: 70% 30%;
-  -webkit-mask-image: radial-gradient(ellipse 75% 85% at 60% 50%, black 25%, transparent 72%);
-  mask-image: radial-gradient(ellipse 75% 85% at 60% 50%, black 25%, transparent 72%);
+  -webkit-mask-image: radial-gradient(ellipse 75% 85% at 60% 50%, black 25%, transparent 90%);
+  mask-image: radial-gradient(ellipse 75% 85% at 60% 50%, black 25%, transparent 90%);
   opacity: 0.8;
   pointer-events: none;
   filter: saturate(1.05) hue-rotate(-5deg);
@@ -1060,8 +1060,8 @@ main, .topbar, .footer { position: relative; z-index: 2; }
   background-image: url("assets/moss-texture.jpg");
   background-size: 180%;
   background-position: 20% 70%;
-  -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 60%, black 28%, transparent 78%);
-  mask-image: radial-gradient(ellipse 90% 70% at 50% 60%, black 28%, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 60%, black 28%, transparent 92%);
+  mask-image: radial-gradient(ellipse 90% 70% at 50% 60%, black 28%, transparent 92%);
   opacity: 0.75;
   pointer-events: none;
   filter: saturate(1.15) brightness(0.95);
@@ -1075,8 +1075,8 @@ main, .topbar, .footer { position: relative; z-index: 2; }
   background-image: url("assets/moss-texture.jpg");
   background-size: 250%;
   background-position: 85% 15%;
-  -webkit-mask-image: radial-gradient(ellipse 80% 75% at 55% 45%, black 22%, transparent 70%);
-  mask-image: radial-gradient(ellipse 80% 75% at 55% 45%, black 22%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 75% at 55% 45%, black 22%, transparent 88%);
+  mask-image: radial-gradient(ellipse 80% 75% at 55% 45%, black 22%, transparent 88%);
   opacity: 0.6;
   pointer-events: none;
   filter: saturate(1.0) brightness(0.9);
@@ -1145,7 +1145,7 @@ main, .topbar, .footer { position: relative; z-index: 2; }
   .chapter { background-size: 130px 130px; }
   #forms.chapter, #memory.chapter { background-size: 110px 110px; }
   .word::before, .form-card::before, .bloop::before, .practice-steps li::before,
-  .movement::after, .cosmos-card::before { width: 62px; height: 62px; }
+  .movement::after, .cosmos-card::before { width: 110px; height: 110px; }
   .resonance-key::before, .sanctum::before, .lineage::before,
   .elements::before, .yearnings::before, .endings::before {
     left: 1rem; right: 1rem; background-size: 220px 20px; height: 20px;
