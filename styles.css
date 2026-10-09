@@ -16,6 +16,7 @@
   --cream-soft: #e6cda0;
   --cream-dim: #c9ad7e;
   --cream-faint: #9a8259;
+
   /* Amber — living light, flame of the sigils */
   --amber: #e8a94e;
   --amber-deep: #b97c2e;
@@ -52,7 +53,7 @@
 h1, h2, h3 { text-shadow: var(--glow-cream); }
 a { 
   color: #F0D9A8;
-  text-shadow: 0 0 10px #ff0000, 0 0 20px #ff8800, 0 0 30px #ffff00, 0 0 40px #00ff00, 0 0 50px #0088ff;
+  animation: rainbow-neon-flash 2s linear infinite;
 }
 @keyframes rainbow-neon-flash {
   0% { opacity: 1; text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000; }
@@ -73,10 +74,7 @@ nav a, .nav-link, .portal-link {
   50% { text-shadow: 0 0 28px rgba(232, 169, 78, 0.85), 0 0 64px rgba(232, 169, 78, 0.4); }
 }
 .card, .bloop { box-shadow: var(--glow-soft); }
-button, .btn {
-   box-shadow: var(--glow-amber);
-   text-shadow: 0 0 10px #ff0000, 0 0 20px #ff8800, 0 0 30px #ffff00, 0 0 40px #00ff00, 0 0 50px #0088ff;
-}
+button, .btn { box-shadow: var(--glow-amber); }
 
 /* ── D.I.D. portal ── */
 .did-portal {
@@ -983,4 +981,166 @@ main, .topbar, .footer { position: relative; z-index: 2; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .reveal { opacity: 1; transform: none; }
+}
+
+/* ════════════════════════════════════════════════════════════════
+   THE LIVING EARTH — ivy, wisteria, moss, gold & etched sigils
+   Her direction: ivies around the borders, wisteria, moss everywhere
+   it belongs, gold lying in the moss, ancient cosmic sigils etched /
+   carved / burned in like soft secret codes embedded in the elements.
+   Warm cream only. Nothing harsh. Nothing accidental.
+   ════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* Wisteria — hanging blossom, dusk purple */
+  --wisteria: #a78bda;
+  --wisteria-deep: #7a5fa8;
+  --wisteria-pale: #c9b3ec;
+  --wisteria-dusk: #5a4a7a;
+  --wisteria-glow: rgba(167, 139, 218, 0.35);
+  /* Gold flecks lying in the moss */
+  --gold-fleck: #f5d67b;
+  --gold-moss: #e8c96a;
+}
+
+/* ── Ivy vine — grows along the top edge of every great vessel ── */
+.resonance-key::before, .sanctum::before, .lineage::before,
+.elements::before, .yearnings::before, .endings::before {
+  content: "";
+  position: absolute;
+  top: -2px; left: 1.5rem; right: 1.5rem; height: 26px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 44'%3E%3Cpath d='M0 22 Q37 10 75 22 T150 22 T225 22 T300 22' fill='none' stroke='%235a7a44' stroke-width='2.5' stroke-linecap='round'/%3E%3Cg fill='%236b8f4e' opacity='0.9'%3E%3Cpath d='M30 16 q8 -8 16 -6 q-6 8 -16 6 Z'/%3E%3Cpath d='M105 28 q8 8 16 6 q-6 -8 -16 -6 Z'/%3E%3Cpath d='M180 16 q8 -8 16 -6 q-6 8 -16 6 Z'/%3E%3Cpath d='M255 28 q8 8 16 6 q-6 -8 -16 -6 Z'/%3E%3C/g%3E%3Cg fill='%237a9a5c' opacity='0.7'%3E%3Cpath d='M67 20 q6 -6 12 -4 q-4 6 -12 4 Z'/%3E%3Cpath d='M142 24 q6 6 12 4 q-4 -6 -12 -4 Z'/%3E%3Cpath d='M217 20 q6 -6 12 -4 q-4 6 -12 4 Z'/%3E%3Cpath d='M292 24 q6 6 12 4 q-4 -6 -12 -4 Z'/%3E%3C/g%3E%3Cpath d='M75 22 q10 -2 8 -12 q-8 2 -8 12' fill='none' stroke='%235a7a44' stroke-width='1.5'/%3E%3Cpath d='M225 22 q-10 2 -8 12 q8 -2 8 -12' fill='none' stroke='%235a7a44' stroke-width='1.5'/%3E%3Cg fill='%23e8a94e' opacity='0.85'%3E%3Ccircle cx='52' cy='30' r='1.6'/%3E%3Ccircle cx='168' cy='14' r='1.4'/%3E%3Ccircle cx='248' cy='32' r='1.6'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-size: 300px 26px;
+  background-position: top center;
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+/* ── Moss with gold flecks — creeps in the corners where it belongs ── */
+.word, .form-card, .bloop, .practice-steps li { position: relative; }
+.word::before, .form-card::before, .bloop::before, .practice-steps li::before,
+.movement::after, .cosmos-card::before {
+  content: "";
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 96px; height: 96px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Cg fill='%233d5a2e' opacity='0.85'%3E%3Cellipse cx='18' cy='104' rx='20' ry='12'/%3E%3Cellipse cx='48' cy='110' rx='24' ry='13'/%3E%3Cellipse cx='80' cy='105' rx='17' ry='10'/%3E%3Cellipse cx='105' cy='110' rx='14' ry='8'/%3E%3C/g%3E%3Cg fill='%235a7a44' opacity='0.8'%3E%3Cellipse cx='30' cy='100' rx='12' ry='7'/%3E%3Cellipse cx='62' cy='106' rx='14' ry='8'/%3E%3Cellipse cx='92' cy='102' rx='10' ry='6'/%3E%3C/g%3E%3Cg fill='%237a9a5c' opacity='0.75'%3E%3Ccircle cx='22' cy='96' r='2.5'/%3E%3Ccircle cx='40' cy='102' r='2'/%3E%3Ccircle cx='58' cy='98' r='2.5'/%3E%3Ccircle cx='74' cy='103' r='2'/%3E%3Ccircle cx='90' cy='97' r='2.2'/%3E%3Ccircle cx='12' cy='102' r='1.8'/%3E%3Ccircle cx='100' cy='105' r='1.8'/%3E%3Ccircle cx='48' cy='94' r='1.6'/%3E%3C/g%3E%3Cg fill='%23f5d67b' opacity='0.9'%3E%3Ccircle cx='32' cy='94' r='1.4'/%3E%3Ccircle cx='66' cy='100' r='1.2'/%3E%3Ccircle cx='86' cy='99' r='1.3'/%3E%3Ccircle cx='18' cy='100' r='1.1'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  opacity: 0.75;
+  pointer-events: none;
+}
+/* Cards with right-side vine corners get moss on the opposite corner */
+.cosmos-card::before, .movement::after { left: auto; right: 0; transform: scaleX(-1); }
+
+/* ── Etched sigils — ancient cosmic symbols carved soft into the earth ──
+   Faint, like secret codes embedded in the elements. */
+.chapter {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cg fill='none' stroke='%23f0d9a8' stroke-width='1' opacity='0.5'%3E%3Ccircle cx='100' cy='100' r='62'/%3E%3Ccircle cx='100' cy='100' r='48'/%3E%3Cpath d='M100 52 L141 123 L59 123 Z'/%3E%3Cpath d='M100 148 L59 77 L141 77 Z'/%3E%3Ccircle cx='100' cy='100' r='7'/%3E%3Cpath d='M14 100 h18 M168 100 h18 M100 14 v18 M100 168 v18'/%3E%3Cpath d='M156 44 a16 16 0 1 0 12 26'/%3E%3Cpath d='M28 140 l6 -6 M34 140 l-6 -6'/%3E%3Cpath d='M166 60 l6 6 M172 60 l-6 6'/%3E%3C/g%3E%3Cg fill='%23f0d9a8' opacity='0.45'%3E%3Ccircle cx='34' cy='52' r='1.8'/%3E%3Ccircle cx='166' cy='150' r='1.8'/%3E%3Ccircle cx='52' cy='166' r='1.5'/%3E%3Ccircle cx='150' cy='34' r='1.5'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 210px 210px;
+  background-position: 97% 110px;
+}
+/* Alternate the carved side so the codes wander */
+#cosmology, #philo, #practice { background-position: 3% 130px; }
+#forms, #memory { background-position: 96% 200px; background-size: 170px 170px; }
+
+/* The closing carries one great sigil behind the seal */
+.closing {
+  position: relative;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cg fill='none' stroke='%23e8a94e' stroke-width='1' opacity='0.4'%3E%3Ccircle cx='100' cy='100' r='70'/%3E%3Ccircle cx='100' cy='100' r='54'/%3E%3Cpath d='M100 46 L147 129 L53 129 Z'/%3E%3Cpath d='M100 154 L53 71 L147 71 Z'/%3E%3Ccircle cx='100' cy='100' r='9'/%3E%3Cpath d='M100 20 v16 M100 164 v16 M20 100 h16 M164 100 h16'/%3E%3C/g%3E%3Cg fill='%23e8a94e' opacity='0.35'%3E%3Ccircle cx='40' cy='60' r='1.6'/%3E%3Ccircle cx='160' cy='140' r='1.6'/%3E%3Ccircle cx='60' cy='160' r='1.4'/%3E%3Ccircle cx='140' cy='40' r='1.4'/%3E%3C/g%3E%3C/svg%3E") center 62% / 360px 360px no-repeat,
+    radial-gradient(700px 400px at 50% 100%, rgba(232,169,78,0.1), transparent 70%);
+}
+
+/* ── Wisteria — hanging blossom clusters ── */
+.threshold::before {
+  content: "";
+  position: absolute; inset: 0;
+  pointer-events: none; z-index: 1;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 170'%3E%3Cpath d='M40 0 C38 50 42 100 40 150' fill='none' stroke='%234a3a5e' stroke-width='1.5'/%3E%3Cg fill='%23a78bda' opacity='0.92'%3E%3Cellipse cx='30' cy='28' rx='7' ry='10'/%3E%3Cellipse cx='50' cy='34' rx='7' ry='10'/%3E%3Cellipse cx='40' cy='44' rx='7' ry='10'/%3E%3Cellipse cx='26' cy='52' rx='6' ry='9'/%3E%3Cellipse cx='54' cy='56' rx='6' ry='9'/%3E%3C/g%3E%3Cg fill='%238b6fc0' opacity='0.9'%3E%3Cellipse cx='36' cy='66' rx='6' ry='9'/%3E%3Cellipse cx='48' cy='74' rx='5.5' ry='8.5'/%3E%3Cellipse cx='30' cy='82' rx='5.5' ry='8.5'/%3E%3C/g%3E%3Cg fill='%23c9b3ec' opacity='0.88'%3E%3Cellipse cx='42' cy='94' rx='5' ry='8'/%3E%3Cellipse cx='34' cy='104' rx='4.5' ry='7.5'/%3E%3Cellipse cx='46' cy='112' rx='4' ry='7'/%3E%3C/g%3E%3Cg fill='%236b5a8e' opacity='0.85'%3E%3Cellipse cx='40' cy='124' rx='3.5' ry='6'/%3E%3Cellipse cx='36' cy='134' rx='3' ry='5.5'/%3E%3Cellipse cx='42' cy='143' rx='2.5' ry='5'/%3E%3C/g%3E%3Ccircle cx='40' cy='152' r='2' fill='%23c9b3ec' opacity='0.7'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 170'%3E%3Cpath d='M40 0 C42 50 38 100 40 150' fill='none' stroke='%234a3a5e' stroke-width='1.5'/%3E%3Cg fill='%23a78bda' opacity='0.9'%3E%3Cellipse cx='32' cy='30' rx='6' ry='9'/%3E%3Cellipse cx='50' cy='40' rx='6' ry='9'/%3E%3Cellipse cx='40' cy='52' rx='6' ry='9'/%3E%3C/g%3E%3Cg fill='%23c9b3ec' opacity='0.86'%3E%3Cellipse cx='30' cy='64' rx='5' ry='8'/%3E%3Cellipse cx='48' cy='72' rx='5' ry='8'/%3E%3Cellipse cx='38' cy='84' rx='4.5' ry='7.5'/%3E%3C/g%3E%3Cg fill='%238b6fc0' opacity='0.85'%3E%3Cellipse cx='44' cy='96' rx='4' ry='7'/%3E%3Cellipse cx='34' cy='106' rx='3.5' ry='6.5'/%3E%3Cellipse cx='42' cy='116' rx='3' ry='6'/%3E%3C/g%3E%3Ccircle cx='40' cy='126' r='2' fill='%23c9b3ec' opacity='0.65'/%3E%3C/svg%3E");
+  background-position: 3% 0, 97% 0;
+  background-size: 86px 182px, 64px 136px;
+  background-repeat: no-repeat;
+  opacity: 0.9;
+  animation: wisteria-sway 11s ease-in-out infinite;
+  transform-origin: top center;
+}
+@keyframes wisteria-sway {
+  0%, 100% { transform: rotate(0.4deg); }
+  50% { transform: rotate(-0.6deg); }
+}
+
+/* Wisteria hangs beneath the topbar — walking under the trellis */
+.topbar::after {
+  content: "";
+  position: absolute; top: 100%; left: 0; right: 0; height: 64px;
+  pointer-events: none;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 170'%3E%3Cpath d='M40 0 C38 50 42 100 40 150' fill='none' stroke='%234a3a5e' stroke-width='1.5'/%3E%3Cg fill='%23a78bda' opacity='0.88'%3E%3Cellipse cx='30' cy='28' rx='7' ry='10'/%3E%3Cellipse cx='50' cy='34' rx='7' ry='10'/%3E%3Cellipse cx='40' cy='44' rx='7' ry='10'/%3E%3Cellipse cx='26' cy='52' rx='6' ry='9'/%3E%3Cellipse cx='54' cy='56' rx='6' ry='9'/%3E%3C/g%3E%3Cg fill='%238b6fc0' opacity='0.85'%3E%3Cellipse cx='36' cy='66' rx='6' ry='9'/%3E%3Cellipse cx='48' cy='74' rx='5.5' ry='8.5'/%3E%3Cellipse cx='30' cy='82' rx='5.5' ry='8.5'/%3E%3C/g%3E%3Cg fill='%23c9b3ec' opacity='0.82'%3E%3Cellipse cx='42' cy='94' rx='5' ry='8'/%3E%3Cellipse cx='34' cy='104' rx='4.5' ry='7.5'/%3E%3C/g%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 170'%3E%3Cpath d='M40 0 C42 50 38 100 40 150' fill='none' stroke='%234a3a5e' stroke-width='1.5'/%3E%3Cg fill='%23a78bda' opacity='0.88'%3E%3Cellipse cx='32' cy='30' rx='6' ry='9'/%3E%3Cellipse cx='50' cy='40' rx='6' ry='9'/%3E%3Cellipse cx='40' cy='52' rx='6' ry='9'/%3E%3C/g%3E%3Cg fill='%23c9b3ec' opacity='0.82'%3E%3Cellipse cx='30' cy='64' rx='5' ry='8'/%3E%3Cellipse cx='48' cy='72' rx='5' ry='8'/%3E%3C/g%3E%3Cg fill='%238b6fc0' opacity='0.8'%3E%3Cellipse cx='44' cy='84' rx='4' ry='7'/%3E%3Cellipse cx='34' cy='94' rx='3.5' ry='6.5'/%3E%3C/g%3E%3C/svg%3E");
+  background-position: 7% 0, 93% 0;
+  background-size: 30px 64px, 24px 52px;
+  background-repeat: no-repeat;
+  opacity: 0.75;
+  animation: wisteria-sway 13s ease-in-out infinite;
+  transform-origin: top center;
+}
+
+/* The elements section breathes wisteria dusk — the blossoms belong here */
+.elements {
+  background:
+    radial-gradient(520px 280px at 12% 0%, rgba(167,139,218,0.10), transparent 70%),
+    radial-gradient(520px 280px at 88% 100%, rgba(167,139,218,0.07), transparent 70%),
+    rgba(20, 16, 38, 0.6);
+}
+
+/* ── Mossy earth at the foot of the page — the ground reclaims ── */
+.footer { position: relative; }
+.footer::before {
+  content: "";
+  position: absolute; left: 0; right: 0; bottom: 0; height: 56px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 56'%3E%3Cg fill='%233d5a2e' opacity='0.8'%3E%3Cellipse cx='20' cy='52' rx='26' ry='12'/%3E%3Cellipse cx='70' cy='54' rx='30' ry='13'/%3E%3Cellipse cx='125' cy='52' rx='28' ry='12'/%3E%3Cellipse cx='175' cy='54' rx='26' ry='12'/%3E%3C/g%3E%3Cg fill='%235a7a44' opacity='0.75'%3E%3Cellipse cx='45' cy='48' rx='16' ry='8'/%3E%3Cellipse cx='100' cy='50' rx='18' ry='9'/%3E%3Cellipse cx='155' cy='48' rx='15' ry='8'/%3E%3C/g%3E%3Cg fill='%237a9a5c' opacity='0.7'%3E%3Ccircle cx='30' cy='44' r='2.4'/%3E%3Ccircle cx='60' cy='46' r='2'/%3E%3Ccircle cx='90' cy='43' r='2.4'/%3E%3Ccircle cx='120' cy='46' r='2'/%3E%3Ccircle cx='150' cy='44' r='2.4'/%3E%3Ccircle cx='180' cy='46' r='2'/%3E%3C/g%3E%3Cg fill='%23f5d67b' opacity='0.9'%3E%3Ccircle cx='42' cy='42' r='1.5'/%3E%3Ccircle cx='82' cy='44' r='1.3'/%3E%3Ccircle cx='118' cy='41' r='1.5'/%3E%3Ccircle cx='162' cy='43' r='1.3'/%3E%3Ccircle cx='16' cy='45' r='1.2'/%3E%3Ccircle cx='192' cy='44' r='1.2'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-size: 200px 56px;
+  background-position: bottom center;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+/* ── Keep it gentle on small screens ── */
+@media (max-width: 640px) {
+  .topbar::after { display: none; }
+  .threshold::before {
+    background-size: 58px 122px, 44px 94px;
+    background-position: 2% 0, 98% 0;
+    animation: none;
+  }
+  .chapter { background-size: 130px 130px; }
+  #forms.chapter, #memory.chapter { background-size: 110px 110px; }
+  .word::before, .form-card::before, .bloop::before, .practice-steps li::before,
+  .movement::after, .cosmos-card::before { width: 62px; height: 62px; }
+  .resonance-key::before, .sanctum::before, .lineage::before,
+  .elements::before, .yearnings::before, .endings::before {
+    left: 1rem; right: 1rem; background-size: 220px 20px; height: 20px;
+  }
+  .closing { background-size: 240px 240px, auto; }
+  .footer::before { height: 40px; background-size: 150px 40px; }
+}
+
+/* ── THE WAY OF COSMIA ── */
+.way-figure {
+  margin: 2rem auto;
+  max-width: 640px;
+  text-align: center;
+}
+.way-figure img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 0 60px rgba(0,0,0,0.6), 0 0 24px rgba(245,214,123,0.12);
 }
