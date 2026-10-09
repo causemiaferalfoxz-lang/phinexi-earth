@@ -1062,44 +1062,6 @@ main, .topbar, .footer { position: relative; z-index: 2; }
   opacity: 0.7;
 }
 
-/* ── Living moss — it breathes, it grows ── */
-.word::before, .practice-steps li::before,
-.form-card::before,
-.bloop::before,
-.movement::after, .cosmos-card::before {
-  animation: moss-breathe 9s ease-in-out infinite;
-  transform-origin: bottom center;
-}
-.form-card::before { transform-origin: bottom right; }
-.bloop::before { transform-origin: bottom left; }
-.movement::after, .cosmos-card::before { transform-origin: top right; }
-
-@keyframes moss-breathe {
-  0%, 100% { transform: scale(1); opacity: 0.8; }
-  50% { transform: scale(1.03, 1.06); opacity: 0.88; }
-}
-/* Preserve the flip/rotate variants while breathing */
-.form-card::before { animation-name: moss-breathe-flip; }
-@keyframes moss-breathe-flip {
-  0%, 100% { transform: scaleX(-1) rotate(-4deg) scale(1); opacity: 0.75; }
-  50% { transform: scaleX(-1) rotate(-4deg) scale(1.03, 1.06); opacity: 0.83; }
-}
-.bloop::before { animation-name: moss-breathe-tilt; }
-@keyframes moss-breathe-tilt {
-  0%, 100% { transform: rotate(2deg) scale(1); opacity: 0.7; }
-  50% { transform: rotate(2deg) scale(1.03, 1.05); opacity: 0.78; }
-}
-.movement::after, .cosmos-card::before { animation-name: moss-breathe-corner; }
-@keyframes moss-breathe-corner {
-  0%, 100% { transform: scaleX(-1) rotate(8deg) scale(1); opacity: 0.55; }
-  50% { transform: scaleX(-1) rotate(8deg) scale(1.04, 1.07); opacity: 0.63; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .word::before, .practice-steps li::before,
-  .form-card::before, .bloop::before,
-  .movement::after, .cosmos-card::before { animation: none; }
-}
-
 /* ── Mossy earth at the foot of the page — the ground reclaims ── */
 .footer { position: relative; }
 .footer::before {
