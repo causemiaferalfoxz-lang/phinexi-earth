@@ -147,47 +147,6 @@
   window.addEventListener("scroll", onScrollBar, { passive: true });
   onScrollBar();
 
-  /* ── Living moss — injected, touchable ── */
-  (function injectMoss() {
-    var mossImg = "assets/moss-her-photo.jpg";
-    var targets = [
-      { sel: ".word", pos: "bottom-left", w: 120, h: 90 },
-      { sel: ".form-card", pos: "bottom-right", w: 110, h: 110 },
-      { sel: ".bloop", pos: "bottom-center", w: 140, h: 70 },
-      { sel: ".practice-steps li", pos: "bottom-left", w: 100, h: 75 }
-    ];
-    targets.forEach(function(t) {
-      document.querySelectorAll(t.sel).forEach(function(el) {
-        if (el.querySelector(".living-moss")) return;
-        var moss = document.createElement("div");
-        moss.className = "living-moss";
-        moss.style.cssText =
-          "position:absolute;pointer-events:none;z-index:2;" +
-          "background-image:url(" + mossImg + ");" +
-          "background-size:cover;background-position:center;" +
-          "width:" + t.w + "px;height:" + t.h + "px;" +
-          "opacity:0.9;border-radius:40% 60% 55% 45%;";
-        if (t.pos === "bottom-left") {
-          moss.style.left = "0"; moss.style.bottom = "0";
-        } else if (t.pos === "bottom-right") {
-          moss.style.right = "0"; moss.style.bottom = "0";
-        } else if (t.pos === "bottom-center") {
-          moss.style.left = "10px"; moss.style.bottom = "0";
-        }
-        var cs = window.getComputedStyle(el);
-        if (cs.position === "static") el.style.position = "relative";
-        el.appendChild(moss);
-        // Touch: moss stirs
-        el.addEventListener("touchstart", function() {
-          moss.style.transform = "scale(1.15)";
-          moss.style.opacity = "1";
-        }, { passive: true });
-        el.addEventListener("touchend", function() {
-          moss.style.transform = "scale(1)";
-          moss.style.opacity = "0.9";
-        }, { passive: true });
-      });
-    });
-  })();
+
 
 })();
