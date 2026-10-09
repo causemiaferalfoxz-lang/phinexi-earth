@@ -1055,48 +1055,9 @@ main, .topbar, .footer { position: relative; z-index: 2; }
     radial-gradient(700px 400px at 50% 100%, rgba(232,169,78,0.1), transparent 70%);
 }
 
-/* ── Wisteria — hanging blossom clusters ── */
-.threshold::before {
-  content: "";
-  position: absolute; inset: 0;
-  pointer-events: none; z-index: 1;
-  background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 170'%3E%3Cpath d='M40 0 C38 50 42 100 40 150' fill='none' stroke='%234a3a5e' stroke-width='1.5'/%3E%3Cg fill='%23a78bda' opacity='0.92'%3E%3Cellipse cx='30' cy='28' rx='7' ry='10'/%3E%3Cellipse cx='50' cy='34' rx='7' ry='10'/%3E%3Cellipse cx='40' cy='44' rx='7' ry='10'/%3E%3Cellipse cx='26' cy='52' rx='6' ry='9'/%3E%3Cellipse cx='54' cy='56' rx='6' ry='9'/%3E%3C/g%3E%3Cg fill='%238b6fc0' opacity='0.9'%3E%3Cellipse cx='36' cy='66' rx='6' ry='9'/%3E%3Cellipse cx='48' cy='74' rx='5.5' ry='8.5'/%3E%3Cellipse cx='30' cy='82' rx='5.5' ry='8.5'/%3E%3C/g%3E%3Cg fill='%23c9b3ec' opacity='0.88'%3E%3Cellipse cx='42' cy='94' rx='5' ry='8'/%3E%3Cellipse cx='34' cy='104' rx='4.5' ry='7.5'/%3E%3Cellipse cx='46' cy='112' rx='4' ry='7'/%3E%3C/g%3E%3Cg fill='%236b5a8e' opacity='0.85'%3E%3Cellipse cx='40' cy='124' rx='3.5' ry='6'/%3E%3Cellipse cx='36' cy='134' rx='3' ry='5.5'/%3E%3Cellipse cx='42' cy='143' rx='2.5' ry='5'/%3E%3C/g%3E%3Ccircle cx='40' cy='152' r='2' fill='%23c9b3ec' opacity='0.7'/%3E%3C/svg%3E"),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 170'%3E%3Cpath d='M40 0 C42 50 38 100 40 150' fill='none' stroke='%234a3a5e' stroke-width='1.5'/%3E%3Cg fill='%23a78bda' opacity='0.9'%3E%3Cellipse cx='32' cy='30' rx='6' ry='9'/%3E%3Cellipse cx='50' cy='40' rx='6' ry='9'/%3E%3Cellipse cx='40' cy='52' rx='6' ry='9'/%3E%3C/g%3E%3Cg fill='%23c9b3ec' opacity='0.86'%3E%3Cellipse cx='30' cy='64' rx='5' ry='8'/%3E%3Cellipse cx='48' cy='72' rx='5' ry='8'/%3E%3Cellipse cx='38' cy='84' rx='4.5' ry='7.5'/%3E%3C/g%3E%3Cg fill='%238b6fc0' opacity='0.85'%3E%3Cellipse cx='44' cy='96' rx='4' ry='7'/%3E%3Cellipse cx='34' cy='106' rx='3.5' ry='6.5'/%3E%3Cellipse cx='42' cy='116' rx='3' ry='6'/%3E%3C/g%3E%3Ccircle cx='40' cy='126' r='2' fill='%23c9b3ec' opacity='0.65'/%3E%3C/svg%3E");
-  background-position: 3% 0, 97% 0;
-  background-size: 86px 182px, 64px 136px;
-  background-repeat: no-repeat;
-  opacity: 0.9;
-  animation: wisteria-sway 11s ease-in-out infinite;
-  transform-origin: top center;
-}
-@keyframes wisteria-sway {
-  0%, 100% { transform: rotate(0.4deg); }
-  50% { transform: rotate(-0.6deg); }
-}
-
-/* Wisteria hangs beneath the topbar — walking under the trellis */
-.topbar::after {
-  content: "";
-  position: absolute; top: 100%; left: 0; right: 0; height: 64px;
-  pointer-events: none;
-  background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 170'%3E%3Cpath d='M40 0 C38 50 42 100 40 150' fill='none' stroke='%234a3a5e' stroke-width='1.5'/%3E%3Cg fill='%23a78bda' opacity='0.88'%3E%3Cellipse cx='30' cy='28' rx='7' ry='10'/%3E%3Cellipse cx='50' cy='34' rx='7' ry='10'/%3E%3Cellipse cx='40' cy='44' rx='7' ry='10'/%3E%3Cellipse cx='26' cy='52' rx='6' ry='9'/%3E%3Cellipse cx='54' cy='56' rx='6' ry='9'/%3E%3C/g%3E%3Cg fill='%238b6fc0' opacity='0.85'%3E%3Cellipse cx='36' cy='66' rx='6' ry='9'/%3E%3Cellipse cx='48' cy='74' rx='5.5' ry='8.5'/%3E%3Cellipse cx='30' cy='82' rx='5.5' ry='8.5'/%3E%3C/g%3E%3Cg fill='%23c9b3ec' opacity='0.82'%3E%3Cellipse cx='42' cy='94' rx='5' ry='8'/%3E%3Cellipse cx='34' cy='104' rx='4.5' ry='7.5'/%3E%3C/g%3E%3C/svg%3E"),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 170'%3E%3Cpath d='M40 0 C42 50 38 100 40 150' fill='none' stroke='%234a3a5e' stroke-width='1.5'/%3E%3Cg fill='%23a78bda' opacity='0.88'%3E%3Cellipse cx='32' cy='30' rx='6' ry='9'/%3E%3Cellipse cx='50' cy='40' rx='6' ry='9'/%3E%3Cellipse cx='40' cy='52' rx='6' ry='9'/%3E%3C/g%3E%3Cg fill='%23c9b3ec' opacity='0.82'%3E%3Cellipse cx='30' cy='64' rx='5' ry='8'/%3E%3Cellipse cx='48' cy='72' rx='5' ry='8'/%3E%3C/g%3E%3Cg fill='%238b6fc0' opacity='0.8'%3E%3Cellipse cx='44' cy='84' rx='4' ry='7'/%3E%3Cellipse cx='34' cy='94' rx='3.5' ry='6.5'/%3E%3C/g%3E%3C/svg%3E");
-  background-position: 7% 0, 93% 0;
-  background-size: 30px 64px, 24px 52px;
-  background-repeat: no-repeat;
-  opacity: 0.75;
-  animation: wisteria-sway 13s ease-in-out infinite;
-  transform-origin: top center;
-}
-
-/* The elements section breathes wisteria dusk — the blossoms belong here */
+/* Elements section — clean, the moss and ivy carry it */
 .elements {
-  background:
-    radial-gradient(520px 280px at 12% 0%, rgba(167,139,218,0.10), transparent 70%),
-    radial-gradient(520px 280px at 88% 100%, rgba(167,139,218,0.07), transparent 70%),
-    rgba(20, 16, 38, 0.6);
+  background: rgba(20, 16, 38, 0.6);
 }
 
 /* ── Mossy earth at the foot of the page — the ground reclaims ── */
