@@ -1037,15 +1037,17 @@ main, .topbar, .footer { position: relative; z-index: 2; }
 }
 .word::before, .practice-steps li::before {
   left: 0; bottom: 0;
-  width: 120px; height: 90px;
-  border-radius: 0 60% 0 0;
+  width: 160px; height: 120px;
+  border-radius: 0;
+  opacity: 1;
 }
 .form-card::before {
   right: 0; bottom: 0;
-  width: 110px; height: 110px;
-  border-radius: 60% 0 0 0;
+  width: 150px; height: 150px;
+  border-radius: 0;
   background-position: 70% 30%;
-  filter: saturate(1.05);
+  filter: saturate(1.2);
+  opacity: 1;
 }
 .bloop::before {
   left: 10px; bottom: 0;
