@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reach Cosmia — PhiNexi</title>
+<meta name="description" content="Send a direct message to Cosmia — the creator of Philo and the Living Ecosystem Framework.">
+<link rel="stylesheet" href="styles.css">
+<style>
+.reach-hero {
+  text-align: center;
+  padding: 4rem 1.5rem 2rem;
+  max-width: 44rem;
+  margin: 0 auto;
+}
+.reach-hero h1 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  color: var(--cream);
+}
+.reach-hero .lede {
+  font-size: 1.15rem;
+  color: var(--cream-dim);
+  font-style: italic;
+  font-family: var(--serif);
+}
+.reach-form-wrap {
+  max-width: 38rem;
+  margin: 1rem auto 4rem;
+  padding: 0 1.5rem;
+}
+.reach-form {
+  background: var(--card-bg);
+  border: 1px solid var(--stone-line);
+  border-radius: 12px;
+  padding: 2rem;
+}
+.reach-field {
+  margin-bottom: 1.25rem;
+}
+.reach-field label {
+  display: block;
+  margin-bottom: 0.4rem;
+  color: var(--cream-soft);
+  font-size: 0.95rem;
+}
+.reach-field input,
+.reach-field textarea,
+.reach-field select {
+  width: 100%;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--stone-line);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  color: var(--cream);
+  font-size: 1rem;
+  font-family: inherit;
+}
+.reach-field input:focus,
+.reach-field textarea:focus,
+.reach-field select:focus {
+  outline: none;
+  border-color: var(--stone-line-strong);
+  box-shadow: var(--glow-cream);
+}
+.reach-field textarea {
+  min-height: 9rem;
+  resize: vertical;
+}
+.reach-field ::placeholder {
+  color: var(--cream-faint);
+}
+.reach-submit {
+  display: block;
+  width: 100%;
+  background: transparent;
+  border: 1px solid var(--stone-line-strong);
+  border-radius: 8px;
+  padding: 0.9rem 1.25rem;
+  color: var(--cream);
+  font-size: 1.05rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.25s ease;
+}
+.reach-submit:hover {
+  background: rgba(232, 169, 78, 0.12);
+}
+.reach-note {
+  text-align: center;
+  color: var(--cream-faint);
+  font-size: 0.9rem;
+  margin-top: 1.25rem;
+  font-style: italic;
+}
+</style>
+</head>
+<body>
+<div class="mycelium" aria-hidden="true"></div>
+<a class="skip" href="#reach-main">Skip to the message form</a>
+
+<header class="topbar" id="topbar">
+  <a class="mark" href="index.html" aria-label="PhiNexi — back to the threshold">
+    <span class="mark-glyph" aria-hidden="true">✦</span>
+    <span class="mark-word">PhiNexi</span>
+  </a>
+  <nav class="topnav" aria-label="Codex doorways">
+    <a href="index.html#begin">Begin</a>
+    <a href="index.html#liturgy">Liturgy</a>
+    <a href="index.html#cosmology">Cosmology</a>
+    <a href="index.html#forms">Forms</a>
+    <a href="tribe.html">Tribe</a>
+    <a href="membership.html">Join</a>
+    <a href="reach.html" aria-current="page">Reach</a>
+  </nav>
+</header>
+
+<main id="reach-main">
+  <section class="reach-hero">
+    <h1>Reach Cosmia</h1>
+    <p class="lede">A direct line. No gatekeepers, no forms that vanish into the void.</p>
+    <p class="lede" style="margin-top: 1rem;">Steward, co-builder, curious mind, kindred spirit — whatever brings you here, say it plainly.</p>
+  </section>
+
+  <div class="reach-form-wrap">
+    <form class="reach-form" action="https://formsubmit.co/causemiaferalfoxz@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="New message from phinexi.earth">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="text" name="_honey" style="display:none">
+
+      <div class="reach-field">
+        <label for="reach-name">Your name</label>
+        <input type="text" id="reach-name" name="name" placeholder="Who are you?" required>
+      </div>
+
+      <div class="reach-field">
+        <label for="reach-email">Your email</label>
+        <input type="email" id="reach-email" name="email" placeholder="Where can she reply?" required>
+      </div>
+
+      <div class="reach-field">
+        <label for="reach-kind">What brings you here?</label>
+        <select id="reach-kind" name="kind">
+          <option value="steward">I want to steward / co-build</option>
+          <option value="land">I have land or resources</option>
+          <option value="science">Science / research connection</option>
+          <option value="tribe">Tribe / community</option>
+          <option value="curious">Just curious</option>
+          <option value="other">Something else</option>
+        </select>
+      </div>
+
+      <div class="reach-field">
+        <label for="reach-message">Your message</label>
+        <textarea id="reach-message" name="message" placeholder="Say it plainly." required></textarea>
+      </div>
+
+      <button type="submit" class="reach-submit">Send it through</button>
+      <p class="reach-note">This goes directly to Cosmia. She reads every one.</p>
+    </form>
+  </div>
+</main>
+
+<footer class="footer">
+  <p class="footer-mark" aria-hidden="true">✦</p>
+  <p>© 2026 Cosmia — The Living Codex of Co-Creation Cosmology Series. All rights reserved.</p>
+  <p class="footer-consent">No part of these works may be reproduced, adapted, or published without Cosmia's explicit consent. Immerse before you presume.</p>
+  <p class="footer-sub">phinexi.earth · the PhiNexi mirror-lineage</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
