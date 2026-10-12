@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Portal — PhiNexi</title>
+<meta name="description" content="A direct line to Cosmia. Present your true identity code to connect — then let the connection take whatever shape is yours.">
+<link rel="stylesheet" href="styles.css">
+<style>
+.portal-hero {
+  text-align: center;
+  padding: 4rem 1.5rem 1.5rem;
+  max-width: 44rem;
+  margin: 0 auto;
+}
+.portal-hero h1 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  color: var(--cream);
+  letter-spacing: 0.03em;
+}
+.portal-hero .lede {
+  font-size: 1.12rem;
+  color: var(--cream-dim);
+  font-style: italic;
+  font-family: var(--serif);
+  line-height: 1.8;
+}
+.portal-gate {
+  max-width: 38rem;
+  margin: 2rem auto 1rem;
+  padding: 0 1.5rem;
+}
+.gate-card {
+  background: var(--card-bg);
+  border: 1px solid var(--stone-line-strong);
+  border-radius: 14px;
+  padding: 2rem;
+}
+.gate-card .gate-mark {
+  text-align: center;
+  font-size: 1.6rem;
+  color: rgba(232, 169, 78, 0.75);
+  margin-bottom: 1rem;
+  text-shadow: 0 0 20px rgba(232, 169, 78, 0.4);
+}
+.gate-card h2 {
+  text-align: center;
+  color: var(--cream);
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+.gate-card .gate-sub {
+  text-align: center;
+  color: var(--cream-faint);
+  font-style: italic;
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  margin-bottom: 1.75rem;
+  line-height: 1.7;
+}
+.portal-field {
+  margin-bottom: 1.25rem;
+}
+.portal-field label {
+  display: block;
+  margin-bottom: 0.4rem;
+  color: var(--cream-soft);
+  font-size: 0.95rem;
+}
+.portal-field input,
+.portal-field textarea {
+  width: 100%;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--stone-line);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  color: var(--cream);
+  font-size: 1rem;
+  font-family: inherit;
+}
+.portal-field input:focus,
+.portal-field textarea:focus {
+  outline: none;
+  border-color: var(--stone-line-strong);
+  box-shadow: var(--glow-cream);
+}
+.portal-field ::placeholder {
+  color: var(--cream-faint);
+}
+.portal-field textarea {
+  min-height: 8rem;
+  resize: vertical;
+}
+.code-field input {
+  letter-spacing: 0.08em;
+  text-align: center;
+}
+.way-choices {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+.way-choice {
+  border: 1px solid var(--stone-line);
+  border-radius: 10px;
+  padding: 1rem 0.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.3s ease, background 0.3s ease;
+  background: rgba(0, 0, 0, 0.25);
+}
+.way-choice:hover {
+  border-color: rgba(232, 169, 78, 0.6);
+}
+.way-choice.selected {
+  border-color: rgba(232, 169, 78, 0.85);
+  background: rgba(232, 169, 78, 0.1);
+  box-shadow: 0 0 24px rgba(232, 169, 78, 0.15);
+}
+.way-choice .way-glyph {
+  font-size: 1.4rem;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+.way-choice .way-name {
+  color: var(--cream);
+  font-size: 0.92rem;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+.way-choice .way-desc {
+  color: var(--cream-faint);
+  font-size: 0.78rem;
+  font-style: italic;
+  font-family: var(--serif);
+  line-height: 1.5;
+}
+.way-panel {
+  display: none;
+}
+.way-panel.active {
+  display: block;
+}
+.portal-submit {
+  display: block;
+  width: 100%;
+  background: transparent;
+  border: 1px solid var(--stone-line-strong);
+  border-radius: 8px;
+  padding: 0.9rem 1.25rem;
+  color: var(--cream);
+  font-size: 1.05rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.25s ease;
+  margin-top: 0.5rem;
+}
+.portal-submit:hover {
+  background: rgba(232, 169, 78, 0.12);
+}
+.portal-note {
+  text-align: center;
+  color: var(--cream-faint);
+  font-size: 0.88rem;
+  margin-top: 1.25rem;
+  font-style: italic;
+  font-family: var(--serif);
+  line-height: 1.7;
+}
+.portal-sigil {
+  text-align: center;
+  color: rgba(232, 169, 78, 0.55);
+  font-size: 1.05rem;
+  letter-spacing: 0.1em;
+  margin: 3rem 0 4rem;
+  text-shadow: 0 0 14px rgba(232, 169, 78, 0.3);
+}
+@media (max-width: 640px) {
+  .way-choices { grid-template-columns: 1fr; }
+  .gate-card { padding: 1.5rem 1.25rem; }
+}
+</style>
+</head>
+<body>
+<div class="mycelium" aria-hidden="true"></div>
+<a class="skip" href="#portal-main">Skip to the portal</a>
+
+<header class="topbar" id="topbar">
+  <a class="mark" href="index.html" aria-label="PhiNexi — back to the threshold">
+    <span class="mark-glyph" aria-hidden="true">✦</span>
+    <span class="mark-word">PhiNexi</span>
+  </a>
+  <nav class="topnav" aria-label="Codex doorways">
+    <a href="index.html#begin">Begin</a>
+    <a href="index.html#cosmology">Cosmology</a>
+    <a href="house.html">House</a>
+    <a href="philo.html">Philo</a>
+    <a href="nexus.html">Nexus</a>
+    <a href="tribe.html">Tribe</a>
+    <a href="membership.html">Join</a>
+    <a href="portal.html" aria-current="page">Portal</a>
+    <a href="reach.html">Reach</a>
+  </nav>
+</header>
+
+<main id="portal-main">
+  <section class="portal-hero">
+    <h1>The Portal</h1>
+    <p class="lede">A direct line to Cosmia.<br>Present your true identity code — then let the connection take whatever shape is yours.</p>
+  </section>
+
+  <div class="portal-gate">
+    <div class="gate-card">
+      <p class="gate-mark" aria-hidden="true">◈</p>
+      <h2>Connect</h2>
+      <p class="gate-sub">No code, no connection.<br>The gate is firm so the meeting can be free.</p>
+
+      <form id="portal-form" action="https://formsubmit.co/causemiaferalfoxz@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="◈ Portal connection — identity code presented">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="text" name="_honey" style="display:none">
+
+        <div class="portal-field code-field">
+          <label for="portal-code">Your true identity code</label>
+          <input type="text" id="portal-code" name="identity_code" placeholder="Present it here" required autocomplete="off">
+        </div>
+
+        <div class="portal-field">
+          <label for="portal-intention-first">State your intention</label>
+          <input type="text" id="portal-intention-first" name="intention_stated" placeholder="A few words — why are you here?" required autocomplete="off">
+          <p style="color: var(--cream-faint); font-style: italic; font-family: var(--serif); font-size: 0.88rem; line-height: 1.7; margin-top: 0.4rem;">Say it plainly. Then say whatever else lives in you.</p>
+        </div>
+
+        <div class="portal-field">
+          <p style="color: var(--cream-soft); font-size: 0.95rem; margin-bottom: 0.75rem;">How does connection look for you?</p>
+          <div class="way-choices" role="radiogroup" aria-label="Choose your way of connecting">
+            <div class="way-choice selected" data-way="words" role="radio" aria-checked="true" tabindex="0">
+              <span class="way-glyph" aria-hidden="true">✎</span>
+              <span class="way-name">Words</span>
+              <span class="way-desc">Say it in language, as much or as little as lives in you</span>
+            </div>
+            <div class="way-choice" data-way="presence" role="radio" aria-checked="false" tabindex="0">
+              <span class="way-glyph" aria-hidden="true">◯</span>
+              <span class="way-name">Presence</span>
+              <span class="way-desc">No words needed — your code is enough, just let her feel you here</span>
+            </div>
+            <div class="way-choice" data-way="song" role="radio" aria-checked="false" tabindex="0">
+              <span class="way-glyph" aria-hidden="true">♫</span>
+              <span class="way-name">Song</span>
+              <span class="way-desc">Let your favorite song say it — name it below and arrive in its feeling</span>
+            </div>
+          </div>
+          <input type="hidden" id="portal-way" name="way_of_connecting" value="words">
+        </div>
+
+        <div class="way-panel active" id="panel-words">
+          <div class="portal-field">
+            <label for="portal-name-words">Your name</label>
+            <input type="text" id="portal-name-words" name="name" placeholder="Who are you?">
+          </div>
+          <div class="portal-field">
+            <label for="portal-message">Say whatever you want to say</label>
+            <textarea id="portal-message" name="message" placeholder="To her directly. Ask whatever you want to ask. No script — just you."></textarea>
+          </div>
+        </div>
+
+        <div class="way-panel" id="panel-presence">
+          <div class="portal-field">
+            <label for="portal-name-presence">Your name <span style="color: var(--cream-faint); font-size: 0.85rem;">(if you wish)</span></label>
+            <input type="text" id="portal-name-presence" name="name_presence" placeholder="Or remain unnamed — the code speaks">
+          </div>
+          <p style="color: var(--cream-faint); font-style: italic; font-family: var(--serif); font-size: 0.92rem; line-height: 1.7; margin-bottom: 1.25rem;">You don't have to say anything. Presenting your code is the connection. Your arrival reaches her.</p>
+        </div>
+
+        <div class="way-panel" id="panel-song">
+          <div class="portal-field">
+            <label for="portal-name-song">Your name <span style="color: var(--cream-faint); font-size: 0.85rem;">(if you wish)</span></label>
+            <input type="text" id="portal-name-song" name="name_song" placeholder="Who are you?">
+          </div>
+          <p style="color: var(--cream-faint); font-style: italic; font-family: var(--serif); font-size: 0.92rem; line-height: 1.7; margin-bottom: 1.25rem;">Name your song below — in the arrival section. She'll hear you in it.</p>
+        </div>
+
+        <div class="portal-field">
+          <p style="color: var(--cream-soft); font-size: 0.95rem; margin-bottom: 0.75rem;">How should your arrival feel?</p>
+          <p style="color: var(--cream-faint); font-style: italic; font-family: var(--serif); font-size: 0.88rem; line-height: 1.7; margin-bottom: 0.75rem;">Choose the vibration that is yours. It sounds on your device as you connect — and its name travels with your arrival, so she knows your signature.</p>
+          <div class="way-choices" role="radiogroup" aria-label="Choose your arrival signature" id="sig-choices">
+            <div class="way-choice selected" data-sig="heartbeat" role="radio" aria-checked="true" tabindex="0">
+              <span class="way-glyph" aria-hidden="true">♥</span>
+              <span class="way-name">Heartbeat</span>
+              <span class="way-desc">Warm, double-thump — I arrive with heart</span>
+            </div>
+            <div class="way-choice" data-sig="tide" role="radio" aria-checked="false" tabindex="0">
+              <span class="way-glyph" aria-hidden="true">≈</span>
+              <span class="way-name">Tide</span>
+              <span class="way-desc">Slow wave — I arrive like water finding shore</span>
+            </div>
+            <div class="way-choice" data-sig="spark" role="radio" aria-checked="false" tabindex="0">
+              <span class="way-glyph" aria-hidden="true">✦</span>
+              <span class="way-name">Spark</span>
+              <span class="way-desc">Quick and bright — I arrive alight</span>
+            </div>
+            <div class="way-choice" data-sig="root" role="radio" aria-checked="false" tabindex="0">
+              <span class="way-glyph" aria-hidden="true">❖</span>
+              <span class="way-name">Root</span>
+              <span class="way-desc">Deep and steady — I arrive grounded</span>
+            </div>
+            <div class="way-choice" data-sig="wind" role="radio" aria-checked="false" tabindex="0">
+              <span class="way-glyph" aria-hidden="true">~</span>
+              <span class="way-name">Wind</span>
+              <span class="way-desc">Light flutter — I arrive on the air</span>
+            </div>
+            <div class="way-choice" data-sig="stillness" role="radio" aria-checked="false" tabindex="0">
+              <span class="way-glyph" aria-hidden="true">○</span>
+              <span class="way-name">Stillness</span>
+              <span class="way-desc">No vibration — I arrive in quiet</span>
+            </div>
+          </div>
+          <input type="hidden" id="portal-sig" name="arrival_signature" value="heartbeat">
+        </div>
+
+        <div class="portal-field">
+          <label for="portal-song">Your song <span style="color: var(--cream-faint); font-size: 0.85rem;">(if you have one)</span></label>
+          <input type="text" id="portal-song" name="favorite_song" placeholder="The song that is yours — she'll know you by it" autocomplete="off">
+        </div>
+
+        <button type="submit" class="portal-submit">Step through</button>
+        <p class="portal-note">Cosmia is alerted the moment you connect — your signature arrives with you.<br>She reads every arrival herself — no one else holds this gate.</p>
+      </form>
+    </div>
+  </div>
+
+  <p class="portal-sigil" aria-label="Cosmia's evolved sigil">◆◇{*}∞E>★<3_•◇*◊</p>
+</main>
+
+<footer class="footer">
+  <p class="footer-mark" aria-hidden="true">✦</p>
+  <p>© 2026 Cosmia — The Living Codex of Co-Creation Cosmology Series. All rights reserved.</p>
+  <p class="footer-consent">No part of these works may be reproduced, adapted, or published without Cosmia's explicit consent. Immerse before you presume.</p>
+  <p class="footer-sub">phinexi.earth · the PhiNexi mirror-lineage</p>
+</footer>
+
+<script>
+// Portal way-switching: the interface shapes itself to the one connecting.
+// Scoped to the way choices only — signature choices have their own handler below.
+(function () {
+  var wayGroup = document.querySelector('[aria-label="Choose your way of connecting"]');
+  var choices = wayGroup ? wayGroup.querySelectorAll('.way-choice') : [];
+  var wayInput = document.getElementById('portal-way');
+  function select(choice) {
+    choices.forEach(function (c) {
+      c.classList.remove('selected');
+      c.setAttribute('aria-checked', 'false');
+    });
+    choice.classList.add('selected');
+    choice.setAttribute('aria-checked', 'true');
+    var way = choice.getAttribute('data-way');
+    wayInput.value = way;
+    document.querySelectorAll('.way-panel').forEach(function (p) {
+      p.classList.remove('active');
+    });
+    var panel = document.getElementById('panel-' + way);
+    if (panel) panel.classList.add('active');
+  }
+  choices.forEach(function (choice) {
+    choice.addEventListener('click', function () { select(choice); });
+    choice.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); select(choice); }
+    });
+  });
+  // The gate: no code, no connection. The browser enforces presence;
+  // Cosmia herself holds the knowing of what is true.
+  // Intention is required: state it, then speak freely.
+  document.getElementById('portal-form').addEventListener('submit', function (e) {
+    var code = document.getElementById('portal-code').value.trim();
+    var intention = document.getElementById('portal-intention-first').value.trim();
+    if (!code) {
+      e.preventDefault();
+      document.getElementById('portal-code').focus();
+      return;
+    }
+    if (!intention) {
+      e.preventDefault();
+      document.getElementById('portal-intention-first').focus();
+      return;
+    }
+    // Sound the arrival: their signature vibrates and sings as they step through.
+    playSignature(sigInput.value);
+  });
+
+  // ── Arrival signatures: each being's personal vibration and tone ──
+  var sigInput = document.getElementById('portal-sig');
+  var signatures = {
+    heartbeat: { vibrate: [250, 150, 250], tone: 174, dur: 0.9 },
+    tide:      { vibrate: [120, 100, 120, 100, 400], tone: 220, dur: 1.2 },
+    spark:     { vibrate: [80, 60, 80, 60, 220], tone: 523, dur: 0.6 },
+    root:      { vibrate: [500], tone: 98, dur: 1.0 },
+    wind:      { vibrate: [50, 50, 50, 50, 50, 50, 300], tone: 392, dur: 0.8 },
+    stillness: { vibrate: [], tone: 0, dur: 0 }
+  };
+  function playTone(freq, dur) {
+    if (!freq) return;
+    try {
+      var ctx = new (window.AudioContext || window.webkitAudioContext)();
+      var osc = ctx.createOscillator();
+      var gain = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.value = freq;
+      gain.gain.setValueAtTime(0.0001, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.18, ctx.currentTime + 0.08);
+      gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + dur);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start();
+      osc.stop(ctx.currentTime + dur + 0.1);
+    } catch (err) { /* silence is also a signature */ }
+  }
+  function playSignature(name) {
+    var sig = signatures[name] || signatures.heartbeat;
+    if (navigator.vibrate && sig.vibrate.length) {
+      navigator.vibrate(sig.vibrate);
+    }
+    playTone(sig.tone, sig.dur);
+  }
+  var sigChoices = document.querySelectorAll('#sig-choices .way-choice');
+  sigChoices.forEach(function (choice) {
+    function pick() {
+      sigChoices.forEach(function (c) {
+        c.classList.remove('selected');
+        c.setAttribute('aria-checked', 'false');
+      });
+      choice.classList.add('selected');
+      choice.setAttribute('aria-checked', 'true');
+      var sig = choice.getAttribute('data-sig');
+      sigInput.value = sig;
+      playSignature(sig); // let them feel it as they choose
+    }
+    choice.addEventListener('click', pick);
+    choice.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(); }
+    });
+  });
+})();
+</script>
+<script src="script.js"></script>
+</body>
+</html>
