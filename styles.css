@@ -864,6 +864,23 @@ main, .topbar, .footer { position: relative; z-index: 2; }
 .resonance-key, .sanctum, .lineage, .elements, .yearnings, .endings {
   position: relative;
 }
+.resonance-key::after, .sanctum::after, .lineage::after,
+.elements::after, .yearnings::after, .endings::after {
+  content: "";
+  position: absolute;
+  bottom: -0.65rem;
+  left: 50%;
+  width: 3rem;
+  height: 1.3rem;
+  transform: translateX(-50%) rotate(-4deg);
+  background-image: url("data:image/svg+xml,<svg viewBox='0 0 60 24' xmlns='http://www.w3.org/2000/svg'><g fill='none' stroke='%237a9a5c' stroke-width='1.6' stroke-linecap='round'><path d='M30 12 C 23 5, 13 4, 10.5 9.5 C 8.6 13.8, 13.5 16.2, 15.5 12.8'/><path d='M30 12 C 37 5, 47 4, 49.5 9.5 C 51.4 13.8, 46.5 16.2, 44.5 12.8'/><path d='M30 12 C 28.4 8.6, 28.4 5.4, 30 2.6 C 31.6 5.4, 31.6 8.6, 30 12'/></g><circle cx='30' cy='15' r='1.8' fill='%237a9a5c'/></svg>");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.9;
+  pointer-events: none;
+  filter: drop-shadow(0 0 6px var(--moss-glow));
+}
 
 /* Vine corners on living cards — they breathe at the edges */
 .cosmos-card, .arch-card, .movement, .word {
