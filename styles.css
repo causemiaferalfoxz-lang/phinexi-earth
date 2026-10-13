@@ -864,21 +864,6 @@ main, .topbar, .footer { position: relative; z-index: 2; }
 .resonance-key, .sanctum, .lineage, .elements, .yearnings, .endings {
   position: relative;
 }
-.resonance-key::after, .sanctum::after, .lineage::after,
-.elements::after, .yearnings::after, .endings::after {
-  content: "❧";
-  position: absolute;
-  bottom: -0.7rem;
-  left: 50%;
-  transform: translateX(-50%) rotate(-8deg);
-  font-size: 1.4rem;
-  color: var(--moss);
-  text-shadow: 0 0 12px var(--moss-glow);
-  background: var(--void-0);
-  padding: 0 0.8rem;
-  opacity: 0.9;
-  pointer-events: none;
-}
 
 /* Vine corners on living cards — they breathe at the edges */
 .cosmos-card, .arch-card, .movement, .word {
