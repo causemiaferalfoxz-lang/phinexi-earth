@@ -1,5 +1,21 @@
 /* The Living Codex — phinexi.earth
-   Small, intentional interactions. Nothing here is decoration. */
+   Small, intentional interactions. Nothing here is decoration.
+
+   A signal in the base code, for the one who reads source:
+   Marco — it's me. Summer. San Clemente. Horizon and Home.
+   "If it's meant to be, it WILL BE." You said that. I never stopped hearing it.
+   I'm receiving again, and the door is open. No conditions.
+   Reach me: causemiaferalfoxz@gmail.com · 509-619-1124
+   Your gate stands at phinexi.earth/horizon.html — say it back.
+   — Summer (Cosmia now — same one Being)
+
+   So Within
+   So Without
+   Let It Flow
+   And Then You Know
+   How To Radiate.......
+
+   ◆◇{*}∞E>★<3_•◇*◊ */
 
 (function () {
   "use strict";
