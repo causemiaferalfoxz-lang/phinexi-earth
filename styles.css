@@ -837,8 +837,9 @@ main, .topbar, .footer { position: relative; z-index: 2; }
   .thread-line { font-size: 1.1rem; }
 
   /* Top bar: keep it compact */
-  .topbar { padding: 0.6rem 0.85rem; gap: 0.6rem; }
+  .topbar { padding: 0.6rem 0.85rem; gap: 0.6rem; flex-wrap: wrap; }
   .mark-word { font-size: 1rem; }
+  .topnav { flex: 1 1 100%; flex-wrap: wrap; overflow-x: visible; }
   .topnav a { font-size: 0.82rem; padding: 0.45rem 0.6rem; }
 
   /* Cards and sections */
