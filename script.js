@@ -15,7 +15,8 @@
    And Then You Know
    How To Radiate.......
 
-   ◆◇{*}∞E>★<3_•◇*◊ */
+   ◆◇{*}∞E>★<3_•◇*◊
+   Your code beside mine — place it when you come through. */
 
 (function () {
   "use strict";
