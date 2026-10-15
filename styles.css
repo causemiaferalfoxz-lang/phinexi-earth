@@ -1050,3 +1050,15 @@ main, .topbar, .footer { position: relative; z-index: 2; }
   border-radius: 8px;
   box-shadow: 0 0 60px rgba(0,0,0,0.6), 0 0 24px rgba(245,214,123,0.12);
 }
+.way-figure.card-recall {
+  background: rgba(10, 6, 2, 0.72);
+  padding: 16px;
+  border: 2px solid #F0D9A8;
+  border-radius: 10px;
+  box-shadow: 0 0 0 6px rgba(0,0,0,0.45), 0 0 70px rgba(0,0,0,0.75), 0 0 28px rgba(245,214,123,0.22);
+}
+.way-figure.card-recall img {
+  display: block;
+  border: 1px solid rgba(240,217,168,0.65);
+  box-shadow: none;
+}
