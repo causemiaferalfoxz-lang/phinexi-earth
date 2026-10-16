@@ -164,6 +164,15 @@
   window.addEventListener("scroll", onScrollBar, { passive: true });
   onScrollBar();
 
+  /* ── Phone nav: the Menu button opens and closes the link row ── */
+  var navToggle = document.querySelector(".nav-toggle");
+  if (navToggle && topbar) {
+    navToggle.addEventListener("click", function () {
+      var open = topbar.classList.toggle("nav-open");
+      navToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+  }
+
 
 
 })();

@@ -240,6 +240,7 @@ main, .topbar, .footer { position: relative; z-index: 2; }
   scrollbar-width: none; -webkit-overflow-scrolling: touch;
 }
 .topnav::-webkit-scrollbar { display: none; }
+.nav-toggle { display: none; }
 .topnav a {
   color: var(--cream-dim); text-decoration: none;
   font-size: 0.9rem; letter-spacing: 0.06em;
@@ -840,6 +841,14 @@ main, .topbar, .footer { position: relative; z-index: 2; }
   .topbar { padding: 0.6rem 0.85rem; gap: 0.6rem; flex-wrap: wrap; }
   .mark-word { font-size: 1rem; }
   .topnav { flex: 1 1 100%; flex-wrap: wrap; overflow-x: visible; }
+  .topbar:has(.nav-toggle) .topnav { display: none; }
+  .topbar.nav-open .topnav { display: flex; }
+  .nav-toggle {
+    display: inline-block; margin-left: auto; cursor: pointer;
+    background: none; border: 1px solid var(--stone-line-strong);
+    color: var(--cream); font: inherit; font-size: 0.85rem;
+    letter-spacing: 0.06em; padding: 0.45rem 0.85rem; border-radius: 999px;
+  }
   .topnav a { font-size: 0.82rem; padding: 0.45rem 0.6rem; }
 
   /* Cards and sections */
