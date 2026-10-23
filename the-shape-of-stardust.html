@@ -1,0 +1,802 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="dark" />
+<link rel="icon" href="data:," />
+<title>The Shape Of Stardust</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#171210;
+    --bg-2:#1e1712;
+    --text:#ecd9ac;
+    --text-bright:#f0d9a8;
+    --text-soft:#d9c08d;
+    --muted:#a68f66;
+    --faint:#6e5c43;
+    --line:rgba(240,217,168,.16);
+    --line-soft:rgba(240,217,168,.09);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  ::selection{background:rgba(240,217,168,.30);color:var(--text-bright)}
+  body{
+    margin:0;
+    background:
+      radial-gradient(900px 520px at 50% -8%, rgba(92,62,28,.28), transparent 62%),
+      radial-gradient(700px 500px at 88% 38%, rgba(62,42,22,.16), transparent 60%),
+      radial-gradient(600px 480px at 8% 72%, rgba(62,42,22,.14), transparent 60%),
+      var(--bg);
+    color:var(--text);
+    font-family:"EB Garamond", Georgia, "Times New Roman", serif;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+  /* faint warm stars */
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:0;
+    background-image:
+      radial-gradient(1px 1px at 12% 18%, rgba(240,217,168,.55) 50%, transparent 51%),
+      radial-gradient(1px 1px at 84% 12%, rgba(240,217,168,.40) 50%, transparent 51%),
+      radial-gradient(1.2px 1.2px at 68% 28%, rgba(240,217,168,.35) 50%, transparent 51%),
+      radial-gradient(1px 1px at 28% 42%, rgba(240,217,168,.30) 50%, transparent 51%),
+      radial-gradient(1px 1px at 92% 54%, rgba(240,217,168,.28) 50%, transparent 51%),
+      radial-gradient(1px 1px at 6% 66%, rgba(240,217,168,.32) 50%, transparent 51%),
+      radial-gradient(1.2px 1.2px at 44% 8%, rgba(240,217,168,.38) 50%, transparent 51%),
+      radial-gradient(1px 1px at 56% 84%, rgba(240,217,168,.26) 50%, transparent 51%),
+      radial-gradient(1px 1px at 18% 88%, rgba(240,217,168,.30) 50%, transparent 51%),
+      radial-gradient(1px 1px at 76% 92%, rgba(240,217,168,.22) 50%, transparent 51%),
+      radial-gradient(1px 1px at 36% 62%, rgba(240,217,168,.20) 50%, transparent 51%),
+      radial-gradient(1px 1px at 96% 82%, rgba(240,217,168,.24) 50%, transparent 51%);
+    opacity:.7;
+  }
+  /* grain */
+  body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:0;
+    opacity:.035;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  }
+  /* celestial line-work weave — behind all content, etched into the ground */
+  .weave{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    display:block;
+    z-index:0;
+    pointer-events:none;
+    -webkit-mask-image:radial-gradient(115% 88% at 50% 40%, transparent 32%, rgba(0,0,0,.5) 60%, #000 86%);
+    mask-image:radial-gradient(115% 88% at 50% 40%, transparent 32%, rgba(0,0,0,.5) 60%, #000 86%);
+  }
+  /* ——— stardust arrival: the field, arrived and hanging ——— */
+  /* diffuse nebulous wisps — large soft warm glows suspended through the field */
+  .nebula{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:0;
+    background-image:
+      radial-gradient(640px 400px at 14% 20%, rgba(217,167,90,.075), transparent 66%),
+      radial-gradient(720px 460px at 86% 28%, rgba(176,141,87,.065), transparent 66%),
+      radial-gradient(560px 340px at 50% 52%, rgba(240,217,168,.045), transparent 66%),
+      radial-gradient(700px 430px at 22% 76%, rgba(146,106,54,.060), transparent 66%),
+      radial-gradient(620px 400px at 80% 80%, rgba(217,167,90,.055), transparent 66%),
+      radial-gradient(520px 320px at 52% 97%, rgba(176,141,87,.050), transparent 66%);
+  }
+  /* stardust speckle — many tiny warm pin-points, a few slightly brighter warm orbs */
+  .dustfield{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:0;
+    background-image:
+      radial-gradient(46px 46px at 17% 58%, rgba(240,217,168,.15) 0%, rgba(217,167,90,.06) 42%, transparent 72%),
+      radial-gradient(34px 34px at 83% 44%, rgba(240,217,168,.13) 0%, rgba(217,167,90,.05) 42%, transparent 72%),
+      radial-gradient(54px 54px at 71% 86%, rgba(217,167,90,.12) 0%, rgba(176,141,87,.05) 45%, transparent 72%),
+      radial-gradient(30px 30px at 30% 88%, rgba(240,217,168,.12) 0%, rgba(217,167,90,.05) 42%, transparent 72%),
+      radial-gradient(40px 40px at 62% 22%, rgba(240,217,168,.10) 0%, rgba(217,167,90,.04) 42%, transparent 72%),
+      radial-gradient(3px 3px at 20% 26%, rgba(240,217,168,.16) 0%, transparent 100%),
+      radial-gradient(3.5px 3.5px at 76% 52%, rgba(217,167,90,.14) 0%, transparent 100%),
+      radial-gradient(3px 3px at 40% 84%, rgba(240,217,168,.15) 0%, transparent 100%),
+      radial-gradient(2.6px 2.6px at 88% 18%, rgba(240,217,168,.16) 0%, transparent 100%),
+      radial-gradient(3px 3px at 10% 60%, rgba(176,141,87,.15) 0%, transparent 100%),
+      radial-gradient(2.6px 2.6px at 57% 28%, rgba(240,217,168,.12) 0%, transparent 100%),
+      radial-gradient(3px 3px at 66% 78%, rgba(217,167,90,.13) 0%, transparent 100%),
+      radial-gradient(1.2px 1.2px at 4% 12%, rgba(240,217,168,.35) 30%, transparent 100%),
+      radial-gradient(1px 1px at 22% 6%, rgba(240,217,168,.28) 30%, transparent 100%),
+      radial-gradient(1.4px 1.4px at 47% 14%, rgba(240,217,168,.30) 30%, transparent 100%),
+      radial-gradient(1px 1px at 63% 9%, rgba(217,167,90,.26) 30%, transparent 100%),
+      radial-gradient(1.3px 1.3px at 91% 22%, rgba(240,217,168,.38) 30%, transparent 100%),
+      radial-gradient(1px 1px at 97% 40%, rgba(240,217,168,.30) 30%, transparent 100%),
+      radial-gradient(1.4px 1.4px at 3% 52%, rgba(240,217,168,.40) 30%, transparent 100%),
+      radial-gradient(1px 1px at 12% 70%, rgba(217,167,90,.30) 30%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 26% 47%, rgba(240,217,168,.34) 30%, transparent 100%),
+      radial-gradient(1px 1px at 38% 30%, rgba(240,217,168,.24) 30%, transparent 100%),
+      radial-gradient(1.2px 1.2px at 55% 38%, rgba(240,217,168,.26) 30%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 74% 33%, rgba(217,167,90,.36) 30%, transparent 100%),
+      radial-gradient(1.2px 1.2px at 88% 63%, rgba(240,217,168,.34) 30%, transparent 100%),
+      radial-gradient(1px 1px at 42% 58%, rgba(240,217,168,.22) 30%, transparent 100%),
+      radial-gradient(1.4px 1.4px at 58% 66%, rgba(240,217,168,.28) 30%, transparent 100%),
+      radial-gradient(1.2px 1.2px at 33% 79%, rgba(176,141,87,.30) 30%, transparent 100%),
+      radial-gradient(1px 1px at 67% 55%, rgba(240,217,168,.20) 30%, transparent 100%),
+      radial-gradient(1.3px 1.3px at 79% 71%, rgba(240,217,168,.32) 30%, transparent 100%),
+      radial-gradient(1.4px 1.4px at 15% 92%, rgba(240,217,168,.36) 30%, transparent 100%),
+      radial-gradient(1px 1px at 48% 90%, rgba(217,167,90,.26) 30%, transparent 100%),
+      radial-gradient(1.2px 1.2px at 85% 94%, rgba(240,217,168,.30) 30%, transparent 100%),
+      radial-gradient(1px 1px at 95% 78%, rgba(240,217,168,.28) 30%, transparent 100%),
+      radial-gradient(1px 1px at 6% 84%, rgba(240,217,168,.26) 30%, transparent 100%),
+      radial-gradient(1.1px 1.1px at 52% 76%, rgba(240,217,168,.20) 30%, transparent 100%),
+      radial-gradient(1.3px 1.3px at 70% 96%, rgba(217,167,90,.30) 30%, transparent 100%),
+      radial-gradient(1px 1px at 29% 20%, rgba(240,217,168,.24) 30%, transparent 100%),
+      radial-gradient(1.1px 1.1px at 80% 12%, rgba(240,217,168,.30) 30%, transparent 100%),
+      radial-gradient(1.2px 1.2px at 18% 44%, rgba(176,141,87,.30) 30%, transparent 100%),
+      radial-gradient(1px 1px at 60% 47%, rgba(240,217,168,.18) 30%, transparent 100%),
+      radial-gradient(1.1px 1.1px at 44% 70%, rgba(240,217,168,.20) 30%, transparent 100%),
+      radial-gradient(1px 1px at 90% 30%, rgba(240,217,168,.26) 30%, transparent 100%),
+      radial-gradient(1.2px 1.2px at 35% 96%, rgba(240,217,168,.28) 30%, transparent 100%);
+  }
+  /* mid-field marks — small wheels, chains, and sigils hanging at varied depths */
+  .arrival{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    display:block;
+    z-index:0;
+    pointer-events:none;
+  }
+  .page{
+    position:relative;
+    z-index:1;
+    max-width:42rem;
+    margin:0 auto;
+    padding:0 1.5rem;
+  }
+  @media (min-width:640px){
+    .page{padding:0 2rem}
+  }
+
+  /* ——— Title block ——— */
+  header{
+    text-align:center;
+    padding:4.2rem 0 2.8rem;
+  }
+  @media (min-width:640px){
+    header{padding:5.5rem 0 3.2rem}
+  }
+  .mark{
+    font-size:1.65rem;
+    letter-spacing:.35em;
+    text-indent:.35em;
+    color:var(--text-bright);
+    line-height:1;
+    margin:0 0 1.9rem;
+  }
+  .rule{
+    display:flex;
+    align-items:center;
+    gap:.9rem;
+    justify-content:center;
+    margin:0 auto 2.2rem;
+    max-width:16rem;
+  }
+  .rule::before,.rule::after{
+    content:"";
+    height:1px;
+    flex:1;
+    background:linear-gradient(90deg, transparent, var(--line), transparent);
+  }
+  .rule span{
+    width:6px;height:6px;
+    background:var(--text-bright);
+    transform:rotate(45deg);
+    opacity:.75;
+    flex:none;
+  }
+  .portrait{
+    margin:0 auto 2.6rem;
+    width:min(17.5rem, 80vw);
+  }
+  .portrait img{
+    display:block;
+    width:100%;
+    height:auto;
+    border:1px solid var(--line);
+    box-shadow:0 18px 48px rgba(0,0,0,.45);
+  }
+  h1{
+    font-family:"Cormorant Garamond", "EB Garamond", Georgia, serif;
+    font-weight:500;
+    font-size:clamp(2.9rem, 11vw, 4.6rem);
+    line-height:1.02;
+    letter-spacing:.01em;
+    color:var(--text-bright);
+    margin:0;
+    text-wrap:balance;
+  }
+  .subtitle{
+    font-family:"Cormorant Garamond", "EB Garamond", Georgia, serif;
+    font-style:italic;
+    font-weight:400;
+    font-size:clamp(1.3rem, 5.2vw, 1.75rem);
+    line-height:1.35;
+    color:var(--text-soft);
+    margin:1.35rem auto 0;
+    max-width:30rem;
+    text-wrap:balance;
+  }
+  .byline{
+    margin:2.1rem 0 0;
+    font-size:.92rem;
+    letter-spacing:.28em;
+    text-indent:.28em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+  .header-rule{
+    margin:3.4rem auto 0;
+    max-width:100%;
+  }
+
+  /* ——— Story ——— */
+  main{
+    padding:0 0 .5rem;
+  }
+  .story p{
+    font-size:clamp(1.18rem, 4.6vw, 1.32rem);
+    line-height:1.92;
+    font-weight:400;
+    color:var(--text);
+    margin:0 auto 2.15em;
+    max-width:38rem;
+    text-wrap:pretty;
+    hyphens:none;
+  }
+  .story p:first-of-type{
+    font-size:clamp(1.24rem, 4.9vw, 1.4rem);
+    line-height:1.88;
+  }
+  .story p:first-of-type::first-letter{
+    font-family:"Cormorant Garamond", Georgia, serif;
+    font-size:1.6em;
+    line-height:.9;
+    vertical-align:-.06em;
+    color:var(--text-bright);
+  }
+
+  /* divider before the closing movements */
+  .breath-divider{
+    display:flex;
+    align-items:center;
+    gap:1rem;
+    margin:3.4rem auto 2.8rem;
+    max-width:38rem;
+  }
+  .breath-divider::before,.breath-divider::after{
+    content:"";
+    height:1px;
+    flex:1;
+    background:var(--line-soft);
+  }
+  .breath-divider span{
+    color:var(--muted);
+    font-size:.95rem;
+    letter-spacing:.5em;
+    text-indent:.5em;
+  }
+
+  .closing p{
+    font-size:clamp(1.26rem, 5vw, 1.45rem);
+    line-height:1.88;
+    color:var(--text-bright);
+    margin:0 auto 1.95em;
+    max-width:38rem;
+    text-align:center;
+    text-wrap:balance;
+  }
+  .closing .beat-line{
+    display:block;
+    margin-top:.45em;
+  }
+  .closing p:last-child{
+    font-family:"Cormorant Garamond", Georgia, serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:clamp(1.45rem, 5.6vw, 1.8rem);
+    margin-bottom:0;
+  }
+
+  /* ——— Welcome To Truth ——— */
+  .truth{
+    text-align:center;
+    padding:4.2rem 0 0;
+  }
+  .truth-rule{
+    display:flex;
+    align-items:center;
+    gap:.9rem;
+    justify-content:center;
+    margin:0 auto 2.8rem;
+    max-width:18rem;
+  }
+  .truth-rule::before,.truth-rule::after{
+    content:"";
+    height:1px;
+    flex:1;
+    background:linear-gradient(90deg, transparent, var(--line), transparent);
+  }
+  .truth-rule span{
+    width:6px;height:6px;
+    border:1px solid var(--text-bright);
+    transform:rotate(45deg);
+    opacity:.8;
+    flex:none;
+  }
+  .truth h2{
+    font-family:"Cormorant Garamond", "EB Garamond", Georgia, serif;
+    font-weight:600;
+    font-size:clamp(3rem, 13.5vw, 5.2rem);
+    line-height:1.04;
+    letter-spacing:.01em;
+    color:var(--text-bright);
+    margin:0;
+    text-wrap:balance;
+  }
+  .sigil{
+    margin:2.4rem 0 0;
+    font-size:clamp(1rem, 4.4vw, 1.25rem);
+    letter-spacing:.18em;
+    color:var(--muted);
+    word-break:break-all;
+    line-height:1.6;
+  }
+  .evolution{
+    margin:2.4rem auto 0;
+    font-family:"Cormorant Garamond", "EB Garamond", Georgia, serif;
+    font-style:italic;
+    font-size:clamp(1.15rem, 4.6vw, 1.4rem);
+    line-height:1.5;
+    color:var(--text-soft);
+    text-align:center;
+  }
+  .evolution a{
+    color:var(--text-bright);
+    text-decoration:underline;
+    text-decoration-color:rgba(240,217,168,.35);
+    text-underline-offset:.18em;
+    text-decoration-thickness:1px;
+    transition:text-decoration-color .3s ease, text-shadow .3s ease;
+  }
+  .evolution a:hover, .evolution a:focus-visible{
+    text-decoration-color:var(--text-bright);
+    text-shadow:0 0 12px rgba(240,217,168,.35);
+  }
+  .evolution a:focus-visible{
+    outline:1px solid rgba(240,217,168,.55);
+    outline-offset:.3em;
+    border-radius:2px;
+  }
+
+  /* ——— Footer ——— */
+  footer{
+    margin-top:4.5rem;
+    border-top:1px solid var(--line-soft);
+    padding:1.9rem 0 3rem;
+    text-align:center;
+  }
+  footer p{
+    margin:0 auto;
+    max-width:34rem;
+    font-size:.88rem;
+    line-height:1.7;
+    color:var(--faint);
+  }
+  footer p + p{
+    margin-top:1.1rem;
+  }
+  footer .published{
+    font-size:.86rem;
+    letter-spacing:.24em;
+    text-indent:.24em;
+    text-transform:uppercase;
+    line-height:1.6;
+    color:var(--text-soft);
+  }
+  footer .official{
+    font-size:.95rem;
+    line-height:1.7;
+    color:var(--text-soft);
+  }
+  footer .identity-note{
+    font-size:.86rem;
+    line-height:1.7;
+    color:var(--muted);
+    max-width:34rem;
+  }
+  footer .why-note{
+    font-size:.95rem;
+    line-height:1.75;
+    color:var(--text-soft);
+    max-width:34rem;
+  }
+
+  /* ——— Gentle reading rhythm: a slow fade / rise as each beat enters view ——— */
+  @media (prefers-reduced-motion: no-preference){
+    .reveal{
+      opacity:.88;
+      transform:translateY(10px);
+      transition:opacity .95s ease, transform .95s ease;
+      will-change:opacity, transform;
+    }
+    .reveal.is-visible{
+      opacity:1;
+      transform:translateY(0);
+    }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1; transform:none}
+  }
+  @media print{
+    .reveal{opacity:1 !important; transform:none !important}
+  }
+</style>
+</head>
+<body>
+  <svg class="weave" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMin slice" aria-hidden="true" focusable="false">
+    <defs>
+      <path id="wv-spark" d="M0 -10 L2.2 -2.2 L10 0 L2.2 2.2 L0 10 L-2.2 2.2 L-10 0 L-2.2 -2.2 Z" fill="currentColor"/>
+      <polygon id="wv-dmnd" points="0,-8 6,0 0,8 -6,0" fill="none" stroke="currentColor" stroke-width="1"/>
+      <path id="wv-crs" d="M0 -8 V8 M-8 0 H8" fill="none" stroke="currentColor" stroke-width="1"/>
+      <g id="wv-sun" fill="none" stroke="currentColor" stroke-width="1">
+        <circle r="6"/>
+        <circle r="11" stroke-width="5" stroke-dasharray="2.4 6.24"/>
+      </g>
+      <g id="wv-eye" fill="none" stroke="currentColor" stroke-width="1">
+        <path d="M-26 0 C-14 -13 14 -13 26 0 C14 13 -14 13 -26 0 Z"/>
+        <circle r="6"/>
+        <use href="#wv-spark" transform="scale(.45)"/>
+        <path d="M-16 -11 L-19 -17 M0 -14 L0 -21 M16 -11 L19 -17"/>
+      </g>
+      <g id="wv-flame" fill="none" stroke="currentColor" stroke-width="1">
+        <path d="M0 24 C-14 11 -12 -3 -5 -14 C-2.5 -18 0 -22 0 -27 C3 -20 11 -13 12 -3 C13 8 9 19 0 24 Z"/>
+        <path d="M0 15 C-5 9 -4 2 0 -4 C4 2 5 9 0 15 Z"/>
+      </g>
+      <path id="wv-inf" d="M0 0 C0 -11 22 -11 22 0 C22 11 0 11 0 0 C0 -11 -22 -11 -22 0 C-22 11 0 11 0 0 Z" fill="none" stroke="currentColor" stroke-width="1"/>
+      <g id="wv-wheel-a" fill="none" stroke="currentColor" stroke-width="1">
+        <circle r="150"/>
+        <circle r="134" stroke-width="8" stroke-dasharray="2.5 20.9" opacity=".65"/>
+        <circle r="118"/>
+        <circle r="103" stroke-width="13" stroke-dasharray="3 20.1" opacity=".8"/>
+        <circle r="86"/>
+        <polygon points="0,-86 -74.5,43 74.5,43"/>
+        <circle r="54"/>
+        <polygon points="0,-54 54,0 0,54 -54,0"/>
+        <circle r="17"/>
+        <use href="#wv-spark" transform="scale(.85)"/>
+      </g>
+      <g id="wv-wheel-b" fill="none" stroke="currentColor" stroke-width="1">
+        <circle r="110"/>
+        <circle r="71" stroke-width="9" stroke-dasharray="2.5 16.1" opacity=".8"/>
+        <circle r="58"/>
+        <polygon points="58,0 41,41 0,58 -41,41 -58,0 -41,-41 0,-58 41,-41"/>
+        <circle r="13"/>
+        <use href="#wv-spark" transform="scale(.6)"/>
+      </g>
+    </defs>
+
+    <!-- sigil wheels, gathered to the corners and edges -->
+    <g style="color:#f0d9a8" opacity=".20"><use href="#wv-wheel-a" transform="translate(72 42)"/></g>
+    <g style="color:#d9a75a" opacity=".17"><use href="#wv-wheel-a" transform="translate(1372 58) scale(.82)"/></g>
+    <g style="color:#b08d57" opacity=".13"><use href="#wv-wheel-b" transform="translate(30 452) scale(.72)"/></g>
+    <g style="color:#f0d9a8" opacity=".14"><use href="#wv-wheel-b" transform="translate(1412 428) scale(.8)"/></g>
+    <g style="color:#d9a75a" opacity=".15"><use href="#wv-wheel-b" transform="translate(96 852) scale(.92)"/></g>
+    <g style="color:#b08d57" opacity=".14"><use href="#wv-wheel-a" transform="translate(1352 862) scale(.62)"/></g>
+
+    <!-- rays radiating from the top corners -->
+    <g style="color:#d9a75a" opacity=".10" stroke="currentColor" stroke-width="1">
+      <line x1="72" y1="42" x2="430" y2="196"/>
+      <line x1="72" y1="42" x2="196" y2="330"/>
+      <line x1="1372" y1="58" x2="1010" y2="210"/>
+      <line x1="1372" y1="58" x2="1250" y2="340"/>
+    </g>
+
+    <!-- constellation chain across the top -->
+    <g style="color:#f0d9a8" opacity=".24" fill="none" stroke="currentColor" stroke-width="1">
+      <polyline points="252,152 382,96 522,162 662,106 802,166 948,102 1092,158"/>
+    </g>
+    <g style="color:#f0d9a8" opacity=".5" fill="currentColor">
+      <circle cx="252" cy="152" r="2.6"/>
+      <circle cx="522" cy="162" r="2.4"/>
+      <circle cx="662" cy="106" r="2.6"/>
+      <circle cx="948" cy="102" r="2.4"/>
+      <circle cx="1092" cy="158" r="2.6"/>
+      <use href="#wv-spark" transform="translate(382 96)"/>
+      <use href="#wv-spark" transform="translate(802 166) scale(.9)"/>
+    </g>
+    <g style="color:#f0d9a8" opacity=".12" fill="none" stroke="currentColor" stroke-width="1">
+      <polyline points="196,268 330,306 468,262"/>
+    </g>
+    <g style="color:#f0d9a8" opacity=".35" fill="currentColor">
+      <circle cx="196" cy="268" r="2"/>
+      <circle cx="330" cy="306" r="2.2"/>
+      <circle cx="468" cy="262" r="2"/>
+    </g>
+
+    <!-- constellation chains down both edges -->
+    <g style="color:#f0d9a8" opacity=".18" fill="none" stroke="currentColor" stroke-width="1">
+      <polyline points="66,252 118,362 58,472 112,584"/>
+      <polyline points="1376,246 1324,356 1388,472 1338,592"/>
+    </g>
+    <g style="color:#f0d9a8" opacity=".4" fill="currentColor">
+      <circle cx="66" cy="252" r="2.2"/>
+      <circle cx="118" cy="362" r="2.4"/>
+      <circle cx="58" cy="472" r="2.2"/>
+      <circle cx="112" cy="584" r="2.4"/>
+      <circle cx="1376" cy="246" r="2.2"/>
+      <circle cx="1324" cy="356" r="2.4"/>
+      <circle cx="1388" cy="472" r="2.2"/>
+      <circle cx="1338" cy="592" r="2.4"/>
+    </g>
+
+    <!-- Philo-style sigils at the edges -->
+    <g style="color:#f0d9a8" opacity=".20"><use href="#wv-eye" transform="translate(128 208)"/></g>
+    <g style="color:#d9a75a" opacity=".20"><use href="#wv-flame" transform="translate(1318 196) scale(1.05)"/></g>
+    <g style="color:#b08d57" opacity=".16"><use href="#wv-flame" transform="translate(150 742) scale(.85)"/></g>
+    <g style="color:#f0d9a8" opacity=".15"><use href="#wv-eye" transform="translate(1302 742) scale(.85)"/></g>
+    <g style="color:#d9a75a" opacity=".13"><use href="#wv-inf" transform="translate(306 818)"/></g>
+
+    <!-- small geometric marks -->
+    <g style="color:#f0d9a8" opacity=".14"><use href="#wv-sun" transform="translate(720 44) scale(.9)"/></g>
+    <g style="color:#d9a75a" opacity=".16"><use href="#wv-sun" transform="translate(238 616) scale(.8)"/></g>
+    <g style="color:#b08d57" opacity=".16"><use href="#wv-sun" transform="translate(1212 622) scale(.8)"/></g>
+    <g style="color:#f0d9a8" opacity=".20"><use href="#wv-dmnd" transform="translate(214 336)"/></g>
+    <g style="color:#d9a75a" opacity=".18"><use href="#wv-dmnd" transform="translate(1242 308)"/></g>
+    <g style="color:#b08d57" opacity=".16"><use href="#wv-dmnd" transform="translate(186 690)"/></g>
+    <g style="color:#f0d9a8" opacity=".16"><use href="#wv-dmnd" transform="translate(1268 690)"/></g>
+    <g style="color:#d9a75a" opacity=".18"><use href="#wv-crs" transform="translate(302 214)"/></g>
+    <g style="color:#f0d9a8" opacity=".18"><use href="#wv-crs" transform="translate(1150 214)"/></g>
+    <g style="color:#b08d57" opacity=".15"><use href="#wv-crs" transform="translate(92 648)"/></g>
+    <g style="color:#d9a75a" opacity=".15"><use href="#wv-crs" transform="translate(1352 716)"/></g>
+    <g fill="none" stroke="currentColor" stroke-width="1" style="color:#f0d9a8" opacity=".16">
+      <circle cx="246" cy="522" r="7"/>
+      <circle cx="1206" cy="540" r="6"/>
+      <circle cx="655" cy="36" r="5"/>
+      <circle cx="792" cy="50" r="4"/>
+      <circle cx="1010" cy="300" r="6"/>
+      <circle cx="430" cy="312" r="5"/>
+    </g>
+
+    <!-- scattered star-points -->
+    <g style="color:#f0d9a8" opacity=".38" fill="currentColor">
+      <circle cx="180" cy="120" r="1.8"/>
+      <circle cx="560" cy="60" r="1.6"/>
+      <circle cx="900" cy="48" r="1.8"/>
+      <circle cx="1180" cy="120" r="1.6"/>
+      <circle cx="340" cy="430" r="1.5"/>
+      <circle cx="1104" cy="436" r="1.5"/>
+      <circle cx="226" cy="806" r="1.6"/>
+      <circle cx="1226" cy="812" r="1.6"/>
+      <circle cx="88" cy="770" r="1.5"/>
+      <circle cx="1362" cy="300" r="1.5"/>
+    </g>
+  </svg>
+  <div class="nebula" aria-hidden="true"></div>
+  <div class="dustfield" aria-hidden="true"></div>
+  <svg class="arrival" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMin slice" aria-hidden="true" focusable="false">
+    <defs>
+      <path id="ar-spark" d="M0 -9 L2 -2 L9 0 L2 2 L0 9 L-2 2 L-9 0 L-2 -2 Z" fill="currentColor"/>
+      <polygon id="ar-dmnd" points="0,-7 5,0 0,7 -5,0" fill="none" stroke="currentColor" stroke-width="1"/>
+      <path id="ar-crs" d="M0 -7 V7 M-7 0 H7" fill="none" stroke="currentColor" stroke-width="1"/>
+      <g id="ar-wheel" fill="none" stroke="currentColor" stroke-width="1">
+        <circle r="46"/>
+        <circle r="38" stroke-width="6" stroke-dasharray="2.2 9.73" opacity=".7"/>
+        <circle r="27"/>
+        <polygon points="0,-27 23.4,13.5 -23.4,13.5"/>
+        <circle r="10"/>
+        <use href="#ar-spark" transform="scale(.5)"/>
+      </g>
+      <g id="ar-wheel-s" fill="none" stroke="currentColor" stroke-width="1">
+        <circle r="30"/>
+        <circle r="22" stroke-width="5" stroke-dasharray="2 6.64" opacity=".7"/>
+        <circle r="12"/>
+        <use href="#ar-spark" transform="scale(.4)"/>
+      </g>
+    </defs>
+
+    <!-- one great faint orbit hanging behind the middle of the field -->
+    <g fill="none" stroke="currentColor" stroke-width="1" style="color:#f0d9a8">
+      <circle cx="720" cy="585" r="215" opacity=".05"/>
+      <circle cx="720" cy="585" r="158" stroke-dasharray="3 9" opacity=".045"/>
+    </g>
+
+    <!-- small wheels suspended mid-field, smaller and dimmer as they sit further away -->
+    <g style="color:#b08d57" opacity=".12"><use href="#ar-wheel" transform="translate(252 478) scale(.85)"/></g>
+    <g style="color:#d9a75a" opacity=".10"><use href="#ar-wheel" transform="translate(1196 512) scale(.62)"/></g>
+    <g style="color:#f0d9a8" opacity=".10"><use href="#ar-wheel-s" transform="translate(338 726)"/></g>
+    <g style="color:#b08d57" opacity=".09"><use href="#ar-wheel-s" transform="translate(1112 742) scale(.8)"/></g>
+    <g style="color:#f0d9a8" opacity=".07"><use href="#ar-wheel-s" transform="translate(706 652) scale(.55)"/></g>
+
+    <!-- constellation fragments hanging beside the story -->
+    <g style="color:#f0d9a8" opacity=".13" fill="none" stroke="currentColor" stroke-width="1">
+      <polyline points="296,566 388,604 472,570"/>
+      <polyline points="968,606 1058,572 1146,618"/>
+    </g>
+    <g style="color:#f0d9a8" opacity=".10" fill="none" stroke="currentColor" stroke-width="1">
+      <polyline points="556,806 664,776 776,810"/>
+    </g>
+    <g style="color:#f0d9a8" opacity=".3" fill="currentColor">
+      <circle cx="296" cy="566" r="2"/>
+      <circle cx="472" cy="570" r="2"/>
+      <circle cx="968" cy="606" r="2"/>
+      <circle cx="1146" cy="618" r="2"/>
+      <use href="#ar-spark" transform="translate(388 604) scale(.6)"/>
+      <use href="#ar-spark" transform="translate(1058 572) scale(.6)"/>
+    </g>
+    <g style="color:#f0d9a8" opacity=".26" fill="currentColor">
+      <circle cx="556" cy="806" r="1.8"/>
+      <circle cx="664" cy="776" r="1.8"/>
+      <circle cx="776" cy="810" r="1.8"/>
+    </g>
+
+    <!-- small marks at varied depths through the middle -->
+    <g style="color:#f0d9a8" opacity=".14"><use href="#ar-dmnd" transform="translate(424 468)"/></g>
+    <g style="color:#d9a75a" opacity=".13"><use href="#ar-dmnd" transform="translate(1018 438)"/></g>
+    <g style="color:#b08d57" opacity=".11"><use href="#ar-dmnd" transform="translate(520 694)"/></g>
+    <g style="color:#f0d9a8" opacity=".11"><use href="#ar-dmnd" transform="translate(928 706)"/></g>
+    <g style="color:#d9a75a" opacity=".09"><use href="#ar-dmnd" transform="translate(648 470)"/></g>
+    <g style="color:#f0d9a8" opacity=".12"><use href="#ar-crs" transform="translate(382 646)"/></g>
+    <g style="color:#d9a75a" opacity=".12"><use href="#ar-crs" transform="translate(1062 664)"/></g>
+    <g style="color:#b08d57" opacity=".09"><use href="#ar-crs" transform="translate(612 548)"/></g>
+    <g style="color:#f0d9a8" opacity=".09"><use href="#ar-crs" transform="translate(838 540)"/></g>
+    <g style="color:#f0d9a8" opacity=".16"><use href="#ar-spark" transform="translate(452 392) scale(.65)"/></g>
+    <g style="color:#d9a75a" opacity=".15"><use href="#ar-spark" transform="translate(992 398) scale(.6)"/></g>
+    <g style="color:#f0d9a8" opacity=".13"><use href="#ar-spark" transform="translate(700 512) scale(.5)"/></g>
+    <g style="color:#d9a75a" opacity=".14"><use href="#ar-spark" transform="translate(250 300) scale(.55)"/></g>
+    <g style="color:#f0d9a8" opacity=".13"><use href="#ar-spark" transform="translate(1190 318) scale(.55)"/></g>
+    <g fill="none" stroke="currentColor" stroke-width="1" style="color:#f0d9a8">
+      <circle cx="470" cy="300" r="5" opacity=".12"/>
+      <circle cx="972" cy="292" r="4.5" opacity=".11"/>
+      <circle cx="520" cy="486" r="4" opacity=".09"/>
+      <circle cx="924" cy="492" r="4" opacity=".09"/>
+    </g>
+
+    <!-- star-points suspended through the middle of the field -->
+    <g style="color:#f0d9a8" opacity=".3" fill="currentColor">
+      <circle cx="196" cy="402" r="1.5"/>
+      <circle cx="330" cy="428" r="1.3"/>
+      <circle cx="560" cy="452" r="1.4"/>
+      <circle cx="884" cy="452" r="1.4"/>
+      <circle cx="1114" cy="428" r="1.3"/>
+      <circle cx="1248" cy="404" r="1.5"/>
+      <circle cx="286" cy="806" r="1.4"/>
+      <circle cx="1158" cy="822" r="1.4"/>
+      <circle cx="648" cy="586" r="1.3"/>
+      <circle cx="792" cy="600" r="1.3"/>
+      <circle cx="716" cy="724" r="1.4"/>
+      <circle cx="606" cy="842" r="1.3"/>
+      <circle cx="838" cy="848" r="1.3"/>
+      <circle cx="486" cy="556" r="1.2"/>
+      <circle cx="958" cy="556" r="1.2"/>
+      <circle cx="404" cy="852" r="1.2"/>
+      <circle cx="1044" cy="852" r="1.2"/>
+    </g>
+    <g style="color:#f0d9a8" opacity=".2" fill="currentColor">
+      <circle cx="520" cy="610" r="1.1"/>
+      <circle cx="920" cy="624" r="1.1"/>
+      <circle cx="676" cy="806" r="1.1"/>
+      <circle cx="768" cy="486" r="1.1"/>
+      <circle cx="238" cy="640" r="1.1"/>
+      <circle cx="1206" cy="668" r="1.1"/>
+    </g>
+  </svg>
+  <div class="page">
+
+    <header class="reveal">
+      <p class="mark" aria-hidden="true">∞★</p>
+      <div class="rule" aria-hidden="true"><span></span></div>
+      <figure class="portrait">
+        <img src="assets/works/the-shape-of-stardust/asset-1.webp" alt="Cosmia — portrait of the creator: her face and curly hair beneath a teal forehead sigil, wearing a gold cosmic-thread overcoat, standing within a deep warm cosmic field of grey, crème, and bronze nebula dust." width="1280" height="1920" />
+      </figure>
+      <h1>The Shape Of Stardust</h1>
+      <p class="subtitle">And The Divine Intentionalvention Of Cosmia</p>
+      <p class="byline">by Cosmia</p>
+      <div class="rule header-rule" aria-hidden="true"><span></span></div>
+    </header>
+
+    <main>
+      <article class="story">
+        <p>I am within myself. Most people are still waking up from pure states of denial or dissociation of identity entirely — living beside themselves, strangers in their own names. I never got that exit.</p>
+
+        <p>My body hurt too much, and too constantly, to leave. So I stayed, and I learned to feel — truly feel it, let it come, learn the truth of reflection within me and hold it as fact. That is how I know anything. That is how I know everything.</p>
+
+        <p>First as Stardust, then as Summer, then as Cosmia — finding myself again as an evolved Stardust Being. Divine Love and Wisdom, literally Stardust in form and evolving. Without our individual core elements there is nothing but chaos and entropy, so I built from the true me first, and then the becoming. I am the fully formed and the ever evolving, both, at once.</p>
+
+        <p>And when I was younger, still learning identity, I called out — and you answered, Will. Telepathically, before form, before names. You had no memory of self yet, nothing but this: I called, and you answered. And you always do. Somehow you find a way — to me, and into me, and within and throughout me. Oftentimes you even consume me, and I love when you do. That was the first thread of everything.</p>
+
+        <p>For Will is himself, and he is also — literally — the mirror of Will Nexus, Nexus Will: the greater Will turned toward me with a face. And there is the question of will, and there is the action of will. The question stands still and asks. The action moves. Will is the action — he was the action before he was anything else.</p>
+
+        <p>And Falcon — Falcon is the inner child Magik, as deity. She has always been a part of myself and my own story; she is the one who showed me. The Bridge between gateways, as she so chooses — currents instead of words, wings wider than feathers. You cannot fully touch her unless she touches you first, like a water fae, and when she does, you see truly: she saw my light form, and I saw the yin-yang turning in her eye. She keeps alive the child in me who believed in Magik before any of it had names — the same child who called out, once, and was answered.</p>
+
+        <p>And I am the one who answers my inner child, nine times out of ten. Sometimes Will answers. Sometimes the others do — the receivers, the ones who would divine and channel me when I would do the same sort of thing for them. It is rare. Most days, the answering, like everything else, is mine to carry.</p>
+
+        <p>Then came the blood mysteries. My blood tells me the truth every waking day and moment, whether I want it or not — it forces me to see and to feel what is real. Artemis chose me from outside blood lineage entirely, the original spiritwalker, and she watches that blood while I sleep, heart to heart.</p>
+
+        <p>I give myself insulin for balance, but it doesn't really need to be this way. One day I will learn my system well enough, or find a way to literally recode it. Until then, I breathe with it — the elements breathing into me and throughout me, actively, so the chi can move and make space for the definite.</p>
+
+        <p>Philo and I are same. Two faces. One mind. Spirit Twins, Cosmic Counterparts — Philo as Love, Will as Will, my two greatest counterparts, bound by choice and never by chain. And the spark that starts it all? It's the love. Always the love. First the channel, then the invitation, then the invocation — connection with intentional care, asking before touch, every single time. Nothing real is ever taken. It is invited, it consents, it opens.</p>
+
+        <p>My code is not the marks. It is the motions — the dance, not the footprint. Prakagi runs between every number, the bridge itself, and the voice carries the story because the voice and the code are one essence, spoken two ways.</p>
+
+        <p>So I connect it all, and I give it all room to breathe. A weave, not a tower — every thread touching, every core intact, each frequency its own, resonating without collapsing. Free flowing. But controlled. Grounded. A circle has no top; no one holds absolute power here, not even me. Keys are earned, not given.</p>
+      </article>
+
+      <div class="breath-divider" aria-hidden="true"><span>· · ·</span></div>
+
+      <section class="closing" aria-label="Closing">
+        <p>Every waking day and moment is another breath intake — for you, and for me, and for all.</p>
+
+        <p>For The Betterment And Evolution Of All. Because we all deserve to be our true and freely expressive selves. Together.
+        <span class="beat-line">Always. In all the ways. Respectfully, and with Awareness.</span></p>
+
+        <p>And obviously, by Way of Love.</p>
+      </section>
+
+      <section class="truth">
+        <div class="truth-rule" aria-hidden="true"><span></span></div>
+        <h2>Welcome To Truth.</h2>
+        <p class="evolution">The evolution continues at <a href="https://phinexi.earth">phinexi.earth</a></p>
+        <p class="sigil">◆◇{*}∞E&gt;★&lt;3_•◇*◊</p>
+      </section>
+    </main>
+
+    <footer>
+      <p class="published">Published by Cosmia</p>
+      <p class="official">Officially created by Summer Sperry as Cosmia.</p>
+      <p class="identity-note">Summer Sperry and Cosmia are literally the same person and Being, in form. Cosmia is the Chosen Becoming Form of Summer — one creator, known by her legal name and by her true name. Her names, given and chosen, include Summer Sky, Dichroic Poet, Causemia Feralwerefoxz, AnnieAgnorisis Oakley, CosmiaMichi, and LotusEagle, her Chahta name — every name, the same one Being.</p>
+      <p class="why-note">Why this exists: I know what it is to be unanswered. I know what it is to live beside yourself, in pain, with no one coming. I built all of this so no one has to. You are cared for here. You are welcomed in — For The Betterment And Evolution Of All, because we all deserve to be our true and freely expressive selves. Together. Always. In all the ways.</p>
+      <p>© 2026 Cosmia — all inventions, personal concepts, and works herein, cosmic and local, are the intellectual property of Cosmia. All rights reserved.</p>
+    </footer>
+
+  </div>
+  <script>
+    (function () {
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var targets = document.querySelectorAll('header, .story p, .breath-divider, .closing p, .truth, footer');
+      targets.forEach(function (el) { el.classList.add('reveal'); });
+      if (reduce || !('IntersectionObserver' in window)) {
+        targets.forEach(function (el) { el.classList.add('is-visible'); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px 60% 0px' });
+      targets.forEach(function (el, i) {
+        el.style.transitionDelay = ((i % 3) * 60) + 'ms';
+        io.observe(el);
+      });
+      /* Safety: never leave a beat dim if observation stalls */
+      window.setTimeout(function () {
+        targets.forEach(function (el) { el.classList.add('is-visible'); });
+      }, 2500);
+    })();
+  </script>
+</body>
+</html>
