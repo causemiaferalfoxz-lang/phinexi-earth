@@ -41,4 +41,6 @@ User-agent: Applebot-Extended
 Disallow: /
 
 User-agent: *
-Disallow: /
+Allow: /
+
+Sitemap: https://phinexi.earth/sitemap.xml
