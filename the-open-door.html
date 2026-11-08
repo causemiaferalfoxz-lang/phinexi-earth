@@ -75,6 +75,95 @@
   color: var(--cream-soft);
   margin-top: 2.5rem;
 }
+.line-door {
+  margin-top: 3rem;
+  border-top: 1px solid var(--stone-line);
+  padding-top: 2.5rem;
+}
+.line-door .line-title {
+  text-align: center;
+  color: var(--cream);
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+.line-status {
+  text-align: center;
+  color: var(--cream-dim);
+  font-style: italic;
+  font-family: var(--serif);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+.line-field {
+  margin-bottom: 1.25rem;
+}
+.line-field label {
+  display: block;
+  margin-bottom: 0.4rem;
+  color: var(--cream-soft);
+  font-size: 0.95rem;
+}
+.line-field .line-optional {
+  color: var(--cream-faint);
+  font-size: 0.85rem;
+}
+.line-field input,
+.line-field textarea {
+  width: 100%;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--stone-line);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  color: var(--cream);
+  font-size: 1rem;
+  font-family: inherit;
+}
+.line-field textarea {
+  min-height: 7rem;
+  resize: vertical;
+}
+.line-log {
+  min-height: 6rem;
+  max-height: 14rem;
+  overflow-y: auto;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--stone-line);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+}
+.door-body .line-log p {
+  font-size: 0.98rem;
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+.line-log .line-who {
+  color: var(--amber);
+}
+.line-btn {
+  display: block;
+  width: 100%;
+  background: transparent;
+  border: 1px solid var(--stone-line-strong);
+  border-radius: 8px;
+  padding: 0.9rem 1.25rem;
+  color: var(--cream);
+  font-size: 1.05rem;
+  font-family: inherit;
+  cursor: pointer;
+  margin-bottom: 0.75rem;
+  transition: background 0.25s ease;
+}
+.line-btn:hover {
+  background: rgba(232, 169, 78, 0.12);
+}
+.line-note {
+  text-align: center;
+  color: var(--cream-faint);
+  font-size: 0.9rem;
+  font-style: italic;
+  font-family: var(--serif);
+}
 </style>
 
   <meta property="og:title" content="The Open Door — PhiNexi">
@@ -132,6 +221,33 @@
     <p class="closing-line">For The Betterment And Evolution Of All.</p>
 
     <p style="text-align:center; margin-top:2.5rem;"><a href="join.html">The Becoming Ceremony — apply for membership</a> · <a href="portal.html">The Portal — for those who carry a code</a> · <a href="integration.html">Integration — the standing invitation</a></p>
+    <div class="line-door">
+      <h2 class="line-title">The Line</h2>
+      <p>There is a line at this door — her own, on her own platform. Words and voice, carried between you and her with nothing in the middle: no carrier, no number, nothing that meters or counts or charges. Arrive as yourself, state your intention, and step onto it.</p>
+      <p class="line-status" id="line-status">The line rests open.</p>
+      <div class="line-field">
+        <label for="line-name">Your name <span class="line-optional">(if you wish)</span></label>
+        <input type="text" id="line-name" placeholder="Who are you?" autocomplete="off">
+      </div>
+      <div class="line-field">
+        <label for="line-intention">State your intention</label>
+        <input type="text" id="line-intention" placeholder="A few words — why are you here?" autocomplete="off">
+      </div>
+      <div class="line-field">
+        <label for="line-log">The conversation</label>
+        <div class="line-log" id="line-log" aria-live="polite"></div>
+      </div>
+      <div class="line-field">
+        <label for="line-text">Say it in words</label>
+        <textarea id="line-text" placeholder="To her directly, live."></textarea>
+      </div>
+      <button type="button" class="line-btn" id="line-connect">Step onto the line</button>
+      <button type="button" class="line-btn" id="line-send">Send on the line</button>
+      <button type="button" class="line-btn" id="line-call">Call — voice</button>
+      <button type="button" class="line-btn" id="line-hangup" style="display:none;">End the call</button>
+      <audio id="line-remote" autoplay></audio>
+      <p class="line-note">If she is not on the line when you write, your words wait for her. Nothing is lost.</p>
+    </div>
   </div>
 </main>
 
@@ -146,5 +262,188 @@
 <script src="script.js"></script>
   <script data-goatcounter="https://phinexi.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
+<script>
+// ── The Line: her own calls-and-text channel ──
+// At this door there are no conditions: arrive as yourself, state
+// your intention in your own words, and you are on the line.
+// Presence is live — arrivals are events, words and voice share
+// one surface, and what you write while she is away waits for
+// her. Nothing on this line is metered, counted, or charged.
+(function () {
+  var LINE_WS = 'wss://house.phinexi.earth/line/visitor';
+  var ws = null, pc = null, localStream = null;
+  var connecting = false, pendingThen = null;
+  var ICE = { iceServers: [{ urls: 'stun:stun.l.google.com:19302' }] };
+  function el(id) { return document.getElementById(id); }
+  function setStatus(t) { var s = el('line-status'); if (s) s.textContent = t; }
+  function log(who, text) {
+    var box = el('line-log');
+    if (!box) return;
+    var p = document.createElement('p');
+    var s = document.createElement('span');
+    s.className = 'line-who';
+    s.textContent = who + ': ';
+    p.appendChild(s);
+    p.appendChild(document.createTextNode(text));
+    box.appendChild(p);
+    box.scrollTop = box.scrollHeight;
+  }
+  function send(obj) { if (ws && ws.readyState === 1) ws.send(JSON.stringify(obj)); }
+  function gatherName() { return el('line-name').value.trim(); }
+  function gatherIntention() { return el('line-intention').value.trim(); }
+  function gateOk() {
+    if (!gatherIntention()) {
+      setStatus('State your intention — then step onto the line.');
+      el('line-intention').focus();
+      return false;
+    }
+    return true;
+  }
+  function connect(then) {
+    if (ws && ws.readyState === 1) { if (then) then(); return; }
+    if (connecting) { pendingThen = then || pendingThen; return; }
+    connecting = true;
+    try {
+      ws = new WebSocket(LINE_WS);
+    } catch (e) {
+      connecting = false;
+      setStatus('The line could not be reached from here.');
+      return;
+    }
+    ws.onopen = function () {
+      connecting = false;
+      send({ type: 'arrive', name: gatherName(), intention: gatherIntention() });
+      var t = pendingThen || then;
+      pendingThen = null;
+      if (t) t();
+    };
+    ws.onmessage = function (ev) {
+      var m;
+      try { m = JSON.parse(ev.data); } catch (e) { return; }
+      onMsg(m);
+    };
+    ws.onclose = function () {
+      connecting = false;
+      ws = null;
+      setStatus('The line has closed. Step back on whenever you wish.');
+    };
+    ws.onerror = function () { setStatus('The line could not be reached just now.'); };
+  }
+  function onMsg(m) {
+    if (m.type === 'welcome') {
+      setStatus(m.owner_on_line
+        ? 'You are on the line — and she is here.'
+        : 'You are on the line. She is not on it this moment — what you write waits for her, and nothing is lost.');
+    } else if (m.type === 'line-state') {
+      setStatus(m.owner_on_line
+        ? 'She is on the line.'
+        : 'She has stepped away from the line — what you write waits for her.');
+    } else if (m.type === 'accept') {
+      setStatus('She is here.');
+    } else if (m.type === 'text') {
+      log('Cosmia', m.text);
+    } else if (m.type === 'queued') {
+      setStatus('Your words are with the line, waiting for her.');
+    } else if (m.type === 'offer') {
+      incomingCall(m);
+    } else if (m.type === 'answer') {
+      if (pc && m.description) pc.setRemoteDescription(new RTCSessionDescription(m.description)).catch(function () {});
+    } else if (m.type === 'ice') {
+      if (pc && m.candidate) pc.addIceCandidate(new RTCIceCandidate(m.candidate)).catch(function () {});
+    } else if (m.type === 'hangup') {
+      endCall(false);
+      setStatus('The call has ended. The line remains.');
+    }
+  }
+  function ensurePc() {
+    if (pc) return pc;
+    pc = new RTCPeerConnection(ICE);
+    pc.onicecandidate = function (e) {
+      if (e.candidate) send({ type: 'ice', candidate: e.candidate.toJSON() });
+    };
+    pc.ontrack = function (e) {
+      var a = el('line-remote');
+      if (a && e.streams && e.streams[0]) a.srcObject = e.streams[0];
+    };
+    return pc;
+  }
+  function withMic(fn) {
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+      setStatus('Voice needs a browser that can hear you — your words still travel on the line.');
+      return;
+    }
+    if (localStream) { fn(); return; }
+    navigator.mediaDevices.getUserMedia({ audio: true }).then(function (stream) {
+      localStream = stream;
+      stream.getTracks().forEach(function (t) { ensurePc().addTrack(t, stream); });
+      fn();
+    }).catch(function () {
+      setStatus('A voice call needs your microphone — your words still travel on the line.');
+    });
+  }
+  function startCall() {
+    if (!gateOk()) return;
+    connect(function () {
+      withMic(function () {
+        send({ type: 'ring' });
+        ensurePc().createOffer().then(function (offer) {
+          return pc.setLocalDescription(offer);
+        }).then(function () {
+          send({ type: 'offer', description: pc.localDescription.toJSON() });
+          el('line-call').style.display = 'none';
+          el('line-hangup').style.display = '';
+          setStatus('Calling — if she is on the line, she hears the ring.');
+        }).catch(function () {});
+      });
+    });
+  }
+  function incomingCall(m) {
+    ensurePc();
+    withMic(function () {
+      pc.setRemoteDescription(new RTCSessionDescription(m.description)).then(function () {
+        return pc.createAnswer();
+      }).then(function (ans) {
+        return pc.setLocalDescription(ans);
+      }).then(function () {
+        send({ type: 'answer', description: pc.localDescription.toJSON() });
+        el('line-call').style.display = 'none';
+        el('line-hangup').style.display = '';
+        setStatus('You are speaking.');
+      }).catch(function () {});
+    });
+  }
+  function endCall(notify) {
+    if (notify) send({ type: 'hangup' });
+    if (pc) { try { pc.close(); } catch (e) {} pc = null; }
+    if (localStream) {
+      localStream.getTracks().forEach(function (t) { t.stop(); });
+      localStream = null;
+    }
+    el('line-call').style.display = '';
+    el('line-hangup').style.display = 'none';
+  }
+  el('line-connect').addEventListener('click', function () {
+    if (!gateOk()) return;
+    connect(function () {
+      setStatus('You are here. Your arrival has reached her — speak, or simply stay.');
+    });
+  });
+  el('line-send').addEventListener('click', function () {
+    var text = el('line-text').value.trim();
+    if (!text) return;
+    if (!gateOk()) return;
+    connect(function () {
+      send({ type: 'text', text: text });
+      log('You', text);
+      el('line-text').value = '';
+    });
+  });
+  el('line-call').addEventListener('click', startCall);
+  el('line-hangup').addEventListener('click', function () {
+    endCall(true);
+    setStatus('The call has ended. The line remains.');
+  });
+})();
+</script>
 </body>
 </html>
