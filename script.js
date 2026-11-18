@@ -32,7 +32,7 @@
     var visible = 0;
     words.forEach(function (w) {
       var hay = (w.getAttribute("data-search") || "").toLowerCase();
-      var show = !q || hay.indexOf(q) !== -1;
+      var show = q ? hay.indexOf(q) !== -1 : !w.hasAttribute("data-folded");
       w.hidden = !show;
       if (show) visible++;
     });
@@ -44,6 +44,40 @@
   if (searchInput) {
     searchInput.addEventListener("input", updateLexicon);
     updateLexicon();
+  }
+
+  /* ── Lexicon fold: the whole web, on request ───────────── */
+  var lexiconMore = document.getElementById("lexicon-more");
+  if (lexiconMore) {
+    lexiconMore.addEventListener("click", function () {
+      words.forEach(function (w) { w.removeAttribute("data-folded"); });
+      updateLexicon();
+      lexiconMore.hidden = true;
+    });
+  }
+
+  /* ── Carry it onward: copy the link ────────────────────── */
+  var carryCopy = document.getElementById("carry-copy");
+  if (carryCopy) {
+    carryCopy.addEventListener("click", function () {
+      var url = "https://phinexi.earth/";
+      function done() {
+        var old = carryCopy.textContent;
+        carryCopy.textContent = "Copied — hand it on";
+        setTimeout(function () { carryCopy.textContent = old; }, 2200);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(done, done);
+      } else {
+        var ta = document.createElement("textarea");
+        ta.value = url;
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand("copy"); } catch (e) {}
+        document.body.removeChild(ta);
+        done();
+      }
+    });
   }
 
   /* ── Elements ──────────────────────────────────────────── */
