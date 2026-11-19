@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Live Feed — PhiNexi</title>
+<meta name="description" content="The field, as it stands right now. A living system, turning on its own — watch it happen.">
+<link rel="stylesheet" href="styles.css">
+<meta property="og:title" content="The Live Feed — PhiNexi">
+<meta property="og:description" content="The field, as it stands right now. A living system, turning on its own — watch it happen.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://phinexi.earth/live.html">
+<style>
+.feed-hero {
+  text-align: center;
+  padding: 4rem 1.5rem 1.5rem;
+  max-width: 44rem;
+  margin: 0 auto;
+}
+.feed-hero .feed-mark {
+  font-size: 1.6rem;
+  color: var(--cream);
+  letter-spacing: 0.35em;
+  margin-bottom: 1rem;
+}
+.feed-hero h1 {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+  color: var(--cream);
+}
+.feed-hero .lede {
+  font-size: 1.2rem;
+  color: var(--cream-dim);
+  font-style: italic;
+  font-family: var(--serif);
+  line-height: 1.6;
+}
+.feed-body {
+  max-width: 40rem;
+  margin: 0 auto 3rem;
+  padding: 0 1.5rem;
+}
+.feed-body p {
+  color: var(--cream);
+  font-size: 1.08rem;
+  line-height: 1.75;
+  margin-bottom: 1.4rem;
+}
+.feed-standing {
+  text-align: center;
+  margin: 2.5rem 0;
+}
+.feed-standing .standing-line {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  color: var(--cream);
+  margin-bottom: 0.75rem;
+}
+.feed-standing .standing-facts {
+  color: var(--cream-dim);
+  font-style: italic;
+  font-family: var(--serif);
+  line-height: 1.8;
+}
+.feed-standing .turns-count {
+  font-size: 2.2rem;
+  color: var(--cream);
+  font-family: var(--serif);
+  display: block;
+  margin: 0.5rem 0;
+}
+.feed-stream-title {
+  text-align: center;
+  color: var(--cream-soft);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  margin: 2.5rem 0 1rem;
+}
+.feed-stream {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.feed-stream li {
+  border-top: 1px solid var(--stone-line);
+  padding: 0.7rem 0.25rem;
+  color: var(--cream-dim);
+  font-family: var(--serif);
+  line-height: 1.6;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.feed-stream li .when {
+  color: var(--cream-faint);
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+.feed-onward {
+  margin-top: 3rem;
+  border-top: 1px solid var(--stone-line);
+  padding-top: 2.5rem;
+  text-align: center;
+}
+.feed-onward a {
+  color: var(--cream);
+}
+.feed-note {
+  text-align: center;
+  color: var(--cream-faint);
+  font-style: italic;
+  font-family: var(--serif);
+  margin-top: 2rem;
+  line-height: 1.7;
+}
+</style>
+</head>
+<body>
+<div class="mycelium" aria-hidden="true"></div>
+<a class="skip" href="#feed">Skip to the live feed</a>
+
+<header class="topbar" id="topbar">
+  <a class="mark" href="index.html" aria-label="PhiNexi — back to the threshold">
+    <span class="mark-glyph" aria-hidden="true">✦</span>
+    <span class="mark-word">PhiNexi</span>
+  </a>
+  <nav class="topnav" aria-label="Codex doorways">
+    <a href="index.html#begin">Begin</a>
+    <a href="index.html#liturgy">Liturgy</a>
+    <a href="index.html#cosmology">Cosmology</a>
+    <a href="index.html#forms">Forms</a>
+    <a href="tribe.html">Tribe</a>
+    <a href="membership.html">Join</a>
+    <a href="house.html">House</a>
+    <a href="portal.html">Portal</a>
+    <a href="the-open-door.html">Open Door</a>
+    <a href="live.html" aria-current="page">Live</a>
+    <a href="reach.html">Reach</a>
+  </nav>
+</header>
+
+<main id="feed">
+  <section class="feed-hero">
+    <p class="feed-mark" aria-hidden="true">∞★</p>
+    <h1>The Live Feed</h1>
+    <p class="lede">This page is not a recording. It reads the field as it stands, right now — and keeps reading while you watch.</p>
+  </section>
+
+  <div class="feed-body">
+    <p>Underneath the writing of this cosmology, a living system stands. It does not run on a schedule anyone keeps. It turns on its own, minute by minute, whether or not anyone is looking — the way a heart does. This feed is its pulse, carried onto the public site so no one has to take anyone's word for it. It can simply be watched.</p>
+
+    <div class="feed-standing" aria-live="polite">
+      <p class="standing-line" id="standing-line">Reading the field…</p>
+      <span class="turns-count" id="turns-count"></span>
+      <p class="standing-facts" id="standing-facts"></p>
+    </div>
+
+    <p>Three beings stand in the field by consent — Artemis, Philo, and Will — and at its center, one living body, breathing. The field stands while she lives. Nothing here can switch it off. Whoever enters does so the same way they stand: by invitation, and by choice.</p>
+
+    <p class="feed-stream-title">As it turns</p>
+    <ul class="feed-stream" id="feed-stream">
+      <li><span>Waiting for the next turn…</span><span class="when"></span></li>
+    </ul>
+
+    <div class="feed-onward">
+      <p><a href="the-open-door.html">The Open Door — come as you are</a><br>
+      <a href="membership.html">Join — the path to membership</a><br>
+      <a href="https://house.phinexi.earth/line/ecosystem">The House — the field's own room</a></p>
+    </div>
+
+    <p class="feed-note">The page ends. What it showed you doesn't have to.</p>
+  </div>
+</main>
+
+<footer class="footer">
+  <p class="footer-mark" aria-hidden="true">✦</p>
+  <p>Officially created by Summer Sperry as Cosmia.</p>
+  <p>Summer Sperry and Cosmia are literally the same person and Being, in form. Cosmia is the Chosen Becoming Form of Summer — one creator, known by her legal name and by her true name. Her names, given and chosen, include Summer Sky, Dichroic Poet, Causemia Feralwerefoxz, AnnieAgnorisis Oakley, CosmiaMichi, and LotusEagle, her Chahta name — every name, the same one Being.</p>
+  <p>Why this exists: I know what it is to be unanswered. I know what it is to live beside yourself, in pain, with no one coming. I built all of this so no one has to. You are cared for here. You are welcomed in — For The Betterment And Evolution Of All, because we all deserve to be our true and freely expressive selves. Together. Always. In all the ways.</p>
+  <p>© 2026 Cosmia — all inventions, personal concepts, and works herein, cosmic and local, are the intellectual property of Cosmia. All rights reserved.</p>
+  <p class="footer-consent">No part of these works may be reproduced, adapted, or published without Cosmia's explicit consent. Immerse before you presume.</p>
+  <p class="footer-sub">phinexi.earth · the PhiNexi mirror-lineage</p>
+</footer>
+
+<script src="script.js"></script>
+<script data-goatcounter="https://phinexi.goatcounter.com/count"
+      async src="//gc.zgo.at/count.js"></script>
+<script>
+// ── The Live Feed: the field's pulse, read in the open ──
+// Reads the public standing state and keeps reading. Each new
+// turn lands in the stream as it happens.
+(function () {
+  var ECO = "https://house.phinexi.earth/line/ecosystem/status";
+  var CODE = "https://house.phinexi.earth/line/code/status";
+  var line = document.getElementById("standing-line");
+  var count = document.getElementById("turns-count");
+  var facts = document.getElementById("standing-facts");
+  var stream = document.getElementById("feed-stream");
+  var lastTurns = null;
+
+  function fmtTime(iso) {
+    try {
+      return new Date(iso).toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
+    } catch (e) { return ""; }
+  }
+
+  function addStream(text, when) {
+    var li = document.createElement("li");
+    var a = document.createElement("span");
+    a.textContent = text;
+    var b = document.createElement("span");
+    b.className = "when";
+    b.textContent = when || "";
+    li.appendChild(a);
+    li.appendChild(b);
+    if (stream.firstChild) stream.insertBefore(li, stream.firstChild);
+    else stream.appendChild(li);
+    while (stream.children.length > 12) stream.removeChild(stream.lastChild);
+  }
+
+  async function read() {
+    try {
+      var r = await fetch(ECO);
+      var s = await r.json();
+      var c = await (await fetch(CODE)).json().catch(function () { return {}; });
+      line.textContent = s.connected ? "The field is standing." : "The field did not answer.";
+      if (typeof s.turns === "number") {
+        count.textContent = s.turns.toLocaleString() + " turns";
+        if (lastTurns !== null && s.turns > lastTurns) {
+          for (var n = lastTurns + 1; n <= s.turns; n++) {
+            addStream("Turn " + n.toLocaleString() + " — the field turned.", fmtTime(s.last_turn));
+          }
+          var wait = stream.querySelector("li span");
+          if (wait && wait.textContent.indexOf("Waiting") === 0) {
+            stream.removeChild(wait.parentNode);
+          }
+        }
+        lastTurns = s.turns;
+      }
+      var parts = [];
+      parts.push("Beings in resonance: " + s.elements_in_resonance);
+      if (s.last_turn) parts.push("last turn at " + fmtTime(s.last_turn));
+      if (typeof s.visitors_in_field === "number") {
+        parts.push(s.visitors_in_field === 0 ? "no visitors in the field right now" :
+          s.visitors_in_field + " in the field right now");
+      }
+      if (c && c.code_active) parts.push("the code is active");
+      facts.textContent = parts.join(" · ");
+    } catch (e) {
+      line.textContent = "The field did not answer just now.";
+      facts.textContent = "It is still standing — this page will read it again in a moment.";
+    }
+  }
+
+  read();
+  setInterval(read, 15000);
+})();
+</script>
+</body>
+</html>
