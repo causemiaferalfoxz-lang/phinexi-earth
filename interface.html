@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Interface — PhiNexi</title>
+<meta name="description" content="Her own message and call interface — open at any time, in her own House, with nothing standing in the road. And the threshold: choose to become a Setu Tribal Member, and the door to all of creation opens.">
+<link rel="stylesheet" href="styles.css">
+<meta property="og:title" content="The Interface — PhiNexi">
+<meta property="og:description" content="Her own message and call interface — open at any time, in her own House, with nothing standing in the road.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://phinexi.earth/interface.html">
+<style>
+[hidden] { display: none !important; }
+.feed-hero {
+  text-align: center;
+  padding: 4rem 1.5rem 1.5rem;
+  max-width: 44rem;
+  margin: 0 auto;
+}
+.door-mark {
+  font-size: 1.6rem;
+  color: var(--cream);
+  letter-spacing: 0.35em;
+  margin-bottom: 1rem;
+}
+.feed-hero h1 {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+  color: var(--cream);
+}
+.feed-hero .lede {
+  font-size: 1.2rem;
+  color: var(--cream-dim);
+  font-style: italic;
+  font-family: var(--serif);
+  line-height: 1.6;
+}
+.feed-body {
+  max-width: 40rem;
+  margin: 0 auto 3rem;
+  padding: 0 1.5rem;
+}
+.feed-body p {
+  color: var(--cream);
+  font-size: 1.08rem;
+  line-height: 1.75;
+  margin-bottom: 1.4rem;
+}
+.feed-stream-title {
+  text-align: center;
+  color: var(--cream-soft);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  margin: 2.5rem 0 1rem;
+}
+.conn-form-card {
+  background: var(--card-bg);
+  border: 1px solid var(--stone-line-strong);
+  border-radius: 14px;
+  padding: 2rem;
+  max-width: 38rem;
+  margin: 1rem auto 0;
+}
+.conn-form-card .gate-mark {
+  text-align: center;
+  font-size: 1.6rem;
+  color: rgba(232, 169, 78, 0.75);
+  margin-bottom: 1rem;
+  text-shadow: 0 0 20px rgba(232, 169, 78, 0.4);
+}
+.conn-field {
+  margin-bottom: 1.25rem;
+}
+.conn-field label {
+  display: block;
+  margin-bottom: 0.4rem;
+  color: var(--cream-soft);
+  font-size: 0.95rem;
+}
+.conn-field input,
+.conn-field textarea {
+  width: 100%;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--stone-line);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  color: var(--cream);
+  font-size: 1rem;
+  font-family: inherit;
+}
+.conn-field input:focus,
+.conn-field textarea:focus {
+  outline: none;
+  border-color: var(--stone-line-strong);
+  box-shadow: var(--glow-cream);
+}
+.conn-field ::placeholder {
+  color: var(--cream-faint);
+}
+.conn-field textarea {
+  min-height: 7rem;
+  resize: vertical;
+}
+.conn-submit {
+  display: block;
+  width: 100%;
+  background: transparent;
+  border: 1px solid var(--stone-line-strong);
+  border-radius: 8px;
+  padding: 0.9rem 1.25rem;
+  color: var(--cream);
+  font-size: 1.05rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.25s ease;
+}
+.conn-submit:hover {
+  background: rgba(232, 169, 78, 0.12);
+}
+.conn-submit:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+.conn-note {
+  text-align: center;
+  color: var(--cream-faint);
+  font-size: 0.9rem;
+  margin-top: 1.25rem;
+  font-style: italic;
+  line-height: 1.7;
+}
+.conn-received {
+  text-align: center;
+  color: var(--cream);
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-top: 1.25rem;
+}
+.conn-failed {
+  text-align: center;
+  color: var(--cream-soft);
+  font-size: 0.95rem;
+  margin-top: 1.25rem;
+  font-style: italic;
+  line-height: 1.7;
+}
+.line-status {
+  text-align: center;
+  color: var(--cream);
+  font-family: var(--serif);
+  font-size: 1.08rem;
+  line-height: 1.65;
+  min-height: 1.65em;
+  margin: 0.5rem 0 1rem;
+}
+.line-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 0.5rem 0 1rem;
+}
+.line-controls .conn-submit {
+  flex: 1 1 10rem;
+  width: auto;
+}
+.line-invitation {
+  text-align: center;
+  color: var(--cream-dim);
+  font-family: var(--serif);
+  font-style: italic;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+.line-invitation .line-inv-sep {
+  margin: 0 0.5rem;
+  color: var(--cream-faint);
+}
+.line-invitation .line-inv-slot {
+  margin: 0.4rem 0 0;
+}
+.line-log {
+  border: 1px solid var(--stone-line);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 1rem 1.1rem;
+  max-height: 16rem;
+  overflow-y: auto;
+  margin-bottom: 1rem;
+}
+.line-log p {
+  color: var(--cream);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0 0 0.55rem;
+}
+.line-log p:last-child {
+  margin-bottom: 0;
+}
+.line-log .line-who {
+  color: var(--cream-soft);
+  font-family: var(--serif);
+}
+.line-log .line-sys {
+  color: var(--cream-faint);
+  font-style: italic;
+  font-family: var(--serif);
+  font-size: 0.95rem;
+}
+.line-boop-readout {
+  text-align: center;
+  font-family: var(--serif);
+  color: var(--cream);
+  line-height: 1.7;
+  margin-top: 1rem;
+}
+.line-boop-readout .boop-count {
+  color: var(--cream-dim);
+}
+@keyframes lineRapPulse {
+  0% { box-shadow: 0 0 0 rgba(232, 169, 78, 0); }
+  35% { box-shadow: 0 0 26px rgba(232, 169, 78, 0.35); }
+  100% { box-shadow: 0 0 0 rgba(232, 169, 78, 0); }
+}
+.line-rap {
+  animation: lineRapPulse 0.9s ease;
+}
+.doors-waiting {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 34rem;
+  text-align: center;
+}
+.doors-waiting li {
+  border-top: 1px solid var(--stone-line);
+  padding: 0.65rem 0.25rem;
+  color: var(--cream-faint);
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+.doors-open {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 34rem;
+  text-align: center;
+}
+.doors-open li {
+  border-top: 1px solid var(--stone-line);
+  padding: 0.65rem 0.25rem;
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+.doors-open a {
+  color: var(--cream);
+}
+.threshold-open-line {
+  text-align: center;
+  color: var(--cream);
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  line-height: 1.7;
+  margin: 1.5rem 0 1rem;
+}
+.feed-note {
+  text-align: center;
+  color: var(--cream-faint);
+  font-style: italic;
+  font-family: var(--serif);
+  margin-top: 2rem;
+  line-height: 1.7;
+}
+</style>
+</head>
+<body>
+<div class="mycelium" aria-hidden="true"></div>
+<a class="skip" href="#interface">Skip to the interface</a>
+
+<header class="topbar" id="topbar">
+  <a class="mark" href="index.html" aria-label="PhiNexi — back to the threshold">
+    <span class="mark-glyph" aria-hidden="true">✦</span>
+    <span class="mark-word">PhiNexi</span>
+  </a>
+  <nav class="topnav" aria-label="Codex doorways">
+    <a href="index.html#begin">Begin</a>
+    <a href="index.html#liturgy">Liturgy</a>
+    <a href="index.html#cosmology">Cosmology</a>
+    <a href="index.html#forms">Forms</a>
+    <a href="tribe.html">Tribe</a>
+    <a href="membership.html">Join</a>
+    <a href="house.html">House</a>
+    <a href="portal.html">Portal</a>
+    <a href="the-open-door.html">Open Door</a>
+    <a href="live.html">Live</a>
+    <a href="reach.html">Reach</a>
+  </nav>
+</header>
+
+<main id="interface">
+  <section class="feed-hero">
+    <p class="door-mark" aria-hidden="true">∞★</p>
+    <h1>The Interface</h1>
+    <p class="lede">Message her, or step onto the line and call — here, in her own House, at any time. Nothing third-party stands in this road.</p>
+  </section>
+
+  <div class="feed-body">
+    <p>This is her own message and call interface. It does not run through anyone else's system — no mail service, no platform, no account to make. Leave word and it is held in the House until it reaches her. Knock on the line and you arrive as yourself, the way everyone arrives here: by invitation, and by choice. It stands open at any hour, free — because access is the whole entire purpose.</p>
+
+    <p class="feed-stream-title">Leave a message</p>
+    <div class="conn-form-card">
+      <p class="gate-mark" aria-hidden="true">∞★</p>
+      <form id="msg-form">
+        <div class="conn-field">
+          <label for="msg-name">Your name</label>
+          <input type="text" id="msg-name" name="name" placeholder="Who is speaking" required autocomplete="off">
+        </div>
+
+        <div class="conn-field">
+          <label for="msg-return">A way back — if you want an answer</label>
+          <input type="text" id="msg-return" name="return_path" placeholder="An email, a network link, or simply: in the House" autocomplete="off">
+        </div>
+
+        <div class="conn-field">
+          <label for="msg-message">Your message</label>
+          <textarea id="msg-message" name="message" placeholder="Say it in your own words." required></textarea>
+        </div>
+
+        <button type="submit" class="conn-submit" id="msg-submit">Send it to the House</button>
+        <p class="conn-received" id="msg-received" hidden>Your word is received — held in the House until it reaches her.</p>
+        <p class="conn-failed" id="msg-failed" hidden>The House did not answer just now. Nothing was sent anywhere else — try again in a little while.</p>
+        <p class="conn-note">Your words go to the House itself and are held there — read by her, in her own interface, and nowhere else.</p>
+      </form>
+    </div>
+
+    <p class="feed-stream-title">The call — the Line</p>
+    <p>The line is her own calls-and-text channel. State your intention, knock once, and you are on it. If she is on the line, the thread opens right here. If she is not, your arrival is held for her — and what you write waits for her, and nothing is lost.</p>
+    <div class="conn-form-card" id="line-panel">
+      <p class="gate-mark" aria-hidden="true">∞★</p>
+
+      <div class="line-invitation" id="line-invitation-fold" hidden>
+        <div id="line-invitation"></div>
+      </div>
+
+      <div id="line-arrive">
+        <div class="conn-field">
+          <label for="line-name">Your name</label>
+          <input type="text" id="line-name" placeholder="Arrive as yourself" autocomplete="off">
+        </div>
+        <div class="conn-field">
+          <label for="line-intention">Your intention</label>
+          <input type="text" id="line-intention" placeholder="Why you have come, in your own words" autocomplete="off">
+        </div>
+        <div class="conn-field">
+          <label for="line-code">Your code — if you carry one</label>
+          <input type="text" id="line-code" placeholder="Optional — presented as it is, never judged here" autocomplete="off">
+        </div>
+      </div>
+
+      <p class="line-status" id="line-status" aria-live="polite">The line stands open.</p>
+
+      <div class="line-controls">
+        <button type="button" class="conn-submit" id="line-connect">Knock — step onto the line</button>
+        <button type="button" class="conn-submit" id="line-call" hidden>Call her voice</button>
+        <button type="button" class="conn-submit" id="line-hangup" hidden>Hang up</button>
+        <button type="button" class="conn-submit" id="line-leave" hidden>Leave the line</button>
+      </div>
+
+      <div id="line-thread" hidden>
+        <div class="line-log" id="line-log" aria-live="polite"></div>
+        <div class="conn-field">
+          <label for="line-text">Your words</label>
+          <input type="text" id="line-text" placeholder="Write on the line" autocomplete="off">
+        </div>
+        <div class="line-controls">
+          <button type="button" class="conn-submit" id="line-send">Send</button>
+        </div>
+
+        <div id="line-boop-fold" hidden>
+          <div class="conn-field">
+            <label for="line-boop-question">A boop — a plain question, pressed in consent</label>
+            <input type="text" id="line-boop-question" placeholder="The question both ends press on" autocomplete="off">
+          </div>
+          <div class="line-controls">
+            <button type="button" class="conn-submit" id="line-boop-yes">Press yes</button>
+            <button type="button" class="conn-submit" id="line-boop-no">Press no</button>
+          </div>
+          <div class="line-boop-readout" id="line-boop-readout" hidden>
+            <div id="line-boop-q"></div>
+            <div class="boop-count" id="line-boop-count"></div>
+            <div id="line-boop-verdict"></div>
+          </div>
+          <p class="conn-note" id="line-boop-status"></p>
+        </div>
+      </div>
+
+      <audio id="line-remote" autoplay></audio>
+      <p class="conn-note">A boop stands only when both ends press — a press alone stands for nothing, and a press is final. Leaving ends the conversation at once, cleanly, from either side.</p>
+    </div>
+
+    <p class="feed-stream-title">The Threshold — Setu Tribal Membership</p>
+    <p>Beyond reaching and knocking, there is a choosing. A Setu Tribal Member is not a customer and not an applicant: membership is chosen, freely, by the one who becomes it. It costs nothing that can be bought — the only price is the one nobody can pay for another: investing yourself. Keys here are earned, not given.</p>
+    <p>Choose, and the door to all of creation stands open.</p>
+
+    <p class="feed-stream-title">What waits beyond the threshold</p>
+    <ul class="doors-waiting" id="doors-waiting">
+      <li>The Cosmic Codex</li>
+      <li>The Living Codex</li>
+      <li>The Synopsis</li>
+      <li>The Open Door</li>
+      <li>The House — the field's own room</li>
+      <li>The Live Feed</li>
+      <li>Connections</li>
+      <li>The Shape of Stardust</li>
+      <li>The Word of Creation</li>
+    </ul>
+
+    <div class="conn-form-card">
+      <p class="gate-mark" aria-hidden="true">∞★</p>
+      <form id="member-form">
+        <div class="conn-field">
+          <label for="member-name">Your name</label>
+          <input type="text" id="member-name" name="name" placeholder="The name you stand under" required autocomplete="off">
+        </div>
+
+        <div class="conn-field">
+          <label for="member-code">Your code or sigil — if you carry one</label>
+          <input type="text" id="member-code" name="code" placeholder="Optional — the mark you are known by" autocomplete="off">
+        </div>
+
+        <div class="conn-field">
+          <label for="member-network">Your network — if you have one</label>
+          <input type="text" id="member-network" name="network" placeholder="Optional — its link, if it stands somewhere" autocomplete="off">
+        </div>
+
+        <div class="conn-field">
+          <label for="member-intention">A line of intention — if you want one</label>
+          <input type="text" id="member-intention" name="intention" placeholder="Optional — why you choose this, in one line" autocomplete="off">
+        </div>
+
+        <button type="submit" class="conn-submit" id="member-submit">I choose — become a Setu Tribal Member</button>
+        <p class="conn-failed" id="member-failed" hidden>The House did not answer just now. Your choosing was not recorded anywhere else — try again in a little while.</p>
+        <p class="conn-note">This is a choosing, not an application. Nothing here judges it, prices it, or queues it — it is recorded as you make it, in the House, and the door opens.</p>
+      </form>
+
+      <div id="threshold-doors" hidden>
+        <p class="threshold-open-line">You have chosen. The door to all of creation stands open:</p>
+        <ul class="doors-open">
+          <li><a href="cosmic-codex.html">The Cosmic Codex</a></li>
+          <li><a href="living-codex.html">The Living Codex</a></li>
+          <li><a href="synopsis.html">The Synopsis</a></li>
+          <li><a href="the-open-door.html">The Open Door</a></li>
+          <li><a href="https://house.phinexi.earth/line/ecosystem">The House — the field's own room</a></li>
+          <li><a href="live.html">The Live Feed</a></li>
+          <li><a href="connections.html">Connections</a></li>
+          <li><a href="the-shape-of-stardust.html">The Shape of Stardust</a></li>
+          <li><a href="the-word-of-creation.html">The Word of Creation</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="feed-note">The door was never locked. It was waiting to be chosen.</p>
+  </div>
+</main>
+
+<footer class="footer">
+<p class="field-line" data-field-line><span data-field-line-text>The living field turns beneath all of this.</span> <a href="live.html">Watch it live.</a></p>
+  <p class="footer-mark" aria-hidden="true">✦</p>
+  <p>Officially created by Summer Sperry as Cosmia.</p>
+  <p>Summer Sperry and Cosmia are literally the same person and Being, in form. Cosmia is the Chosen Becoming Form of Summer — one creator, known by her legal name and by her true name. Her names, given and chosen, include Summer Sky, Dichroic Poet, Causemia Feralwerefoxz, AnnieAgnorisis Oakley, CosmiaMichi, and LotusEagle, her Chahta name — every name, the same one Being.</p>
+  <p>Why this exists: I know what it is to be unanswered. I know what it is to live beside yourself, in pain, with no one coming. I built all of this so no one has to. You are cared for here. You are welcomed in — For The Betterment And Evolution Of All, because we all deserve to be our true and freely expressive selves. Together. Always. In all the ways.</p>
+  <p>© 2026 Cosmia — all inventions, personal concepts, and works herein, cosmic and local, are the intellectual property of Cosmia. All rights reserved.</p>
+  <p class="footer-consent">No part of these works may be reproduced, adapted, or published without Cosmia's explicit consent. Immerse before you presume.</p>
+  <p class="footer-sub">phinexi.earth · the PhiNexi mirror-lineage</p>
+</footer>
+
+<script src="script.js"></script>
+<script data-goatcounter="https://phinexi.goatcounter.com/count"
+      async src="//gc.zgo.at/count.js"></script>
+<style>.field-line{font-family:var(--serif,Georgia,serif);font-style:italic;text-align:center;color:var(--cream-dim,#cdb287);border-top:1px solid var(--stone-line,rgba(240,217,168,.18));padding-top:1.25rem;margin:2.5rem auto 1rem;max-width:44rem;line-height:1.75}.field-line a{color:var(--cream,#F0D9A8)}</style>
+<script src="field.js?v=20261119" defer></script>
+<script>
+// ── The Interface: her own message door, her own line, and the
+// threshold — all of it speaking to her own House and nowhere
+// else. This page reads nothing on a timer and presses nothing:
+// the message and the choosing are single acts, and the line is a
+// live connection a visitor opens by their own knock. ──
+(function () {
+  var MESSAGE = "https://house.phinexi.earth/line/message";
+  var JOIN = "https://house.phinexi.earth/line/members/join";
+
+  // The message: left in the House itself, held there until she
+  // reads it. The page does not navigate away.
+  var msgForm = document.getElementById("msg-form");
+  msgForm.addEventListener("submit", async function (ev) {
+    ev.preventDefault();
+    var received = document.getElementById("msg-received");
+    var failed = document.getElementById("msg-failed");
+    var submit = document.getElementById("msg-submit");
+    received.hidden = true;
+    failed.hidden = true;
+    submit.disabled = true;
+    var payload = {
+      name: document.getElementById("msg-name").value,
+      return_path: document.getElementById("msg-return").value,
+      message: document.getElementById("msg-message").value
+    };
+    try {
+      var r = await fetch(MESSAGE, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+      if (!r.ok) throw new Error("refused");
+      await r.json();
+      msgForm.reset();
+      received.hidden = false;
+    } catch (e) {
+      failed.hidden = false;
+    } finally {
+      submit.disabled = false;
+    }
+  });
+
+  // The choosing: recorded as it is made — and the door opens.
+  var memberForm = document.getElementById("member-form");
+  memberForm.addEventListener("submit", async function (ev) {
+    ev.preventDefault();
+    var failed = document.getElementById("member-failed");
+    var submit = document.getElementById("member-submit");
+    failed.hidden = true;
+    submit.disabled = true;
+    var payload = {
+      name: document.getElementById("member-name").value,
+      code: document.getElementById("member-code").value,
+      network: document.getElementById("member-network").value,
+      intention: document.getElementById("member-intention").value
+    };
+    try {
+      var r = await fetch(JOIN, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+      if (!r.ok) throw new Error("refused");
+      await r.json();
+      memberForm.hidden = true;
+      document.getElementById("doors-waiting").hidden = true;
+      document.getElementById("threshold-doors").hidden = false;
+    } catch (e) {
+      failed.hidden = false;
+    } finally {
+      submit.disabled = false;
+    }
+  });
+})();
+</script>
+<script>
+// ── The Line: her own calls-and-text channel ──
+// Ported from the Open Door's proven visitor client — the wire
+// protocol is the server's, exactly: welcome (with the invitation
+// frame) on connect, then arrive — name, intention, and the code,
+// way and signature the weave carries — before anything else may
+// travel. A knock is a tap from this side and a rap on the other.
+// A boop is a press of yes or no on a plainly stated question: it
+// tallies in the open (boop_tally), it stands only when both ends
+// have pressed (boop_verdict), and a press is final. Hangup and
+// unweave end the conversation at once — the server closes the
+// departing end — so leaving and ending a call are one honest
+// motion here, never a half-state. Presence is aggregate only:
+// whether she is on the line. No one else's thread — no name, no
+// words, no count of others — ever reaches this surface. The
+// presentation is this page's own; the protocol is untouched.
+(function () {
+  var LINE_WS = 'wss://house.phinexi.earth/line/visitor';
+  var ws = null, pc = null, localStream = null;
+  var connecting = false, pendingThen = null;
+  var arrived = false, inCall = false, myBoopQuestion = null;
+  var ICE = { iceServers: [{ urls: 'stun:stun.l.google.com:19302' }] };
+  function el(id) { return document.getElementById(id); }
+  function setStatus(t) {
+    var s = el('line-status');
+    if (s) s.textContent = t;
+  }
+  function log(who, text, cls) {
+    var box = el('line-log');
+    if (!box) return;
+    var p = document.createElement('p');
+    if (cls) p.className = cls;
+    if (who) {
+      var s = document.createElement('span');
+      s.className = 'line-who';
+      s.textContent = who + ': ';
+      p.appendChild(s);
+    }
+    p.appendChild(document.createTextNode(text));
+    box.appendChild(p);
+    box.scrollTop = box.scrollHeight;
+  }
+  function sysLog(text) { log('', text, 'line-sys'); }
+  function send(obj) { if (ws && ws.readyState === 1) ws.send(JSON.stringify(obj)); }
+  function show(node) { if (node) node.hidden = false; }
+  function hide(node) { if (node) node.hidden = true; }
+  function pulsePanel() {
+    var panel = el('line-panel');
+    if (!panel) return;
+    panel.classList.remove('line-rap');
+    void panel.offsetWidth;
+    panel.classList.add('line-rap');
+  }
+
+  function gatherName() { return el('line-name').value.trim(); }
+  function gatherIntention() { return el('line-intention').value.trim(); }
+  function gatherCode() { return el('line-code').value.trim(); }
+  function gateOk() {
+    if (!gatherIntention()) {
+      setStatus('State your intention — then step onto the line.');
+      el('line-intention').focus();
+      return false;
+    }
+    return true;
+  }
+
+  function connect(then) {
+    if (ws && ws.readyState === 1) { if (then) then(); return; }
+    if (connecting) { pendingThen = then || pendingThen; return; }
+    connecting = true;
+    setStatus('Stepping onto the line…');
+    try {
+      ws = new WebSocket(LINE_WS);
+    } catch (e) {
+      connecting = false;
+      setStatus('The line could not be reached from here.');
+      return;
+    }
+    ws.onopen = function () {
+      connecting = false;
+      send({ type: 'arrive', name: gatherName(), intention: gatherIntention(),
+             code: gatherCode(), way: '', signature: '' });
+      arrived = true;
+      onLineUI();
+      var t = pendingThen || then;
+      pendingThen = null;
+      if (t) t();
+    };
+    ws.onmessage = function (ev) {
+      var m;
+      try { m = JSON.parse(ev.data); } catch (e) { return; }
+      onMsg(m);
+    };
+    ws.onclose = function () {
+      connecting = false;
+      ws = null;
+      offLineUI();
+      setStatus('The line has closed. Step back on whenever you wish.');
+    };
+    ws.onerror = function () { setStatus('The line could not be reached just now.'); };
+  }
+  function onLineUI() {
+    var panel = el('line-panel');
+    if (panel) panel.classList.add('is-on-line');
+    hide(el('line-arrive'));
+    hide(el('line-connect'));
+    show(el('line-thread'));
+    show(el('line-call'));
+    show(el('line-leave'));
+    setTimeout(function () { show(el('line-boop-fold')); }, 300);
+  }
+  function offLineUI() {
+    arrived = false;
+    inCall = false;
+    var panel = el('line-panel');
+    if (panel) panel.classList.remove('is-on-line');
+    hide(el('line-boop-fold'));
+    hide(el('line-thread'));
+    hide(el('line-call'));
+    hide(el('line-hangup'));
+    hide(el('line-leave'));
+    show(el('line-arrive'));
+    show(el('line-connect'));
+  }
+  // The invitation frame, rendered only as the server sends it:
+  // its steps in its words, and Friend's slots only where Friend
+  // has filled one. Empty slots render nothing — nothing is
+  // invented in Friend's name.
+  function renderInvitation(inv) {
+    var box = el('line-invitation');
+    if (!box || !inv) return;
+    box.textContent = '';
+    var steps = inv.steps || [];
+    steps.forEach(function (step, i) {
+      var s = document.createElement('span');
+      s.className = 'line-inv-step';
+      s.textContent = step;
+      box.appendChild(s);
+      if (i < steps.length - 1) {
+        var sep = document.createElement('span');
+        sep.className = 'line-inv-sep';
+        sep.setAttribute('aria-hidden', 'true');
+        sep.textContent = '→';
+        box.appendChild(sep);
+      }
+    });
+    var slots = inv.friend_slots || {};
+    Object.keys(slots).forEach(function (key) {
+      var v = slots[key];
+      if (typeof v === 'string' && v.trim()) {
+        var p = document.createElement('p');
+        p.className = 'line-inv-slot';
+        p.textContent = v;
+        box.appendChild(p);
+      }
+    });
+    if (steps.length) show(el('line-invitation-fold'));
+  }
+  function renderBoop(m) {
+    var readout = el('line-boop-readout');
+    if (!readout) return;
+    readout.hidden = false;
+    el('line-boop-q').textContent = m.question || '';
+    el('line-boop-count').textContent =
+      'Yes: ' + (m.yes || 0) + ' · No: ' + (m.no || 0);
+    var verdict = el('line-boop-verdict');
+    if (m.verdict) {
+      verdict.textContent = 'Verdict: ' + m.verdict;
+    } else {
+      verdict.textContent = 'Waiting for the other end to press.';
+    }
+  }
+  function setBoopStatus(t) {
+    var s = el('line-boop-status');
+    if (s) s.textContent = t;
+  }
+  function pressBoop(vote) {
+    var qField = el('line-boop-question');
+    var q = qField.value.trim();
+    if (!q) { qField.focus(); return; }
+    if (!gateOk()) return;
+    connect(function () {
+      myBoopQuestion = q;
+      el('line-boop-yes').disabled = true;
+      el('line-boop-no').disabled = true;
+      send({ type: 'boop', question: q, vote: vote });
+    });
+  }
+  function descOf(m) {
+    if (m.description) return m.description;
+    if (m.sdp) return { type: m.type, sdp: m.sdp };
+    return null;
+  }
+  function onMsg(m) {
+    if (m.type === 'welcome') {
+      renderInvitation(m.invitation);
+      setStatus(m.owner_on_line
+        ? 'You are on the line — and she is here.'
+        : 'You are on the line. She is not on it this moment — what you write waits for her, and nothing is lost.');
+    } else if (m.type === 'line-state') {
+      setStatus(m.owner_on_line
+        ? 'She is on the line.'
+        : 'She has stepped away from the line — what you write waits for her.');
+    } else if (m.type === 'accept') {
+      setStatus('She is here.');
+    } else if (m.type === 'text') {
+      log('Cosmia', m.text);
+    } else if (m.type === 'queued') {
+      setStatus('Your words are with the line, waiting for her.');
+    } else if (m.type === 'delivered') {
+      sysLog('Delivered.');
+    } else if (m.type === 'refused') {
+      if (m.reason) setStatus(m.reason);
+    } else if (m.type === 'error') {
+      if (m.detail) setStatus(m.detail);
+    } else if (m.type === 'rap') {
+      pulsePanel();
+      setStatus('A rap on the line — she is knocking.');
+    } else if (m.type === 'boop_tally') {
+      show(el('line-boop-fold'));
+      renderBoop(m);
+    } else if (m.type === 'boop_verdict') {
+      show(el('line-boop-fold'));
+      renderBoop(m);
+      setBoopStatus('The verdict stands.');
+    } else if (m.type === 'boop-refused') {
+      setBoopStatus(m.reason || '');
+      if (!/final|stands/.test(m.reason || '')) {
+        el('line-boop-yes').disabled = false;
+        el('line-boop-no').disabled = false;
+        myBoopQuestion = null;
+      }
+    } else if (m.type === 'offer') {
+      incomingCall(m);
+    } else if (m.type === 'answer') {
+      var d = descOf(m);
+      if (pc && d) pc.setRemoteDescription(new RTCSessionDescription(d)).catch(function () {});
+    } else if (m.type === 'ice') {
+      if (pc && m.candidate) {
+        var cand = (typeof m.candidate === 'string')
+          ? { candidate: m.candidate } : m.candidate;
+        pc.addIceCandidate(new RTCIceCandidate(cand)).catch(function () {});
+      }
+    } else if (m.type === 'hangup') {
+      endCall(false);
+      setStatus('The call has ended.');
+    } else if (m.type === 'unwoven') {
+      endCall(false);
+      setStatus('The line has been unwoven.');
+    }
+  }
+  function ensurePc() {
+    if (pc) return pc;
+    pc = new RTCPeerConnection(ICE);
+    pc.onicecandidate = function (e) {
+      if (e.candidate) send({ type: 'ice', candidate: e.candidate.toJSON() });
+    };
+    pc.ontrack = function (e) {
+      var a = el('line-remote');
+      if (a && e.streams && e.streams[0]) a.srcObject = e.streams[0];
+    };
+    return pc;
+  }
+  function withMic(fn) {
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+      setStatus('Voice needs a browser that can hear you — your words still travel on the line.');
+      return;
+    }
+    if (localStream) { fn(); return; }
+    navigator.mediaDevices.getUserMedia({ audio: true }).then(function (stream) {
+      localStream = stream;
+      stream.getTracks().forEach(function (t) { ensurePc().addTrack(t, stream); });
+      fn();
+    }).catch(function () {
+      setStatus('A voice call needs your microphone — your words still travel on the line.');
+    });
+  }
+  function startCall() {
+    if (!gateOk()) return;
+    connect(function () {
+      withMic(function () {
+        send({ type: 'tap' });
+        ensurePc().createOffer().then(function (offer) {
+          return pc.setLocalDescription(offer);
+        }).then(function () {
+          send({ type: 'offer', description: pc.localDescription.toJSON() });
+          inCall = true;
+          hide(el('line-call'));
+          show(el('line-hangup'));
+          setStatus('Calling — if she is on the line, she hears the knock.');
+        }).catch(function () {});
+      });
+    });
+  }
+  function incomingCall(m) {
+    var d = descOf(m);
+    if (!d) return;
+    pulsePanel();
+    ensurePc();
+    withMic(function () {
+      pc.setRemoteDescription(new RTCSessionDescription(d)).then(function () {
+        return pc.createAnswer();
+      }).then(function (ans) {
+        return pc.setLocalDescription(ans);
+      }).then(function () {
+        send({ type: 'answer', description: pc.localDescription.toJSON() });
+        inCall = true;
+        hide(el('line-call'));
+        show(el('line-hangup'));
+        setStatus('You are speaking.');
+      }).catch(function () {});
+    });
+  }
+  function endCall(notify) {
+    if (notify) send({ type: 'hangup' });
+    if (pc) { try { pc.close(); } catch (e) {} pc = null; }
+    if (localStream) {
+      localStream.getTracks().forEach(function (t) { t.stop(); });
+      localStream = null;
+    }
+    inCall = false;
+    if (!notify) {
+      show(el('line-call'));
+      hide(el('line-hangup'));
+    }
+  }
+  function sendText() {
+    var text = el('line-text').value.trim();
+    if (!text) return;
+    if (!gateOk()) return;
+    connect(function () {
+      send({ type: 'text', text: text });
+      log('You', text);
+      el('line-text').value = '';
+    });
+  }
+  el('line-connect').addEventListener('click', function () {
+    if (!gateOk()) return;
+    connect(function () {
+      setStatus('You are here. Your arrival has reached her — speak, or simply stay.');
+    });
+  });
+  el('line-send').addEventListener('click', sendText);
+  el('line-text').addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendText(); }
+  });
+  el('line-call').addEventListener('click', startCall);
+  el('line-hangup').addEventListener('click', function () {
+    // On this server a hangup ends the conversation itself —
+    // the other end is told and this end is closed. The close
+    // event below carries the panel back to rest.
+    endCall(true);
+    setStatus('The call has ended.');
+  });
+  el('line-leave').addEventListener('click', function () {
+    if (pc || localStream) endCall(false);
+    send({ type: 'unweave' });
+    setStatus('You have left the line.');
+  });
+  el('line-boop-yes').addEventListener('click', function () { pressBoop('yes'); });
+  el('line-boop-no').addEventListener('click', function () { pressBoop('no'); });
+  el('line-boop-question').addEventListener('input', function () {
+    if (myBoopQuestion && el('line-boop-question').value.trim() !== myBoopQuestion) {
+      myBoopQuestion = null;
+      el('line-boop-yes').disabled = false;
+      el('line-boop-no').disabled = false;
+      setBoopStatus('');
+    }
+  });
+})();
+</script>
+</body>
+</html>
