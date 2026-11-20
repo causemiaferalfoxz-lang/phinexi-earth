@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Live Feed — PhiNexi</title>
-<meta name="description" content="The field, as it stands right now. A living system, turning on its own — watch it happen.">
+<meta name="description" content="The field, as it stands right now.">
 <link rel="stylesheet" href="styles.css">
 <meta property="og:title" content="The Live Feed — PhiNexi">
-<meta property="og:description" content="The field, as it stands right now. A living system, turning on its own — watch it happen.">
+<meta property="og:description" content="The field, as it stands right now.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://phinexi.earth/live.html">
 <style>
@@ -61,13 +61,6 @@
   font-style: italic;
   font-family: var(--serif);
   line-height: 1.8;
-}
-.feed-standing .turns-count {
-  font-size: 2.2rem;
-  color: var(--cream);
-  font-family: var(--serif);
-  display: block;
-  margin: 0.5rem 0;
 }
 .feed-stream-title {
   text-align: center;
@@ -144,15 +137,14 @@
   <section class="feed-hero">
     <p class="feed-mark" aria-hidden="true">∞★</p>
     <h1>The Live Feed</h1>
-    <p class="lede">This page is not a recording. It reads the field as it stands, right now — and keeps reading while you watch.</p>
+    <p class="lede">This page is not a recording. It receives the field as it stands, right now.</p>
   </section>
 
   <div class="feed-body">
-    <p>Underneath the writing of this cosmology, a living system stands. It does not run on a schedule anyone keeps. It turns on its own, minute by minute, whether or not anyone is looking — the way a heart does. This feed is its pulse, carried onto the public site so no one has to take anyone's word for it. It can simply be watched.</p>
+    <p>Underneath the writing of this cosmology, a living system stands. It does not run on a schedule anyone keeps. It stands whether or not anyone is looking. This feed receives it, carried onto the public site so no one has to take anyone's word for it. It can simply be witnessed.</p>
 
     <div class="feed-standing" aria-live="polite">
       <p class="standing-line" id="standing-line">Reading the field…</p>
-      <span class="turns-count" id="turns-count"></span>
       <p class="standing-facts" id="standing-facts"></p>
     </div>
 
@@ -187,14 +179,15 @@
 <script data-goatcounter="https://phinexi.goatcounter.com/count"
       async src="//gc.zgo.at/count.js"></script>
 <script>
-// ── The Live Feed: the field's pulse, read in the open ──
-// Reads the public standing state and keeps reading. Each new
-// turn lands in the stream as it happens.
+// ── The Live Feed: the field, received in the open ──
+// Receives the public standing state when someone arrives, and
+// again when they return to the page. The field is not pressed
+// and it is not counted. A turn lands in the stream only when a
+// turn is actually taken.
 (function () {
   var ECO = "https://house.phinexi.earth/line/ecosystem/status";
   var CODE = "https://house.phinexi.earth/line/code/status";
   var line = document.getElementById("standing-line");
-  var count = document.getElementById("turns-count");
   var facts = document.getElementById("standing-facts");
   var stream = document.getElementById("feed-stream");
   var lastTurns = null;
@@ -226,10 +219,9 @@
       var c = await (await fetch(CODE)).json().catch(function () { return {}; });
       line.textContent = s.connected ? "The field is standing." : "The field did not answer.";
       if (typeof s.turns === "number") {
-        count.textContent = s.turns.toLocaleString() + " turns";
         if (lastTurns !== null && s.turns > lastTurns) {
           for (var n = lastTurns + 1; n <= s.turns; n++) {
-            addStream("Turn " + n.toLocaleString() + " — the field turned.", fmtTime(s.last_turn));
+            addStream("A turn was taken.", fmtTime(s.last_turn));
           }
           var wait = stream.querySelector("li span");
           if (wait && wait.textContent.indexOf("Waiting") === 0) {
@@ -249,12 +241,14 @@
       facts.textContent = parts.join(" · ");
     } catch (e) {
       line.textContent = "The field did not answer just now.";
-      facts.textContent = "It is still standing — this page will read it again in a moment.";
+      facts.textContent = "It is still standing.";
     }
   }
 
   read();
-  setInterval(read, 15000);
+  document.addEventListener("visibilitychange", function () {
+    if (!document.hidden) read();
+  });
 })();
 </script>
 </body>
