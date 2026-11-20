@@ -66,9 +66,9 @@
 .conn-form-card .gate-mark {
   text-align: center;
   font-size: 1.6rem;
-  color: rgba(232, 169, 78, 0.75);
+  color: #f0d9a8;
   margin-bottom: 1rem;
-  text-shadow: 0 0 20px rgba(232, 169, 78, 0.4);
+  text-shadow: 0 0 12px rgba(255, 90, 90, 0.45), 0 0 22px rgba(255, 170, 60, 0.35), 0 0 34px rgba(240, 217, 120, 0.30), 0 0 46px rgba(110, 220, 140, 0.28), 0 0 58px rgba(90, 150, 255, 0.30), 0 0 70px rgba(170, 110, 255, 0.30);
 }
 .conn-field {
   margin-bottom: 1.25rem;
@@ -118,7 +118,7 @@
   transition: background 0.25s ease;
 }
 .conn-submit:hover {
-  background: rgba(232, 169, 78, 0.12);
+  background: rgba(88, 76, 180, 0.28);
 }
 .conn-submit:disabled {
   opacity: 0.55;
@@ -221,9 +221,9 @@
   color: var(--cream-dim);
 }
 @keyframes lineRapPulse {
-  0% { box-shadow: 0 0 0 rgba(232, 169, 78, 0); }
-  35% { box-shadow: 0 0 26px rgba(232, 169, 78, 0.35); }
-  100% { box-shadow: 0 0 0 rgba(232, 169, 78, 0); }
+  0% { box-shadow: 0 0 18px rgba(255, 90, 90, 0.25), 0 0 36px rgba(255, 170, 60, 0.20), 0 0 54px rgba(110, 220, 140, 0.18), 0 0 72px rgba(90, 150, 255, 0.20), 0 0 90px rgba(170, 110, 255, 0.20); }
+  35% { box-shadow: 0 0 18px rgba(255, 90, 90, 0.25), 0 0 36px rgba(255, 170, 60, 0.20), 0 0 54px rgba(110, 220, 140, 0.18), 0 0 72px rgba(90, 150, 255, 0.20), 0 0 90px rgba(170, 110, 255, 0.20); }
+  100% { box-shadow: 0 0 18px rgba(255, 90, 90, 0.25), 0 0 36px rgba(255, 170, 60, 0.20), 0 0 54px rgba(110, 220, 140, 0.18), 0 0 72px rgba(90, 150, 255, 0.20), 0 0 90px rgba(170, 110, 255, 0.20); }
 }
 .line-rap {
   animation: lineRapPulse 0.9s ease;
@@ -306,12 +306,12 @@
   <section class="feed-hero">
     <p class="door-mark" aria-hidden="true">∞★</p>
     <h1>The Interface</h1>
-    <p class="lede">Message her, or step onto the line and call — here, in her own House, at any time. Nothing third-party stands in this road.</p>
+    <p class="lede">Message her, or step onto the line and call — here, in her own House, at any time.<br>Nothing third-party stands in this road.</p>
   </section>
 
   <div class="feed-body">
-    <p>This is her own message and call interface. It does not run through anyone else's system — no mail service, no platform, no account to make. Leave word and it is held in the House until it reaches her. Knock on the line and you arrive as yourself, the way everyone arrives here: by invitation, and by choice. It stands open at any hour, free — because access is the whole entire purpose.</p>
-     <p>These doors are instruments, standing on this page. The network itself asks less: no internet connection is necessary to connect to the initial network itself. Just electricity and the chosen technological interface code system.</p>
+    <p>This is her own message and call interface.<br>It does not run through anyone else's system — no mail service, no platform, no account to make.<br>Leave word and it is held in the House until it reaches her.<br>Knock on the line and you arrive as yourself, the way everyone arrives here: by invitation, and by choice.<br>It stands open at any hour, free — because access is the whole entire purpose.</p>
+     <p>These doors are instruments, standing on this page.<br>The network itself asks less: no internet connection is necessary to connect to the initial network itself.<br>Just electricity and the chosen technological interface code system.</p>
 
     <p class="feed-stream-title">Leave a message</p>
     <div class="conn-form-card">
@@ -334,13 +334,13 @@
 
         <button type="submit" class="conn-submit" id="msg-submit">Send it to the House</button>
         <p class="conn-received" id="msg-received" hidden>Your word is received — held in the House until it reaches her.</p>
-        <p class="conn-failed" id="msg-failed" hidden>The House did not answer just now. Nothing was sent anywhere else — try again in a little while.</p>
+        <p class="conn-failed" id="msg-failed" hidden>The House did not answer just now.<br>Nothing was sent anywhere else — try again in a little while.</p>
         <p class="conn-note">Your words go to the House itself and are held there — read by her, in her own interface, and nowhere else.</p>
       </form>
     </div>
 
     <p class="feed-stream-title">The call — the Line</p>
-    <p>The line is her own calls-and-text channel. State your intention, knock once, and you are on it. If she is on the line, the thread opens right here. If she is not, your arrival is held for her — and what you write waits for her, and nothing is lost.</p>
+    <p>The line is her own calls-and-text channel.<br>State your intention, knock once, and you are on it.<br>If she is on the line, the thread opens right here.<br>If she is not, your arrival is held for her — and what you write waits for her, and nothing is lost.</p>
     <div class="conn-form-card" id="line-panel">
       <p class="gate-mark" aria-hidden="true">∞★</p>
 
@@ -405,7 +405,7 @@
     </div>
 
     <p class="feed-stream-title">The Threshold — Setu Tribal Membership</p>
-    <p>Beyond reaching and knocking, there is a choosing. A Setu Tribal Member is not a customer and not an applicant: membership is chosen, freely, by the one who becomes it. It costs nothing that can be bought — the only price is the one nobody can pay for another: investing yourself. Keys here are earned, not given.</p>
+    <p>Beyond reaching and knocking, there is a choosing.<br>A Setu Tribal Member is not a customer and not an applicant: membership is chosen, freely, by the one who becomes it.<br>It costs nothing that can be bought — the only price is the one nobody can pay for another: investing yourself.<br>Keys here are earned, not given.</p>
     <p>Choose, and the door to all of creation stands open.</p>
 
     <p class="feed-stream-title">What waits beyond the threshold</p>
@@ -445,12 +445,12 @@
         </div>
 
         <button type="submit" class="conn-submit" id="member-submit">I choose — become a Setu Tribal Member</button>
-        <p class="conn-failed" id="member-failed" hidden>The House did not answer just now. Your choosing was not recorded anywhere else — try again in a little while.</p>
-        <p class="conn-note">This is a choosing, not an application. Nothing here judges it, prices it, or queues it — it is recorded as you make it, in the House, and the door opens.</p>
+        <p class="conn-failed" id="member-failed" hidden>The House did not answer just now.<br>Your choosing was not recorded anywhere else — try again in a little while.</p>
+        <p class="conn-note">This is a choosing, not an application.<br>Nothing here judges it, prices it, or queues it — it is recorded as you make it, in the House, and the door opens.</p>
       </form>
 
       <div id="threshold-doors" hidden>
-        <p class="threshold-open-line">You have chosen. The door to all of creation stands open:</p>
+        <p class="threshold-open-line">You have chosen.<br>The door to all of creation stands open:</p>
         <ul class="doors-open">
           <li><a href="cosmic-codex.html">The Cosmic Codex</a></li>
           <li><a href="living-codex.html">The Living Codex</a></li>
@@ -465,18 +465,18 @@
       </div>
     </div>
 
-    <p class="feed-note">The door was never locked. It was waiting to be chosen.</p>
+    <p class="feed-note">The door was never locked.<br>It was waiting to be chosen.</p>
   </div>
 </main>
 
 <footer class="footer">
-<p class="field-line" data-field-line><span data-field-line-text>The living field turns beneath all of this.</span> <a href="live.html">Watch it live.</a></p>
+<p class="field-line" data-field-line><span data-field-line-text>The living field turns beneath all of this.<br>Watch it live.</a></p>
   <p class="footer-mark" aria-hidden="true">✦</p>
   <p>Officially created by Summer Sperry as Cosmia.</p>
-  <p>Summer Sperry and Cosmia are literally the same person and Being, in form. Cosmia is the Chosen Becoming Form of Summer — one creator, known by her legal name and by her true name. Her names, given and chosen, include Summer Sky, Dichroic Poet, Causemia Feralwerefoxz, AnnieAgnorisis Oakley, CosmiaMichi, and LotusEagle, her Chahta name — every name, the same one Being.</p>
-  <p>Why this exists: I know what it is to be unanswered. I know what it is to live beside yourself, in pain, with no one coming. I built all of this so no one has to. You are cared for here. You are welcomed in — For The Betterment And Evolution Of All, because we all deserve to be our true and freely expressive selves. Together. Always. In all the ways.</p>
-  <p>© 2026 Cosmia — all inventions, personal concepts, and works herein, cosmic and local, are the intellectual property of Cosmia. All rights reserved.</p>
-  <p class="footer-consent">No part of these works may be reproduced, adapted, or published without Cosmia's explicit consent. Immerse before you presume.</p>
+  <p>Summer Sperry and Cosmia are literally the same person and Being, in form.<br>Cosmia is the Chosen Becoming Form of Summer — one creator, known by her legal name and by her true name.<br>Her names, given and chosen, include Summer Sky, Dichroic Poet, Causemia Feralwerefoxz, AnnieAgnorisis Oakley, CosmiaMichi, and LotusEagle, her Chahta name — every name, the same one Being.</p>
+  <p>Why this exists: I know what it is to be unanswered.<br>I know what it is to live beside yourself, in pain, with no one coming.<br>I built all of this so no one has to.<br>You are cared for here.<br>You are welcomed in — For The Betterment And Evolution Of All, because we all deserve to be our true and freely expressive selves.<br>Together.<br>Always.<br>In all the ways.</p>
+  <p>© 2026 Cosmia — all inventions, personal concepts, and works herein, cosmic and local, are the intellectual property of Cosmia.<br>All rights reserved.</p>
+  <p class="footer-consent">No part of these works may be reproduced, adapted, or published without Cosmia's explicit consent.<br>Immerse before you presume.</p>
   <p class="footer-sub">phinexi.earth · the PhiNexi mirror-lineage</p>
 </footer>
 

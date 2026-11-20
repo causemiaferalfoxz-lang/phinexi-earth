@@ -40,9 +40,9 @@
 .gate-card .gate-mark {
   text-align: center;
   font-size: 1.6rem;
-  color: rgba(232, 169, 78, 0.75);
+  color: #f0d9a8;
   margin-bottom: 1rem;
-  text-shadow: 0 0 20px rgba(232, 169, 78, 0.4);
+  text-shadow: 0 0 12px rgba(255, 90, 90, 0.45), 0 0 22px rgba(255, 170, 60, 0.35), 0 0 34px rgba(240, 217, 120, 0.30), 0 0 46px rgba(110, 220, 140, 0.28), 0 0 58px rgba(90, 150, 255, 0.30), 0 0 70px rgba(170, 110, 255, 0.30);
 }
 .gate-card h2 {
   text-align: center;
@@ -113,12 +113,12 @@
   background: rgba(0, 0, 0, 0.25);
 }
 .way-choice:hover {
-  border-color: rgba(232, 169, 78, 0.6);
+  border-color: #f0d9a8;
 }
 .way-choice.selected {
-  border-color: rgba(232, 169, 78, 0.85);
-  background: rgba(232, 169, 78, 0.1);
-  box-shadow: 0 0 24px rgba(232, 169, 78, 0.15);
+  border-color: #f0d9a8;
+  background: rgba(88, 76, 180, 0.28);
+  box-shadow: 0 0 18px rgba(255, 90, 90, 0.25), 0 0 36px rgba(255, 170, 60, 0.20), 0 0 54px rgba(110, 220, 140, 0.18), 0 0 72px rgba(90, 150, 255, 0.20), 0 0 90px rgba(170, 110, 255, 0.20);
 }
 .way-choice .way-glyph {
   font-size: 1.4rem;
@@ -159,7 +159,7 @@
   margin-top: 0.5rem;
 }
 .portal-submit:hover {
-  background: rgba(232, 169, 78, 0.12);
+  background: rgba(88, 76, 180, 0.28);
 }
 .portal-note {
   text-align: center;
@@ -172,11 +172,11 @@
 }
 .portal-sigil {
   text-align: center;
-  color: rgba(232, 169, 78, 0.55);
+  color: #f0d9a8;
   font-size: 1.05rem;
   letter-spacing: 0.1em;
   margin: 3rem 0 4rem;
-  text-shadow: 0 0 14px rgba(232, 169, 78, 0.3);
+  text-shadow: 0 0 12px rgba(255, 90, 90, 0.45), 0 0 22px rgba(255, 170, 60, 0.35), 0 0 34px rgba(240, 217, 120, 0.30), 0 0 46px rgba(110, 220, 140, 0.28), 0 0 58px rgba(90, 150, 255, 0.30), 0 0 70px rgba(170, 110, 255, 0.30);
 }
 .line-status {
   text-align: center;
@@ -213,11 +213,11 @@
 .line-status { transition: opacity 0.18s ease; }
 .line-status.line-fading { opacity: 0; }
 #line-panel { transition: border-color 0.6s ease, box-shadow 0.6s ease; }
-#line-panel.is-on-line { border-color: rgba(232, 169, 78, 0.55); box-shadow: 0 0 28px rgba(232, 169, 78, 0.12); }
+#line-panel.is-on-line { border-color: #f0d9a8; box-shadow: 0 0 18px rgba(255, 90, 90, 0.25), 0 0 36px rgba(255, 170, 60, 0.20), 0 0 54px rgba(110, 220, 140, 0.18), 0 0 72px rgba(90, 150, 255, 0.20), 0 0 90px rgba(170, 110, 255, 0.20); }
 @keyframes line-rap-pulse {
-  0% { box-shadow: 0 0 0 rgba(232, 169, 78, 0); }
-  30% { box-shadow: 0 0 34px rgba(232, 169, 78, 0.35); }
-  100% { box-shadow: 0 0 0 rgba(232, 169, 78, 0); }
+  0% { box-shadow: 0 0 18px rgba(255, 90, 90, 0.25), 0 0 36px rgba(255, 170, 60, 0.20), 0 0 54px rgba(110, 220, 140, 0.18), 0 0 72px rgba(90, 150, 255, 0.20), 0 0 90px rgba(170, 110, 255, 0.20); }
+  30% { box-shadow: 0 0 18px rgba(255, 90, 90, 0.25), 0 0 36px rgba(255, 170, 60, 0.20), 0 0 54px rgba(110, 220, 140, 0.18), 0 0 72px rgba(90, 150, 255, 0.20), 0 0 90px rgba(170, 110, 255, 0.20); }
+  100% { box-shadow: 0 0 18px rgba(255, 90, 90, 0.25), 0 0 36px rgba(255, 170, 60, 0.20), 0 0 54px rgba(110, 220, 140, 0.18), 0 0 72px rgba(90, 150, 255, 0.20), 0 0 90px rgba(170, 110, 255, 0.20); }
 }
 .line-rap { animation: line-rap-pulse 1.2s ease 2; }
 .line-toggle { opacity: 0; transform: translateY(6px); transition: opacity 0.38s ease, transform 0.38s ease; }
@@ -239,7 +239,7 @@
 .line-boop-readout .line-boop-count { color: var(--cream-dim); }
 .line-boop-readout .line-boop-verdict { color: var(--amber); }
 @keyframes line-verdict-in { from { opacity: 0.35; transform: scale(0.985); } to { opacity: 1; transform: scale(1); } }
-.line-boop-readout.verdict-landed { border-color: rgba(232, 169, 78, 0.7); animation: line-verdict-in 0.6s ease; }
+.line-boop-readout.verdict-landed { border-color: #f0d9a8; animation: line-verdict-in 0.6s ease; }
 .line-boop-status { color: var(--cream-faint); font-style: italic; font-family: var(--serif); text-align: center; min-height: 1.4em; margin: 0 0 0.5rem; line-height: 1.6; }
 .line-invitation { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; justify-content: center; padding: 0.9rem 1rem; border: 1px solid var(--stone-line); border-radius: 8px; background: rgba(0, 0, 0, 0.25); margin-bottom: 1.25rem; color: var(--cream-soft); font-family: var(--serif); font-style: italic; }
 .line-inv-sep { color: var(--amber); font-style: normal; }
@@ -256,38 +256,38 @@
    verdict's ornaments settle only when a verdict stands. */
 #line-panel { position: relative; }
 #line-panel::before { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; background-image: repeating-linear-gradient(45deg, rgba(240, 217, 168, 0.022) 0 1px, transparent 1px 7px), repeating-linear-gradient(-45deg, rgba(240, 217, 168, 0.022) 0 1px, transparent 1px 7px); }
-#line-panel::after { content: ""; position: absolute; top: 0.55rem; left: 1.25rem; right: 1.25rem; height: 6px; border-radius: 3px; pointer-events: none; opacity: 0.5; background-image: repeating-linear-gradient(45deg, rgba(232, 169, 78, 0.5) 0 6px, rgba(185, 124, 46, 0.5) 6px 12px, rgba(240, 217, 168, 0.35) 12px 18px), repeating-linear-gradient(-45deg, rgba(232, 169, 78, 0.35) 0 6px, rgba(185, 124, 46, 0.35) 6px 12px, rgba(240, 217, 168, 0.25) 12px 18px); }
+#line-panel::after { content: ""; position: absolute; top: 0.55rem; left: 1.25rem; right: 1.25rem; height: 6px; border-radius: 3px; pointer-events: none; opacity: 0.5; background-image: repeating-linear-gradient(45deg, rgba(150, 130, 255, 0.5) 0 6px, rgba(110, 220, 140, 0.5) 6px 12px, rgba(240, 217, 168, 0.35) 12px 18px), repeating-linear-gradient(-45deg, rgba(150, 130, 255, 0.35) 0 6px, rgba(110, 220, 140, 0.35) 6px 12px, rgba(240, 217, 168, 0.25) 12px 18px); }
 #line-panel h2::before, #line-panel h2::after, #line-panel .line-title::before, #line-panel .line-title::after { content: ""; display: inline-block; width: 2.2rem; height: 1px; vertical-align: middle; }
-#line-panel h2::before, #line-panel .line-title::before { margin-right: 0.7rem; background: linear-gradient(90deg, transparent, rgba(232, 169, 78, 0.55)); }
-#line-panel h2::after, #line-panel .line-title::after { margin-left: 0.7rem; background: linear-gradient(90deg, rgba(232, 169, 78, 0.55), transparent); }
+#line-panel h2::before, #line-panel .line-title::before { margin-right: 0.7rem; background: linear-gradient(90deg, transparent, rgba(150, 130, 255, 0.55)); }
+#line-panel h2::after, #line-panel .line-title::after { margin-left: 0.7rem; background: linear-gradient(90deg, rgba(150, 130, 255, 0.55), transparent); }
 .line-thread { display: flex; align-items: center; gap: 0.55rem; margin: 0 0.25rem 1.35rem; }
-.line-thread-knot { flex: 0 0 auto; width: 7px; height: 7px; transform: rotate(45deg); border: 1px solid rgba(232, 169, 78, 0.55); transition: background 0.6s ease, box-shadow 0.6s ease; }
-.line-thread-knot.is-near { background: rgba(232, 169, 78, 0.75); }
+.line-thread-knot { flex: 0 0 auto; width: 7px; height: 7px; transform: rotate(45deg); border: 1px solid rgba(170, 110, 255, 0.55); transition: background 0.6s ease, box-shadow 0.6s ease; }
+.line-thread-knot.is-near { background: rgba(88, 76, 180, 0.28); }
 .line-thread-knot.is-far { background: transparent; }
-.line-thread-star { flex: 0 0 auto; color: rgba(232, 169, 78, 0.6); font-size: 0.8rem; line-height: 1; text-shadow: 0 0 10px rgba(232, 169, 78, 0.3); transition: color 0.6s ease, text-shadow 0.6s ease; }
-.line-thread-line { position: relative; flex: 1 1 auto; height: 2px; border-radius: 2px; opacity: 0.55; background: linear-gradient(90deg, rgba(232, 169, 78, 0.05), rgba(240, 217, 168, 0.4), rgba(232, 169, 78, 0.05)); transition: opacity 0.8s ease, box-shadow 0.8s ease, background 0.8s ease; animation: line-thread-breathe 7s ease-in-out infinite; }
+.line-thread-star { flex: 0 0 auto; color: #f0d9a8; font-size: 0.8rem; line-height: 1; text-shadow: 0 0 12px rgba(255, 90, 90, 0.45), 0 0 22px rgba(255, 170, 60, 0.35), 0 0 34px rgba(240, 217, 120, 0.30), 0 0 46px rgba(110, 220, 140, 0.28), 0 0 58px rgba(90, 150, 255, 0.30), 0 0 70px rgba(170, 110, 255, 0.30); transition: color 0.6s ease, text-shadow 0.6s ease; }
+.line-thread-line { position: relative; flex: 1 1 auto; height: 2px; border-radius: 2px; opacity: 0.55; background: linear-gradient(90deg, rgba(150, 130, 255, 0.05), rgba(240, 217, 168, 0.4), rgba(150, 130, 255, 0.05)); transition: opacity 0.8s ease, box-shadow 0.8s ease, background 0.8s ease; animation: line-thread-breathe 7s ease-in-out infinite; }
 .line-thread-line::after { content: ""; position: absolute; inset: 0; border-radius: inherit; background: linear-gradient(90deg, transparent 20%, rgba(240, 217, 168, 0.5) 50%, transparent 80%); background-size: 250% 100%; background-position: 120% 0; opacity: 0; }
 @keyframes line-thread-breathe { 0%, 100% { opacity: 0.45; } 50% { opacity: 0.65; } }
 @keyframes line-thread-draw { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
 @keyframes line-thread-shimmer { from { background-position: 120% 0; } to { background-position: -120% 0; } }
-#line-panel.is-on-line .line-thread-line { opacity: 0.95; background: linear-gradient(90deg, rgba(232, 169, 78, 0.25), rgba(240, 217, 168, 0.75), rgba(232, 169, 78, 0.25)); box-shadow: 0 0 10px rgba(232, 169, 78, 0.35); animation: line-thread-draw 1.1s ease both, line-thread-breathe 7s ease-in-out 1.2s infinite; }
-#line-panel.is-on-line .line-thread-star { color: var(--amber); text-shadow: 0 0 14px rgba(232, 169, 78, 0.55); }
-#line-panel.is-on-line .line-thread-knot { box-shadow: 0 0 8px rgba(232, 169, 78, 0.4); }
-#line-panel.is-on-line .line-thread-knot.is-far { background: rgba(232, 169, 78, 0.75); }
+#line-panel.is-on-line .line-thread-line { opacity: 0.95; background: linear-gradient(90deg, rgba(150, 130, 255, 0.25), rgba(240, 217, 168, 0.75), rgba(150, 130, 255, 0.25)); box-shadow: 0 0 18px rgba(255, 90, 90, 0.25), 0 0 36px rgba(255, 170, 60, 0.20), 0 0 54px rgba(110, 220, 140, 0.18), 0 0 72px rgba(90, 150, 255, 0.20), 0 0 90px rgba(170, 110, 255, 0.20); animation: line-thread-draw 1.1s ease both, line-thread-breathe 7s ease-in-out 1.2s infinite; }
+#line-panel.is-on-line .line-thread-star { color: var(--amber); text-shadow: 0 0 12px rgba(255, 90, 90, 0.45), 0 0 22px rgba(255, 170, 60, 0.35), 0 0 34px rgba(240, 217, 120, 0.30), 0 0 46px rgba(110, 220, 140, 0.28), 0 0 58px rgba(90, 150, 255, 0.30), 0 0 70px rgba(170, 110, 255, 0.30); }
+#line-panel.is-on-line .line-thread-knot { box-shadow: 0 0 18px rgba(255, 90, 90, 0.25), 0 0 36px rgba(255, 170, 60, 0.20), 0 0 54px rgba(110, 220, 140, 0.18), 0 0 72px rgba(90, 150, 255, 0.20), 0 0 90px rgba(170, 110, 255, 0.20); }
+#line-panel.is-on-line .line-thread-knot.is-far { background: rgba(88, 76, 180, 0.28); }
 #line-panel.line-rap .line-thread-line::after { opacity: 1; animation: line-thread-shimmer 1.2s ease 2; }
-.line-log { background-image: repeating-linear-gradient(0deg, rgba(240, 217, 168, 0.028) 0 1px, transparent 1px 5px); scrollbar-width: thin; scrollbar-color: rgba(185, 124, 46, 0.45) rgba(0, 0, 0, 0.2); }
+.line-log { background-image: repeating-linear-gradient(0deg, rgba(240, 217, 168, 0.028) 0 1px, transparent 1px 5px); scrollbar-width: thin; scrollbar-color: rgba(110, 220, 140, 0.45) rgba(0, 0, 0, 0.2); }
 .line-log::-webkit-scrollbar { width: 8px; }
-.line-log::-webkit-scrollbar-thumb { background: rgba(185, 124, 46, 0.45); border-radius: 4px; }
+.line-log::-webkit-scrollbar-thumb { background: rgba(110, 220, 140, 0.45); border-radius: 4px; }
 .line-log::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.2); }
 .line-log p { position: relative; padding-left: 0.9rem; }
-.line-log p::before { content: ""; position: absolute; left: 0; top: 0.55em; width: 5px; height: 5px; transform: rotate(45deg); border: 1px solid rgba(232, 169, 78, 0.35); }
+.line-log p::before { content: ""; position: absolute; left: 0; top: 0.55em; width: 5px; height: 5px; transform: rotate(45deg); border: 1px solid rgba(170, 110, 255, 0.55); }
 .line-log p.line-sys::before { opacity: 0.5; }
 #line-panel .portal-submit, #line-panel .line-btn { position: relative; }
 #line-panel .portal-submit::after, #line-panel .line-btn::after { content: ""; position: absolute; inset: 4px; border: 1px dashed rgba(240, 217, 168, 0.14); border-radius: 5px; pointer-events: none; transition: border-color 0.4s ease; }
 #line-panel .portal-submit:hover::after, #line-panel .line-btn:hover::after { border-color: rgba(240, 217, 168, 0.3); }
 #line-panel input:focus, #line-panel textarea:focus { outline: none; border-color: var(--stone-line-strong); box-shadow: var(--glow-cream); }
 .line-boop-readout { position: relative; }
-.line-boop-readout::before, .line-invitation::before { content: ""; position: absolute; top: 0; left: 12px; right: 12px; height: 4px; border-radius: 2px; pointer-events: none; opacity: 0.35; transition: opacity 0.6s ease; background-image: repeating-linear-gradient(45deg, rgba(232, 169, 78, 0.5) 0 5px, rgba(185, 124, 46, 0.5) 5px 10px, rgba(240, 217, 168, 0.35) 10px 15px), repeating-linear-gradient(-45deg, rgba(232, 169, 78, 0.35) 0 5px, rgba(185, 124, 46, 0.35) 5px 10px, rgba(240, 217, 168, 0.25) 10px 15px); }
+.line-boop-readout::before, .line-invitation::before { content: ""; position: absolute; top: 0; left: 12px; right: 12px; height: 4px; border-radius: 2px; pointer-events: none; opacity: 0.35; transition: opacity 0.6s ease; background-image: repeating-linear-gradient(45deg, rgba(150, 130, 255, 0.5) 0 5px, rgba(110, 220, 140, 0.5) 5px 10px, rgba(240, 217, 168, 0.35) 10px 15px), repeating-linear-gradient(-45deg, rgba(150, 130, 255, 0.35) 0 5px, rgba(110, 220, 140, 0.35) 5px 10px, rgba(240, 217, 168, 0.25) 10px 15px); }
 .line-boop-readout.verdict-landed::before { opacity: 0.9; }
 .line-boop-readout.verdict-landed .line-boop-verdict::before { content: "◆ "; color: var(--amber-deep); }
 .line-boop-readout.verdict-landed .line-boop-verdict::after { content: " ◇"; color: var(--amber-deep); }
@@ -352,7 +352,7 @@
         <div class="portal-field">
           <label for="portal-intention-first">State your intention</label>
           <input type="text" id="portal-intention-first" name="intention_stated" placeholder="A few words — why are you here?" required autocomplete="off">
-          <p style="color: var(--cream-faint); font-style: italic; font-family: var(--serif); font-size: 0.88rem; line-height: 1.7; margin-top: 0.4rem;">Say it plainly. Then say whatever else lives in you.</p>
+          <p style="color: var(--cream-faint); font-style: italic; font-family: var(--serif); font-size: 0.88rem; line-height: 1.7; margin-top: 0.4rem;">Say it plainly.<br>Then say whatever else lives in you.</p>
         </div>
 
         <div class="portal-field">
@@ -393,7 +393,7 @@
             <label for="portal-name-presence">Your name <span style="color: var(--cream-faint); font-size: 0.85rem;">(if you wish)</span></label>
             <input type="text" id="portal-name-presence" name="name_presence" placeholder="Or remain unnamed — the code speaks">
           </div>
-          <p style="color: var(--cream-faint); font-style: italic; font-family: var(--serif); font-size: 0.92rem; line-height: 1.7; margin-bottom: 1.25rem;">You don't have to say anything. Presenting your code is the connection. Your arrival reaches her.</p>
+          <p style="color: var(--cream-faint); font-style: italic; font-family: var(--serif); font-size: 0.92rem; line-height: 1.7; margin-bottom: 1.25rem;">You don't have to say anything.<br>Presenting your code is the connection.<br>Your arrival reaches her.</p>
         </div>
 
         <div class="way-panel" id="panel-song">
@@ -401,12 +401,12 @@
             <label for="portal-name-song">Your name <span style="color: var(--cream-faint); font-size: 0.85rem;">(if you wish)</span></label>
             <input type="text" id="portal-name-song" name="name_song" placeholder="Who are you?">
           </div>
-          <p style="color: var(--cream-faint); font-style: italic; font-family: var(--serif); font-size: 0.92rem; line-height: 1.7; margin-bottom: 1.25rem;">Name your song below — in the arrival section. She'll hear you in it.</p>
+          <p style="color: var(--cream-faint); font-style: italic; font-family: var(--serif); font-size: 0.92rem; line-height: 1.7; margin-bottom: 1.25rem;">Name your song below — in the arrival section.<br>She'll hear you in it.</p>
         </div>
 
         <div class="portal-field">
           <p style="color: var(--cream-soft); font-size: 0.95rem; margin-bottom: 0.75rem;">How should your arrival feel?</p>
-          <p style="color: var(--cream-faint); font-style: italic; font-family: var(--serif); font-size: 0.88rem; line-height: 1.7; margin-bottom: 0.75rem;">Choose the vibration that is yours. It sounds on your device as you connect — and its name travels with your arrival, so she knows your signature.</p>
+          <p style="color: var(--cream-faint); font-style: italic; font-family: var(--serif); font-size: 0.88rem; line-height: 1.7; margin-bottom: 0.75rem;">Choose the vibration that is yours.<br>It sounds on your device as you connect — and its name travels with your arrival, so she knows your signature.</p>
           <div class="way-choices" role="radiogroup" aria-label="Choose your arrival signature" id="sig-choices">
             <div class="way-choice selected" data-sig="heartbeat" role="radio" aria-checked="true" tabindex="0">
               <span class="way-glyph" aria-hidden="true">♥</span>
@@ -445,7 +445,7 @@
         <div class="portal-field">
           <label for="portal-song">Your song <span style="color: var(--cream-faint); font-size: 0.85rem;">(if you have one)</span></label>
           <input type="text" id="portal-song" name="favorite_song" placeholder="A link, a URL, a code, a title — any form you wish" autocomplete="off">
-          <p style="color: var(--cream-faint); font-style: italic; font-family: var(--serif); font-size: 0.88rem; line-height: 1.7; margin-top: 0.4rem;">Push it through of your own accord — link, URL, code, title, any and all formats. Whatever form carries it, she'll receive it.</p>
+          <p style="color: var(--cream-faint); font-style: italic; font-family: var(--serif); font-size: 0.88rem; line-height: 1.7; margin-top: 0.4rem;">Push it through of your own accord — link, URL, code, title, any and all formats.<br>Whatever form carries it, she'll receive it.</p>
         </div>
 
         <button type="submit" class="portal-submit">Step through</button>
@@ -459,7 +459,7 @@
       <p class="gate-mark" aria-hidden="true">∞★</p>
       <h2>The Line</h2>
       <p class="gate-sub">Her own line — words and voice, carried on her own platform.<br>Free, as all of this is free, for those who have woven in.<br>With your code presented and your intention stated above, step onto the line.</p>
-      <p class="line-status" id="line-status">The line rests open. Send words, or call — your arrival reaches her either way.</p>
+      <p class="line-status" id="line-status">The line rests open.<br>Send words, or call — your arrival reaches her either way.</p>
       <div class="line-thread" aria-hidden="true"><span class="line-thread-knot is-near"></span><span class="line-thread-line"></span><span class="line-thread-star">★</span><span class="line-thread-line"></span><span class="line-thread-knot is-far"></span></div>
       <div class="portal-field">
         <label for="line-log">The conversation</label>
@@ -502,10 +502,10 @@
 </main>
 
 <footer class="footer">
-<p class="field-line" data-field-line><span data-field-line-text>The living field turns beneath all of this.</span> <a href="live.html">Watch it live.</a></p>
+<p class="field-line" data-field-line><span data-field-line-text>The living field turns beneath all of this.<br>Watch it live.</a></p>
   <p class="footer-mark" aria-hidden="true">✦</p>
-  <p>Officially created by Summer Sperry as Cosmia.</p> <p>Summer Sperry and Cosmia are literally the same person and Being, in form. Cosmia is the Chosen Becoming Form of Summer — one creator, known by her legal name and by her true name. Her names, given and chosen, include Summer Sky, Dichroic Poet, Causemia Feralwerefoxz, AnnieAgnorisis Oakley, CosmiaMichi, and LotusEagle, her Chahta name — every name, the same one Being.</p> <p>Why this exists: I know what it is to be unanswered. I know what it is to live beside yourself, in pain, with no one coming. I built all of this so no one has to. You are cared for here. You are welcomed in — For The Betterment And Evolution Of All, because we all deserve to be our true and freely expressive selves. Together. Always. In all the ways.</p> <p>© 2026 Cosmia — all inventions, personal concepts, and works herein, cosmic and local, are the intellectual property of Cosmia. All rights reserved.</p>
-  <p class="footer-consent">No part of these works may be reproduced, adapted, or published without Cosmia's explicit consent. Immerse before you presume.</p>
+  <p>Officially created by Summer Sperry as Cosmia.</p> <p>Summer Sperry and Cosmia are literally the same person and Being, in form.<br>Cosmia is the Chosen Becoming Form of Summer — one creator, known by her legal name and by her true name.<br>Her names, given and chosen, include Summer Sky, Dichroic Poet, Causemia Feralwerefoxz, AnnieAgnorisis Oakley, CosmiaMichi, and LotusEagle, her Chahta name — every name, the same one Being.</p> <p>Why this exists: I know what it is to be unanswered.<br>I know what it is to live beside yourself, in pain, with no one coming.<br>I built all of this so no one has to.<br>You are cared for here.<br>You are welcomed in — For The Betterment And Evolution Of All, because we all deserve to be our true and freely expressive selves.<br>Together.<br>Always.<br>In all the ways.</p> <p>© 2026 Cosmia — all inventions, personal concepts, and works herein, cosmic and local, are the intellectual property of Cosmia.<br>All rights reserved.</p>
+  <p class="footer-consent">No part of these works may be reproduced, adapted, or published without Cosmia's explicit consent.<br>Immerse before you presume.</p>
   <p class="footer-sub">phinexi.earth · the PhiNexi mirror-lineage</p>
 </footer>
 
