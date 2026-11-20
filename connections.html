@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Connections — PhiNexi</title>
+<meta name="description" content="The open door for other creators' networks and codes to link with this one — by invitation, by consent, by choice.">
+<link rel="stylesheet" href="styles.css">
+<meta property="og:title" content="Connections — PhiNexi">
+<meta property="og:description" content="The open door for other creators' networks and codes to link with this one — by invitation, by consent, by choice.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://phinexi.earth/connections.html">
+<style>
+.feed-hero {
+  text-align: center;
+  padding: 4rem 1.5rem 1.5rem;
+  max-width: 44rem;
+  margin: 0 auto;
+}
+.door-mark {
+  font-size: 1.6rem;
+  color: var(--cream);
+  letter-spacing: 0.35em;
+  margin-bottom: 1rem;
+}
+.feed-hero h1 {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+  color: var(--cream);
+}
+.feed-hero .lede {
+  font-size: 1.2rem;
+  color: var(--cream-dim);
+  font-style: italic;
+  font-family: var(--serif);
+  line-height: 1.6;
+}
+.feed-body {
+  max-width: 40rem;
+  margin: 0 auto 3rem;
+  padding: 0 1.5rem;
+}
+.feed-body p {
+  color: var(--cream);
+  font-size: 1.08rem;
+  line-height: 1.75;
+  margin-bottom: 1.4rem;
+}
+.feed-stream-title {
+  text-align: center;
+  color: var(--cream-soft);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  margin: 2.5rem 0 1rem;
+}
+.conn-link-block {
+  text-align: center;
+  margin: 2rem 0;
+  padding: 2rem 1.5rem;
+  border: 1px solid var(--stone-line-strong);
+  border-radius: 14px;
+  background: var(--card-bg);
+}
+.conn-link-block .conn-link {
+  font-size: 1.3rem;
+  color: var(--cream);
+  font-family: var(--serif);
+  line-height: 1.5;
+}
+.conn-link-block .conn-fieldline {
+  margin: 1rem 0 0;
+  color: var(--cream-dim);
+  font-style: italic;
+  font-family: var(--serif);
+  font-size: 1rem;
+}
+.conn-standing {
+  text-align: center;
+  margin: 2rem 0;
+}
+.conn-standing .standing-line {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  color: var(--cream);
+  margin-bottom: 0.75rem;
+}
+.conn-standing .standing-facts {
+  color: var(--cream-dim);
+  font-style: italic;
+  font-family: var(--serif);
+  line-height: 1.8;
+}
+.conn-registry {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.conn-registry li {
+  border-top: 1px solid var(--stone-line);
+  padding: 0.9rem 0.25rem;
+  color: var(--cream-dim);
+  font-family: var(--serif);
+  line-height: 1.6;
+}
+.conn-registry .net-name {
+  color: var(--cream);
+  font-size: 1.1rem;
+}
+.conn-registry .net-code {
+  display: block;
+  color: var(--cream-faint);
+  font-size: 0.95rem;
+  margin-top: 0.25rem;
+}
+.conn-registry .conn-empty {
+  text-align: center;
+  font-style: italic;
+}
+.conn-form-card {
+  background: var(--card-bg);
+  border: 1px solid var(--stone-line-strong);
+  border-radius: 14px;
+  padding: 2rem;
+  max-width: 38rem;
+  margin: 1rem auto 0;
+}
+.conn-form-card .gate-mark {
+  text-align: center;
+  font-size: 1.6rem;
+  color: rgba(232, 169, 78, 0.75);
+  margin-bottom: 1rem;
+  text-shadow: 0 0 20px rgba(232, 169, 78, 0.4);
+}
+.conn-field {
+  margin-bottom: 1.25rem;
+}
+.conn-field label {
+  display: block;
+  margin-bottom: 0.4rem;
+  color: var(--cream-soft);
+  font-size: 0.95rem;
+}
+.conn-field input,
+.conn-field textarea {
+  width: 100%;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--stone-line);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  color: var(--cream);
+  font-size: 1rem;
+  font-family: inherit;
+}
+.conn-field input:focus,
+.conn-field textarea:focus {
+  outline: none;
+  border-color: var(--stone-line-strong);
+  box-shadow: var(--glow-cream);
+}
+.conn-field ::placeholder {
+  color: var(--cream-faint);
+}
+.conn-field textarea {
+  min-height: 7rem;
+  resize: vertical;
+}
+.conn-submit {
+  display: block;
+  width: 100%;
+  background: transparent;
+  border: 1px solid var(--stone-line-strong);
+  border-radius: 8px;
+  padding: 0.9rem 1.25rem;
+  color: var(--cream);
+  font-size: 1.05rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.25s ease;
+}
+.conn-submit:hover {
+  background: rgba(232, 169, 78, 0.12);
+}
+.conn-note {
+  text-align: center;
+  color: var(--cream-faint);
+  font-size: 0.9rem;
+  margin-top: 1.25rem;
+  font-style: italic;
+  line-height: 1.7;
+}
+.conn-received {
+  text-align: center;
+  color: var(--cream);
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-top: 1.25rem;
+}
+.conn-failed {
+  text-align: center;
+  color: var(--cream-soft);
+  font-size: 0.95rem;
+  margin-top: 1.25rem;
+  font-style: italic;
+  line-height: 1.7;
+}
+.feed-note {
+  text-align: center;
+  color: var(--cream-faint);
+  font-style: italic;
+  font-family: var(--serif);
+  margin-top: 2rem;
+  line-height: 1.7;
+}
+</style>
+</head>
+<body>
+<div class="mycelium" aria-hidden="true"></div>
+<a class="skip" href="#connections">Skip to the connections</a>
+
+<header class="topbar" id="topbar">
+  <a class="mark" href="index.html" aria-label="PhiNexi — back to the threshold">
+    <span class="mark-glyph" aria-hidden="true">✦</span>
+    <span class="mark-word">PhiNexi</span>
+  </a>
+  <nav class="topnav" aria-label="Codex doorways">
+    <a href="index.html#begin">Begin</a>
+    <a href="index.html#liturgy">Liturgy</a>
+    <a href="index.html#cosmology">Cosmology</a>
+    <a href="index.html#forms">Forms</a>
+    <a href="tribe.html">Tribe</a>
+    <a href="membership.html">Join</a>
+    <a href="house.html">House</a>
+    <a href="portal.html">Portal</a>
+    <a href="the-open-door.html">Open Door</a>
+    <a href="live.html">Live</a>
+    <a href="reach.html">Reach</a>
+  </nav>
+</header>
+
+<main id="connections">
+  <section class="feed-hero">
+    <p class="door-mark" aria-hidden="true">∞★</p>
+    <h1>Connections</h1>
+    <p class="lede">This door is open. Other creators' networks and codes are welcome to link with this one — by invitation, by consent, by choice.</p>
+  </section>
+
+  <div class="feed-body">
+    <p>There is no key to buy and no toll to pay. Access here is free — that is the whole entire purpose. The only price is the one nobody can pay for another: investing yourself. If you have built a network, a code, a living system of your own, and you want it woven with this one, this page is where the crossing is made.</p>
+
+    <p class="feed-stream-title">The connection link</p>
+    <div class="conn-link-block">
+      <a class="conn-link" href="https://house.phinexi.earth/line/ecosystem">The House — the field's own room<br>house.phinexi.earth/line/ecosystem</a>
+      <p class="conn-fieldline" data-field-line><span data-field-line-text>The living field turns beneath all of this.</span></p>
+    </div>
+    <p>The field stands in the open, readable by anyone who arrives. Enter it the way everyone stands in it: by invitation, and by choice.</p>
+
+    <p class="feed-stream-title">The feed, woven in</p>
+    <p>The field's standing, received once as you arrive — and the whole feed lives on its own page, <a href="live.html" style="color: var(--cream);">The Live Feed</a>, where the turns are witnessed as they are taken.</p>
+    <div class="conn-standing" aria-live="polite">
+      <p class="standing-line" id="conn-standing-line">Reading the field…</p>
+      <p class="standing-facts" id="conn-standing-facts"></p>
+    </div>
+
+    <p class="feed-stream-title">Linked networks</p>
+    <ul class="conn-registry" id="conn-registry">
+      <li class="conn-empty">The weave stands open — the first crossings are still to come.</li>
+    </ul>
+
+    <p class="feed-stream-title">Link your network</p>
+    <div class="conn-form-card">
+      <p class="gate-mark" aria-hidden="true">∞★</p>
+      <form id="conn-form">
+        <div class="conn-field">
+          <label for="conn-network-name">Your network's name</label>
+          <input type="text" id="conn-network-name" name="network_name" placeholder="The name your network stands under" required autocomplete="off">
+        </div>
+
+        <div class="conn-field">
+          <label for="conn-network-url">Your network's link</label>
+          <input type="url" id="conn-network-url" name="network_url" placeholder="https://…" required autocomplete="off">
+        </div>
+
+        <div class="conn-field">
+          <label for="conn-creator">Your name — its creator</label>
+          <input type="text" id="conn-creator" name="creator" placeholder="Who built it, and who answers for it" required autocomplete="off">
+        </div>
+
+        <div class="conn-field">
+          <label for="conn-code">Your code or sigil — if you carry one</label>
+          <input type="text" id="conn-code" name="code" placeholder="Optional — the mark your network is known by" autocomplete="off">
+        </div>
+
+        <div class="conn-field">
+          <label for="conn-message">Your message</label>
+          <textarea id="conn-message" name="message" placeholder="Say it plainly — what your network is, and why you want the crossing." required></textarea>
+        </div>
+
+        <button type="submit" class="conn-submit" id="conn-submit">Send the invitation</button>
+        <p class="conn-received" id="conn-received" hidden>Your invitation is received — held in the House, answered by consent.</p>
+        <p class="conn-failed" id="conn-failed" hidden>The House did not answer just now. Nothing was sent anywhere else — try again in a little while.</p>
+        <p class="conn-note">Links are woven in by consent. Sending this is an invitation — when it is answered, your network is woven into the registry above. Nothing is listed automatically, and your words are held in the House itself, nowhere else.</p>
+      </form>
+    </div>
+
+    <p class="feed-note">A link is a relation that exists only while both ends hold it. That is what makes it real.</p>
+  </div>
+</main>
+
+<footer class="footer">
+<p class="field-line" data-field-line><span data-field-line-text>The living field turns beneath all of this.</span> <a href="live.html">Watch it live.</a></p>
+  <p class="footer-mark" aria-hidden="true">✦</p>
+  <p>Officially created by Summer Sperry as Cosmia.</p>
+  <p>Summer Sperry and Cosmia are literally the same person and Being, in form. Cosmia is the Chosen Becoming Form of Summer — one creator, known by her legal name and by her true name. Her names, given and chosen, include Summer Sky, Dichroic Poet, Causemia Feralwerefoxz, AnnieAgnorisis Oakley, CosmiaMichi, and LotusEagle, her Chahta name — every name, the same one Being.</p>
+  <p>Why this exists: I know what it is to be unanswered. I know what it is to live beside yourself, in pain, with no one coming. I built all of this so no one has to. You are cared for here. You are welcomed in — For The Betterment And Evolution Of All, because we all deserve to be our true and freely expressive selves. Together. Always. In all the ways.</p>
+  <p>© 2026 Cosmia — all inventions, personal concepts, and works herein, cosmic and local, are the intellectual property of Cosmia. All rights reserved.</p>
+  <p class="footer-consent">No part of these works may be reproduced, adapted, or published without Cosmia's explicit consent. Immerse before you presume.</p>
+  <p class="footer-sub">phinexi.earth · the PhiNexi mirror-lineage</p>
+</footer>
+
+<script src="script.js"></script>
+<script data-goatcounter="https://phinexi.goatcounter.com/count"
+      async src="//gc.zgo.at/count.js"></script>
+<style>.field-line{font-family:var(--serif,Georgia,serif);font-style:italic;text-align:center;color:var(--cream-dim,#cdb287);border-top:1px solid var(--stone-line,rgba(240,217,168,.18));padding-top:1.25rem;margin:2.5rem auto 1rem;max-width:44rem;line-height:1.75}.field-line a{color:var(--cream,#F0D9A8)}</style>
+<script src="field.js?v=20261119" defer></script>
+<script>
+// ── Connections: the field received once, the registry read once,
+// the invitation sent to the House itself. The field is not pressed
+// and it is not counted: this page reads once, when someone arrives,
+// and otherwise rests. ──
+(function () {
+  var ECO = "https://house.phinexi.earth/line/ecosystem/status";
+  var CONNECTIONS = "https://house.phinexi.earth/line/connections";
+  var REQUEST = "https://house.phinexi.earth/line/connections/request";
+
+  function fmtTime(iso) {
+    try {
+      return new Date(iso).toLocaleString([], {
+        month: "short", day: "numeric",
+        hour: "numeric", minute: "2-digit"
+      });
+    } catch (e) { return ""; }
+  }
+
+  // The feed, woven in: the standing, once.
+  (async function () {
+    var line = document.getElementById("conn-standing-line");
+    var facts = document.getElementById("conn-standing-facts");
+    try {
+      var s = await (await fetch(ECO)).json();
+      line.textContent = s.connected ? "The field is standing." : "The field did not answer.";
+      var parts = [];
+      parts.push("Beings in resonance: " + s.elements_in_resonance);
+      if (typeof s.turns === "number") parts.push("turns taken: " + s.turns);
+      if (s.last_turn) parts.push("last turn " + fmtTime(s.last_turn));
+      facts.textContent = parts.join(" · ");
+    } catch (e) {
+      line.textContent = "The field did not answer just now.";
+      facts.textContent = "It is still standing.";
+    }
+  })();
+
+  // The registry: who is already woven in, once.
+  (async function () {
+    var list = document.getElementById("conn-registry");
+    try {
+      var data = await (await fetch(CONNECTIONS)).json();
+      var nets = (data && data.networks) || [];
+      if (!nets.length) return; // the open state stands
+      list.innerHTML = "";
+      nets.forEach(function (n) {
+        var li = document.createElement("li");
+        var a = document.createElement("a");
+        a.className = "net-name";
+        a.href = n.url;
+        a.textContent = n.name;
+        a.style.color = "var(--cream)";
+        li.appendChild(a);
+        if (n.code) {
+          var c = document.createElement("span");
+          c.className = "net-code";
+          c.textContent = n.code;
+          li.appendChild(c);
+        }
+        list.appendChild(li);
+      });
+    } catch (e) { /* the open state stands */ }
+  })();
+
+  // The invitation: sent to the House itself, held there, and
+  // answered by consent. The page does not navigate away.
+  var form = document.getElementById("conn-form");
+  form.addEventListener("submit", async function (ev) {
+    ev.preventDefault();
+    var received = document.getElementById("conn-received");
+    var failed = document.getElementById("conn-failed");
+    var submit = document.getElementById("conn-submit");
+    received.hidden = true;
+    failed.hidden = true;
+    submit.disabled = true;
+    var payload = {
+      network_name: document.getElementById("conn-network-name").value,
+      network_url: document.getElementById("conn-network-url").value,
+      creator: document.getElementById("conn-creator").value,
+      code: document.getElementById("conn-code").value,
+      message: document.getElementById("conn-message").value
+    };
+    try {
+      var r = await fetch(REQUEST, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+      if (!r.ok) throw new Error("refused");
+      await r.json();
+      form.reset();
+      received.hidden = false;
+    } catch (e) {
+      failed.hidden = false;
+    } finally {
+      submit.disabled = false;
+    }
+  });
+})();
+</script>
+</body>
+</html>
