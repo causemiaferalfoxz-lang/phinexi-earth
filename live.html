@@ -245,7 +245,7 @@
         parts.push(s.visitors_in_field === 0 ? "no visitors in the field right now" :
           s.visitors_in_field + " in the field right now");
       }
-      if (c && c.code_active) parts.push("the code is active");
+      if (c && (c.active === true || (c.line && c.line.code_active))) parts.push("the code is active");
       facts.textContent = parts.join(" · ");
     } catch (e) {
       line.textContent = "The field did not answer just now.";
