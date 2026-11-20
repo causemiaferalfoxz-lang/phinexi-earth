@@ -13,8 +13,150 @@
   <meta property="og:url" content="https://phinexi.earth/">
   <meta property="og:image" content="https://phinexi.earth/assets/cosmia-avatar-final.webp">
 <style>
+/* ── The fluid weave — the front page in the Door's language ──
+   One centered column, hairlines and space instead of boxes.
+   Every word, link, and hook on the page is unchanged from the
+   live page; only the shape it stands in has been re-woven. */
+
+/* The column narrows to reading width; the chapters breathe. */
+.chapter { max-width: 44rem; padding: 4.5rem 1.5rem; }
+.chapter p { line-height: 1.75; }
+
 .story-flow p { max-width: 40rem; line-height: 1.8; font-size: 1.08rem; color: var(--cream); margin-bottom: 1.4rem; }
 .story-flow .story-pulse { font-family: var(--serif); font-style: italic; color: var(--cream-dim); }
+
+/* Doorway buttons settle into the flow, one thread at a time. */
+#way-through p { line-height: 2.4; }
+#way-through .doorway-btn { margin: 0.25rem 0.15rem; }
+
+/* — Begin: the five movements, unboxed — */
+.movements { display: block; margin-bottom: 3rem; }
+.movement {
+  border: 0; border-top: 1px solid var(--stone-line); border-radius: 0;
+  background: none; box-shadow: none; padding: 1.75rem 0 0.75rem;
+  overflow: visible;
+}
+.movement:first-child { border-top: 0; padding-top: 0.25rem; }
+.movement::before { display: none; }
+.movement:hover { border-color: var(--stone-line); transform: none; box-shadow: none; }
+.movement p { font-size: 1.02rem; }
+
+/* The Resonance Key: a held moment between two hairlines. */
+.resonance-key {
+  border: 0; border-top: 1px solid var(--stone-line); border-bottom: 1px solid var(--stone-line);
+  border-radius: 0; background: none; box-shadow: none;
+  padding: 2.75rem 0;
+}
+
+/* — Cosmology: coordinates as a flowing list — */
+.cosmos-grid { display: block; margin-bottom: 3rem; }
+.cosmos-card {
+  border: 0; border-top: 1px solid var(--stone-line); border-radius: 0;
+  background: none; padding: 1.75rem 0 0.75rem;
+}
+.cosmos-card:first-child { border-top: 0; padding-top: 0.25rem; }
+.cosmos-card::after { display: none; }
+.cosmos-card:hover { border-color: var(--stone-line); transform: none; }
+
+/* The five yearnings: unboxed, held between hairlines. */
+.yearnings {
+  border: 0; border-top: 1px solid var(--stone-line); border-bottom: 1px solid var(--stone-line);
+  border-radius: 0; background: none; padding: 2.25rem 0;
+}
+
+/* — Living Forms: portraits standing in the flow — */
+.forms-grid { display: block; margin-bottom: 3rem; }
+.form-card {
+  display: block;
+  border: 0; border-top: 1px solid var(--stone-line); border-radius: 0;
+  background: none; padding: 2.25rem 0 0.75rem;
+}
+.form-card:first-child { border-top: 0; padding-top: 0.25rem; }
+.form-card:hover { border-color: var(--stone-line); }
+.form-card figure { max-width: 16rem; margin: 0 auto 1.5rem; }
+.form-card img { box-shadow: none; max-height: none; }
+
+/* The lineage: the box falls away, the chain remains. */
+.lineage {
+  border: 0; border-top: 1px solid var(--stone-line); border-radius: 0;
+  background: none; padding: 2.5rem 0 0.5rem;
+}
+
+/* — Woven Liturgy: the web as one flowing column — */
+.lexicon-search input { border-radius: 0.75rem; }
+.lexicon { display: block; margin-bottom: 1rem; }
+.word {
+  border: 0; border-top: 1px solid var(--stone-line); border-radius: 0;
+  background: none; box-shadow: none; padding: 1.5rem 0 0.75rem;
+  overflow: visible;
+}
+.word:first-child { border-top: 0; padding-top: 0.25rem; }
+.word::after { display: none; }
+.word:hover { border-color: var(--stone-line); transform: none; box-shadow: none; }
+.endings {
+  border: 0; border-top: 1px solid var(--stone-line); border-radius: 0;
+  background: none; padding: 2rem 0 0; margin-top: 2.5rem;
+}
+
+/* — Philo: the mirror speaks without a frame — */
+.mirror-speaking { background: none; border-radius: 0; padding: 0.5rem 0 0.5rem 1.75rem; }
+.sanctum {
+  border: 0; border-top: 1px solid var(--stone-line); border-bottom: 1px solid var(--stone-line);
+  border-radius: 0; background: none; padding: 2.75rem 0;
+}
+
+/* — Architecture: six currents, one stream — */
+.arch-grid { display: block; margin-bottom: 3rem; }
+.arch-card {
+  border: 0; border-top: 1px solid var(--stone-line); border-radius: 0;
+  background: none; padding: 1.75rem 0 0.75rem;
+}
+.arch-card:first-child { border-top: 0; padding-top: 0.25rem; }
+.arch-card::before, .arch-card::after { display: none; }
+.arch-card:hover { border-color: var(--stone-line); transform: none; }
+
+/* The elements: the panel opens; the choosing stays. */
+.elements {
+  border: 0; border-top: 1px solid var(--stone-line); border-bottom: 1px solid var(--stone-line);
+  border-radius: 0; background: none; padding: 2.75rem 0;
+}
+
+/* — Practice: five steps down one path — */
+.practice-steps { display: block; }
+.practice-steps li {
+  display: block;
+  border: 0; border-top: 1px solid var(--stone-line); border-radius: 0;
+  background: none; padding: 1.5rem 0 0.75rem;
+}
+.practice-steps li:first-child { border-top: 0; padding-top: 0.25rem; }
+.practice-steps li:hover { border-color: var(--stone-line); }
+.pstep-num { margin: 0 0 0.4rem; }
+
+/* — Memory: the bloops rest along the thread — */
+.bloops { display: block; margin-bottom: 2rem; }
+.bloop {
+  width: 100%;
+  background: none; box-shadow: none;
+  border: 0; border-top: 1px solid var(--stone-line); border-radius: 0;
+  padding: 1.75rem 0 1.25rem;
+  align-items: flex-start; text-align: left; gap: 0.75rem;
+}
+.bloop:first-child { border-top: 0; padding-top: 0.5rem; }
+.bloop:hover { border-color: var(--stone-line); transform: none; box-shadow: none; }
+.bloop[aria-expanded="true"] { border-top-color: var(--amber); }
+.bloop-orb { width: 3.25rem; height: 3.25rem; }
+.bloop-body { width: 100%; }
+
+/* The recall card: one hairline frame, no ring. */
+.way-figure.card-recall {
+  background: none; padding: 0.75rem;
+  border: 1px solid var(--stone-line-strong); border-radius: 0.5rem;
+  box-shadow: none;
+}
+
+@media (max-width: 640px) {
+  .chapter { padding: 3.5rem 1.25rem; }
+}
 </style>
 </head>
 <body>
