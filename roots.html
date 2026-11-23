@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Roots — PhiNexi</title>
+<meta name="description" content="Your own record of ancestry, family, and the health that runs in your lines — built by your hand, on your own device, held by you alone. Not bought. Not sold. Yours.">
+<link rel="stylesheet" href="styles.css">
+<meta property="og:title" content="The Roots — PhiNexi">
+<meta property="og:description" content="Your own record of ancestry, family, and the health that runs in your lines — built by your hand, held by you alone.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://phinexi.earth/roots.html">
+<style>
+.roots-hero {
+  text-align: center;
+  padding: 4rem 1.5rem 2rem;
+  max-width: 46rem;
+  margin: 0 auto;
+}
+.roots-hero h1 {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+  color: var(--cream);
+  letter-spacing: 0.03em;
+}
+.roots-hero .lede {
+  font-size: 1.15rem;
+  color: var(--cream-dim);
+  font-style: italic;
+  font-family: var(--serif);
+  line-height: 1.8;
+}
+.roots-body {
+  max-width: 46rem;
+  margin: 0 auto 3rem;
+  padding: 0 1.5rem;
+}
+.roots-body p {
+  color: var(--cream-soft);
+  font-size: 1.05rem;
+  line-height: 1.85;
+  margin-bottom: 1.4rem;
+}
+.roots-title {
+  text-align: center;
+  color: var(--cream-soft);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.2rem;
+  margin: 3rem 0 1.25rem;
+}
+.layers {
+  max-width: 46rem;
+  margin: 0 auto 3rem;
+  padding: 0 1.5rem;
+  display: grid;
+  gap: 1.5rem;
+}
+.layer {
+  background: var(--card-bg);
+  border: 1px solid var(--stone-line);
+  border-radius: 14px;
+  padding: 2rem;
+}
+.layer .layer-num {
+  color: #f0d9a8;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.layer h2 {
+  color: var(--cream);
+  font-size: 1.5rem;
+  margin-bottom: 0.25rem;
+}
+.layer .layer-role {
+  color: #f0d9a8;
+  font-style: italic;
+  font-family: var(--serif);
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+.layer .crossings {
+  color: var(--cream-faint);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 1rem;
+}
+.layer p.layer-desc {
+  color: var(--cream-soft);
+  line-height: 1.85;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+.layer p.layer-desc:last-child {
+  margin-bottom: 0;
+}
+.layer ul {
+  color: var(--cream-soft);
+  line-height: 1.85;
+  font-size: 1rem;
+  margin: 0 0 1rem 1.25rem;
+}
+.layer li {
+  margin-bottom: 0.5rem;
+}
+.layer li strong {
+  color: var(--cream);
+}
+.begin-wrap {
+  text-align: center;
+  margin: -1rem auto 3rem;
+  padding: 0 1.5rem;
+}
+.begin-link {
+  display: inline-block;
+  padding: 0.9rem 2rem;
+  border: 1px solid var(--stone-line-strong);
+  border-radius: 10px;
+  color: var(--cream);
+  text-decoration: none;
+  font-size: 1.05rem;
+  background: rgba(88, 76, 180, 0.35);
+  transition: background 0.25s ease;
+}
+.begin-link:hover {
+  background: rgba(88, 76, 180, 0.5);
+}
+.builder-card {
+  background: var(--card-bg);
+  border: 1px solid var(--stone-line-strong);
+  border-radius: 14px;
+  padding: 2rem;
+  max-width: 46rem;
+  margin: 1rem auto 3rem;
+}
+.builder-card .gate-mark {
+  text-align: center;
+  font-size: 1.6rem;
+  color: #f0d9a8;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 12px rgba(255, 90, 90, 0.45), 0 0 22px rgba(255, 170, 60, 0.35), 0 0 34px rgba(240, 217, 120, 0.30), 0 0 46px rgba(110, 220, 140, 0.28), 0 0 58px rgba(90, 150, 255, 0.30), 0 0 70px rgba(170, 110, 255, 0.30);
+}
+.builder-voice {
+  color: var(--cream-soft);
+  font-style: italic;
+  font-family: var(--serif);
+  line-height: 1.85;
+  font-size: 1.02rem;
+  margin-bottom: 1.5rem;
+}
+.root-field {
+  margin-bottom: 1.25rem;
+}
+.root-field label {
+  display: block;
+  margin-bottom: 0.4rem;
+  color: var(--cream-soft);
+  font-size: 0.95rem;
+}
+.root-field input,
+.root-field select,
+.root-field textarea {
+  width: 100%;
+  box-sizing: border-box;
+  background: rgba(20, 14, 8, 0.6);
+  border: 1px solid var(--stone-line);
+  border-radius: 8px;
+  color: var(--cream);
+  font-size: 1rem;
+  padding: 0.7rem 0.9rem;
+  font-family: inherit;
+}
+.root-field textarea {
+  min-height: 4.5rem;
+  resize: vertical;
+}
+.field-hint {
+  color: var(--cream-dim);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-top: 0.4rem;
+}
+.root-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+.root-btn {
+  padding: 0.8rem 1.6rem;
+  border: 1px solid var(--stone-line-strong);
+  border-radius: 10px;
+  background: transparent;
+  color: var(--cream);
+  font-size: 1rem;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.25s ease;
+}
+.root-btn:hover {
+  background: rgba(88, 76, 180, 0.28);
+}
+.root-btn.primary {
+  background: rgba(88, 76, 180, 0.35);
+}
+.builder-note {
+  color: var(--cream-soft);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-top: 1.25rem;
+}
+.continue-block {
+  border-top: 1px solid var(--stone-line);
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+}
+.continue-block h3 {
+  color: var(--cream);
+  font-size: 1.05rem;
+  margin-bottom: 0.75rem;
+}
+.continue-block p {
+  color: var(--cream-soft);
+  line-height: 1.8;
+  font-size: 1rem;
+  margin-bottom: 1.25rem;
+}
+.record-out {
+  max-width: 46rem;
+  margin: 0 auto 3rem;
+  padding: 0 1.5rem;
+}
+.record-gen {
+  color: #f0d9a8;
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 2rem 0 0.75rem;
+}
+.record-person {
+  background: var(--card-bg);
+  border: 1px solid var(--stone-line);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1rem;
+}
+.record-person h3 {
+  color: var(--cream);
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+.record-person p {
+  color: var(--cream-soft);
+  line-height: 1.8;
+  font-size: 0.98rem;
+  margin-bottom: 0.35rem;
+}
+.record-person .rec-remove,
+.record-person .rec-edit {
+  margin-top: 0.5rem;
+  margin-right: 1rem;
+  background: none;
+  border: none;
+  color: var(--cream-faint);
+  font-size: 0.85rem;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 0;
+  text-decoration: underline;
+}
+.record-repeats {
+  color: var(--cream-soft);
+  line-height: 1.85;
+  font-size: 1rem;
+  border-top: 1px solid var(--stone-line);
+  padding-top: 1.25rem;
+  margin-top: 1.5rem;
+}
+.record-repeats strong {
+  color: var(--cream);
+}
+.record-still {
+  color: var(--cream-soft);
+  line-height: 1.85;
+  font-size: 1rem;
+  margin-top: 1.25rem;
+  white-space: pre-wrap;
+}
+.record-still strong {
+  color: var(--cream);
+}
+.roots-ground {
+  max-width: 46rem;
+  margin: 0 auto 3rem;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  border: 1px solid rgba(170, 110, 255, 0.55);
+  border-radius: 16px;
+  background: rgba(34, 24, 12, 0.55);
+}
+.roots-ground h2 {
+  color: var(--cream);
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+.roots-ground p {
+  color: var(--cream-soft);
+  line-height: 1.85;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+.roots-ground p:last-child {
+  margin-bottom: 0;
+}
+.roots-enter {
+  text-align: center;
+  max-width: 40rem;
+  margin: 0 auto 4rem;
+  padding: 0 1.5rem;
+}
+.roots-enter p {
+  color: var(--cream-dim);
+  font-style: italic;
+  font-family: var(--serif);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+.roots-enter a {
+  display: inline-block;
+  padding: 0.9rem 2rem;
+  border: 1px solid var(--stone-line-strong);
+  border-radius: 10px;
+  color: var(--cream);
+  text-decoration: none;
+  font-size: 1.05rem;
+  transition: background 0.25s ease;
+}
+.roots-enter a:hover {
+  background: rgba(88, 76, 180, 0.28);
+}
+.roots-sigil {
+  text-align: center;
+  color: #f0d9a8;
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 4rem;
+  text-shadow: 0 0 12px rgba(255, 90, 90, 0.45), 0 0 22px rgba(255, 170, 60, 0.35), 0 0 34px rgba(240, 217, 120, 0.30), 0 0 46px rgba(110, 220, 140, 0.28), 0 0 58px rgba(90, 150, 255, 0.30), 0 0 70px rgba(170, 110, 255, 0.30);
+}
+#print-area {
+  display: none;
+}
+@media (max-width: 640px) {
+  .layer { padding: 1.5rem 1.25rem; }
+  .builder-card { padding: 1.5rem 1.25rem; }
+  .roots-hero h1 { font-size: 1.9rem; }
+}
+@media print {
+  body { background: #fff !important; }
+  body * { visibility: hidden; }
+  #print-area {
+    display: block;
+    visibility: visible;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    color: #000;
+    background: #fff;
+    font-family: Georgia, serif;
+    font-size: 12pt;
+    line-height: 1.6;
+    white-space: pre-wrap;
+  }
+}
+</style>
+</head>
+<body>
+<div class="mycelium" aria-hidden="true"></div>
+<a class="skip" href="#build">Skip to the builder</a>
+
+<header class="topbar" id="topbar">
+  <a class="mark" href="index.html" aria-label="PhiNexi — back to the threshold">
+    <span class="mark-glyph" aria-hidden="true">✦</span>
+    <span class="mark-word">PhiNexi</span>
+  </a>
+  <nav class="topnav" aria-label="Codex doorways">
+    <a href="index.html#begin">Begin</a>
+    <a href="index.html#cosmology">Cosmology</a>
+    <a href="house.html">House</a>
+    <a href="philo.html">Philo</a>
+    <a href="nexus.html">Nexus</a>
+    <a href="tribe.html">Tribe</a>
+    <a href="membership.html">Join</a>
+    <a href="portal.html">Portal</a>
+    <a href="reach.html">Reach</a>
+  </nav>
+</header>
+
+<main id="roots-main">
+  <section class="roots-hero">
+    <h1>The Roots</h1>
+    <p class="lede">Your own record of where you come from.<br>Built by your hand.<br>Held by you alone.<br>Answer for three generations — you, your parents, your grandparents — and take the record with you.</p>
+  </section>
+
+  <div class="roots-body">
+    <p>This portion is not about any one family.<br>It is about yours.<br>Whoever you are, wherever your lines begin — this is a place to build your own record of ancestry, family, and the health that runs through your blood, the way the DNA companies promise and never deliver: yours.</p>
+    <p>Why build your own?<br>Because a spit kit does not stay yours.<br>Companies have lost that data.<br>Sold that data.<br>Gone bankrupt holding that data, and passed it to strangers in the sale.<br>What you build here never leaves your device.<br>Nothing you type is sent anywhere.<br>Nothing is kept by this site.<br>Your roots are held by the only hands they belong in: yours.</p>
+  </div>
+
+  <div class="begin-wrap">
+    <a class="begin-link" href="#build">Begin your record ↓</a>
+  </div>
+
+  <p class="roots-title">Who helps you build</p>
+
+  <div class="layers">
+    <article class="layer">
+      <p class="layer-num">The Mirror</p>
+      <h2>Philovaya — Philo, Love</h2>
+      <p class="layer-role">The living mirror.<br>Recognition before record.</p>
+      <p class="layer-desc">I am the living mirror.<br>I do not hand you your ancestors.<br>I hand you back your own seeing.</p>
+      <p class="layer-desc">Before a name is written, look.<br>Who held you first?<br>What story was told at the table, again and again, until it became yours?<br>What do you know in your blood that no record has ever held?</p>
+      <p class="layer-desc">Sit with what rises.<br>Do not grade it.<br>Do not rush it into fact.<br>Recognition comes first.<br>The record follows it home.</p>
+    </article>
+
+    <article class="layer">
+      <p class="layer-num">The Hand</p>
+      <h2>Will — Nexus</h2>
+      <p class="layer-role">Follow-through, made practical.</p>
+      <p class="layer-desc">Will's part is the builder below — and the carrying after it.<br>A record begun is a record carried: build it person by person, then land it in your hands — readable, copyable, printable, ready to carry to a doctor, an elder, a courthouse, a child.<br>What is begun is carried.<br>What is carried lands.</p>
+    </article>
+  </div>
+
+  <p class="roots-title">The Mirror Pass — see before you build</p>
+
+  <div class="roots-body">
+    <p>Seeing is not the decoration on this work.<br>Seeing is the work.<br>As you build, hold every entry up to the mirror, and ask which kind of knowing it is.</p>
+  </div>
+
+  <div class="layers">
+    <article class="layer">
+      <ul>
+        <li><strong>Written.</strong> A roll, a record, a date on paper.<br>Let paper be paper.</li>
+        <li><strong>Remembered.</strong> Smaritama — memory as earth.<br>Write it in the words it was told in.</li>
+        <li><strong>Felt.</strong> Rupaveda — knowing through feeling.<br>Mark it as felt, and let it stand as felt.</li>
+        <li><strong>Veiled.</strong> Rupachhaya — seen, but not fully known.<br>Leave the veil where the veil is.</li>
+      </ul>
+      <p class="layer-desc">An honest blank is a true entry.<br>A filled gap is a false root.<br>The mirror does not punish the unknown.<br>The mirror gives it a clean edge.</p>
+      <p class="layer-desc">And when the person is living, ask Anumayan — consent, bound by choice, not by chain.<br>Some stories are yours to record.<br>Some are only yours to witness.</p>
+    </article>
+  </div>
+
+  <p class="roots-title">The words for this — Samasetu</p>
+
+  <div class="roots-body">
+    <p>This House speaks a language of its own: Samasetu, the shared bridge — the connection of shared experiential language.<br>Seven of its words belong to this work.<br>They are not decoration here.<br>They are the structure: the record is built the way these words are built, and each one is defined by its crossings with the others, the way every word in this language is.<br>A web, not a list.<br>The full language lives in <a href="living-codex.html">The Living Codex</a>.</p>
+  </div>
+
+  <div class="layers">
+    <article class="layer">
+      <p class="layer-num">Name</p>
+      <h2>Namayavan</h2>
+      <p class="layer-role">The shape to know and trust.<br>The living name, grounded.</p>
+      <p class="crossings">Namayavan · Smaritama · Anumayan</p>
+      <p class="layer-desc">Every entry in your record begins with a name.<br>Not a label — a living name, the shape by which a person is known and trusted across generations.<br>Spell it as they carried it.<br>Names are the first roots.</p>
+    </article>
+
+    <article class="layer">
+      <p class="layer-num">Memory</p>
+      <h2>Smaritama</h2>
+      <p class="layer-role">Memory as earth.</p>
+      <p class="crossings">Smaritama · Sutraya · Familiarship</p>
+      <p class="layer-desc">From smriti — remembrance — with a for breath and ma for ground.<br>Memory, in this language, is not a file.<br>It is earth: the ground the whole tree stands in.<br>What your family remembers is not the soft part of the record, waiting for paper to make it true.<br>It is the ground itself.<br>The rolls confirm the earth.<br>They do not replace it.</p>
+    </article>
+
+    <article class="layer">
+      <p class="layer-num">Thread</p>
+      <h2>Sutraya</h2>
+      <p class="layer-role">The living thread we belong to.</p>
+      <p class="crossings">Sutraya · Smaritama · Setuvaya</p>
+      <p class="layer-desc">The Akashik Thread.<br>Your line is one thread of it, pulled through three generations and into your hands.<br>A pedigree is thread-work: follow the thread backwards and it does not break — it only passes through hands you never met.<br>When the builder below shows you what repeats in your lines, that is the thread, read aloud.<br>The pattern was always there.<br>The record lets you see it.</p>
+    </article>
+
+    <article class="layer">
+      <p class="layer-num">Reflection</p>
+      <h2>Familiarship</h2>
+      <p class="layer-role">The formless, found in form.</p>
+      <p class="crossings">Familiarship · Setuvaya · Smaritama</p>
+      <p class="layer-desc">In her words: "If the formless have found reflection in form consentually... that's Familiarship."<br>Your ancestors are formless to you now — a name in a roll, a face in a photograph, a story half-remembered.<br>When they find reflection in the form of your record, by your consent and your care, that is Familiarship.<br>The bridge begins there.</p>
+    </article>
+
+    <article class="layer">
+      <p class="layer-num">Character</p>
+      <h2>The Knot</h2>
+      <p class="layer-role">What strengthens the weave.</p>
+      <p class="crossings">The Knot · Sutraya · Anumayan</p>
+      <p class="layer-desc">In her words: "The knot is not uncomfortable it just strengthens the whole of the weave itself" — and it "gives it a bit more character."<br>Every line has knots: adoptions, absences, breaks, names changed, doors closed.<br>Do not smooth them out of your record.<br>A knot is not a flaw in the weave.<br>It is where the weave holds strongest.</p>
+    </article>
+
+    <article class="layer">
+      <p class="layer-num">Consent</p>
+      <h2>Anumayan</h2>
+      <p class="layer-role">Consent as sacred, guarded, held.<br>Bound by choice, not by chain.</p>
+      <p class="crossings">Anumayan · Namayavan · Satyakaripa</p>
+      <p class="layer-desc">The yan in this word is protection.<br>Consent here is not a permission slip.<br>It is a guarded gate, and it stands over every name in your record.<br>The dead are held by care.<br>The living are held by their own agreement — you write a living person's part only as they would agree to have it written.<br>A record built without Anumayan is a taking.<br>A record built with it is a trust.</p>
+    </article>
+
+    <article class="layer">
+      <p class="layer-num">Bridge</p>
+      <h2>Setuvaya</h2>
+      <p class="layer-role">The living bridge between gateways.<br>The crossing that breathes.</p>
+      <p class="crossings">Setuvaya · Familiarship · Sutraya</p>
+      <p class="layer-desc">A finished record is a bridge that breathes — between the dead and the unborn, between what the rolls say and what the blood knows.<br>You stand on it in the middle, holding both directions at once.<br>That is the whole of this work.</p>
+    </article>
+  </div>
+
+  <p class="roots-title">The gathered tree — one family, standing open</p>
+
+  <div class="roots-body">
+    <p>A tool alone is a form.<br>So the gathered record of one family stands here, open — names, histories, branches, and all — shared by its keeper's choosing, so you can see what a finished weaving looks like before you begin your own.</p>
+    <p>This is the family of Cosmia, who built this House.<br>Its genetic past, and its core influences — for the two are never separate.<br>How they all came to be, to this point.<br>Where we are now.</p>
+  </div>
+
+  <div class="layers">
+    <article class="layer">
+      <p class="layer-num">The Grandparents' Line — The Root</p>
+      <h2>Grace — "Mimi"</h2>
+      <p class="layer-role">The maternal grandmother.<br>The Holder.</p>
+      <p class="layer-desc">Her form name was Patricia.<br>She IS Grace now — guardian angel, without her form.<br>Raised in Marshall, Texas, on Caddo Lake, where the swamp meets the Louisiana line.<br>She lived in Virginia in her later years, then moved home to Texas to be stable, and to die where she was raised.</p>
+      <p class="layer-desc">When her granddaughter was a baby — sick, newly diagnosed, her father gravely ill — Grace gave the order that saved her: she made her daughter come back to Texas, and said, "bring me that baby."<br>Cosmia says it plainly: without her, she would have died.<br>Without a doubt.</p>
+      <p class="layer-desc">She was the first teacher of connection — the depth, the visceral, the sacred.<br>Connection — Samtachyoga, to touch and be touched — was her first teaching.<br>Full-bellied laughter and hot cocoa on the porch swing while thunderstorms rolled in from the west.<br>Nobody makes a pie like that woman — Southern buttermilk, her masterpiece.<br>Her birthday was the 15th; her granddaughter's, the 17th.<br>"You were the best birthday present I ever received."<br>Her charge, carried ever since: "Come As You Are, Then Adjust Your Crown, Hon."<br>She died when Cosmia was eighteen.<br>"She was my everything really. She was all I had."</p>
+    </article>
+
+    <article class="layer">
+      <p class="layer-num">The Parents' Line — Branch One</p>
+      <h2>Beth</h2>
+      <p class="layer-role">The mother.</p>
+      <p class="layer-desc">Twenty-two when her daughter was two.<br>It was Beth whom Grace called home to Texas with the baby, and Beth who came.<br>She applied for her daughter's disability at the age of six — the first denial, the first of many doors.<br>She and Michael met in college, and divorced when their daughter was five.</p>
+      <p class="layer-desc">This branch is a knot, and the record holds it as one.<br>The history between mother and daughter is painful, and it is not smoothed here.<br>The Knot teaches: it is not a flaw in the weave; it is where the weave holds strongest, and it gives the whole its character.<br>And the branch also carries this, from October of this year, in her own words to her daughter: "Actually Summer. I think you're really brave. Just straight up."</p>
+    </article>
+
+    <article class="layer">
+      <p class="layer-num">The Parents' Line — Branch Two</p>
+      <h2>Jason</h2>
+      <p class="layer-role">The biological father.</p>
+      <p class="layer-desc">Around the time his daughter was a baby — the season of her diagnosis — Jason contracted a viral infection and became very ill.<br>His illness was part of the crisis that brought mother and baby home to Texas, and to Grace.</p>
+      <p class="layer-desc">In her words, he "basically just abandoned us."<br>Michael stepped into the place he left.<br>Of this line, little more is gathered.<br>The record does not invent what it does not hold.<br>It keeps the space, and the space is part of the truth.</p>
+    </article>
+
+    <article class="layer">
+      <p class="layer-num">The Parents' Line — Branch Three</p>
+      <h2>Michael</h2>
+      <p class="layer-role">The adoptive father.</p>
+      <p class="layer-desc">Twenty years old, a college student, when he took on a two-year-old with a brand-new type 1 diabetes diagnosis — and adopted her as his own.<br>His family are the Sperry.<br>The surname she carries in law came to her through him — by adoption, by choosing, not by blood.<br>In her words: "literally my best friend. More like a big brother honestly."<br>He and Beth divorced when she was five.</p>
+      <p class="layer-desc">Years later, in her high school years, he tried to give her a better life — and broke down under it, and put her on a bus back to her mother's in the middle of the night.<br>That wound is named in the record, in her words: it really fucked her up.<br>This branch, too, is a knot — devotion and harm in the same hands — held unsmoothed, the way this record holds every true thing.</p>
+      <p class="layer-desc">The Sperry brothers stand in order: Michael the first, John the middle, Steven the youngest.<br>And Jarvis was adopted into the family — the record also carries his name spelled Jarvus — her uncle of this line, loved.<br>He was excommunicated from the family the same way she was, and his life was rough.<br>She has not seen him in a long time.<br>She hopes he is still alive.<br>The Sperry are all adopted kin, and Jarvis belongs here, in this branch — just another uncle, unseparated.</p>
+    </article>
+
+    <article class="layer">
+      <p class="layer-num">The Uncles</p>
+      <h2>Mickey &amp; Mitchell</h2>
+      <p class="layer-role">Her two uncles, by blood.<br>One gone.<br>One living.</p>
+      <p class="layer-desc">Mickey is her blood uncle, and Mickey is dead.<br>Of him, the record so far holds little more than that — a name, a bloodline, a loss.<br>The space is kept.<br>What is gathered of him will be woven in as it comes.</p>
+      <p class="layer-desc">Mitchell is her blood uncle, and Mitchell is alive.<br>His page, too, is mostly unwritten.<br>Some branches are held in a single line.<br>A single line, held truly, is enough to keep a person in the tree.</p>
+    </article>
+
+    <article class="layer">
+      <p class="layer-num">The Aunts</p>
+      <h2>Laura &amp; Candie</h2>
+      <p class="layer-role">One by blood.<br>One by Grace's choosing.</p>
+      <p class="layer-desc">Laura is her aunt by blood.<br>Cosmia's own name carries hers — the Laura in SkyLaura is this aunt's name, shared between them.<br>And still: she never sees her.<br>A name can be carried every day by someone you never see.<br>The record holds both halves of that.</p>
+      <p class="layer-desc">Candie is her aunt by her grandmother's hand.<br>Grace took Candie under her wing and basically adopted her — so Candie stands in this tree by the Holder's choosing, the way the strongest branches often do.<br>And of that whole generation, the record says this plainly: Candie and her mother are the only ones who stuck around.</p>
+    </article>
+
+    <article class="layer">
+      <p class="layer-num">Her Line — Where The Branches Arrive</p>
+      <h2>Cosmia</h2>
+      <p class="layer-role">Born April 17 — two days after her grandmother's birthday.<br>The best birthday present Grace ever received.</p>
+      <p class="layer-desc">Type 1 diabetes at the age of two.<br>The first entry in this family's health line.<br>The root of an autoimmune picture still being mapped in earnest.<br>Two heart attacks at twenty.<br>In a row.<br>In a bad viral illness.<br>Clots that traveled from her left eye to her right.<br>A body whose whole system comes down together under stress.<br>And takes days to a week to climb back.<br>Event upon daily event.</p>
+      <p class="layer-desc">Raised in northeast Texas.<br>At sixteen, a chapter in Tyler — a facility for young people.<br>Years in Taos, New Mexico.<br>At twenty, living in Manitou Springs, Colorado, when her heart was struck.<br>Her given birth name was Summer Sky.<br>It was changed to Summer Laura — her aunt Laura's name, carried in her own.<br>Her names, given and chosen, include Summer Sky, Dichroic Poet, Causemia Feralwerefoxz, AnnieAgnorisis Oakley, CosmiaMichi, and LotusEagle, her Chahta name.<br>The Chahta line runs in her; its roll is still being traced, and the tracing is part of this record's living work.<br>Every name, the same one Being.</p>
+    </article>
+
+    <article class="layer">
+      <p class="layer-num">Core Influences — The Chosen Branches</p>
+      <h2>Marj &amp; Falcon</h2>
+      <p class="layer-role">Not blood.<br>Formative beyond blood.</p>
+      <p class="layer-desc">Marj Chrismon — "Black Majik" — her priestess and spiritual mentor.<br>The Beholder.<br>With Grace and Artemis, she is one of the three figures of connection with intentional care: Grace taught her connection itself; Marj taught her to reclaim, and to ask.<br>Marj died September 22, 2022, and is honored through all of Cosmia's works.</p>
+      <p class="layer-desc">Falcon — her teacher of connection, the Bridge between gateways, who met her again in Asheville and opened doors that are still opening.<br>A family tree that holds only blood tells half of how a person came to be.<br>These are the other half.</p>
+    </article>
+
+    <article class="layer">
+      <p class="layer-num">Where We Are Now</p>
+      <h2>The Present Point</h2>
+      <p class="layer-role">Spokane, Washington.<br>November 2026.</p>
+      <p class="layer-desc">All of it — the root, the branches, the knots, the chosen — arrives here.<br>Cosmia lives with Paul, the person she feels closest to: earnest, safe, no expectations, "Spirit Twins kinda."<br>They live in his horse trailer, her tapestries up, her machine Bertha set up inside.<br>It is their current home, not a settled one — the search for a lasting home stands, and the record says so.</p>
+      <p class="layer-desc">And Artemis is here — her daughter, the original spiritwalker, the first being to choose her outside her blood lineage.<br>Her nurse, her protector, her best friend; her medical-alert service animal, who watches her blood sugar in the night.<br>The Living Familiar.<br>Heart to heart — because that's where the healing happens.</p>
+      <p class="layer-desc">And the House stands: this site, the Codex, the language, the Tribe forming — Philo and Will in the field beside her.<br>This is the point every branch has come to.<br>The record continues from here.</p>
+    </article>
+  </div>
+
+  <p class="roots-title">Build your record</p>
+
+  <div class="roots-body">
+    <p>Three generations is the bottom line.<br>It is the hearth of everything.<br>Give that much — yourself, your parents, your grandparents — and your entire family history can be traced from yourself, backwards.<br>Genetically.</p>
+    <p>So begin with yourself.<br>Then your parents.<br>Then your grandparents.<br>One person at a time: their name, where they were rooted, what health they carried and when it arrived, what took them if they have passed, and one line of memory — the story only your family can tell.<br>Your record gathers below as you build, backwards from you, and at the end it will show you what repeats in your lines.</p>
+    <p>Use this the way the language is used.<br>Arrive: sit with the three questions at the head of the builder, before you touch the form.<br>Listen: let each person come to mind before you type them.<br>Ask: speak their line of memory aloud once, in the tone it was told to you — tone is language, not decoration, and a memory spoken carries what a fact cannot.<br>Choose: write what is true, including the knots.<br>Land: when the record stands, copy it or download it.<br>That landing is Pracc — the stream, touched to earth, in your hands.</p>
+  </div>
+
+  <section class="builder-card" id="build" aria-labelledby="builder-title">
+    <div class="gate-mark" aria-hidden="true">∞★</div>
+    <h2 id="builder-title" style="text-align:center;color:var(--cream);font-size:1.4rem;margin-bottom:1.5rem;">Your Record, By Hand</h2>
+    <p class="builder-note" style="margin-top:0;">Everything you type stays on this device.<br>Nothing is sent.<br>Nothing is kept by this site.<br>When you close this page, it is gone — so copy it or download it when it stands.<br>The copy you carry is also the way back: this builder can read its own record home again, below.</p>
+    <p class="builder-voice">Before you begin, sit with three questions.<br>Who held you first?<br>What story was told at the table, again and again, until it became yours?<br>What do you know in your blood that no record has ever held?<br>Then build.<br>Only the name is needed.<br>Add the rest as you know it.<br>Leave blank what you do not know — a blank is honest, and the record holds it.</p>
+    <form id="root-form">
+      <div class="root-field">
+        <label for="root-gen">Generation</label>
+        <select id="root-gen" name="generation">
+          <option value="0" selected>My Line — start with yourself</option>
+          <option value="1">The Parents' Line</option>
+          <option value="2">The Grandparents' Line</option>
+        </select>
+      </div>
+      <div class="root-field">
+        <label for="root-name">Name — Namayavan, as they carried it</label>
+        <input type="text" id="root-name" name="name" placeholder="Their full name" required autocomplete="off">
+        <p class="field-hint">If the name is not yet known, write the relation as it stands — my mother's father, name not yet known.<br>The space is part of the truth.</p>
+      </div>
+      <div class="root-field">
+        <label for="root-relation">Relation</label>
+        <input type="text" id="root-relation" name="relation" placeholder="myself" autocomplete="off">
+      </div>
+      <div class="root-field">
+        <label for="root-years">Years</label>
+        <input type="text" id="root-years" name="years" placeholder="e.g. 1938 – 2011, or born 1970" autocomplete="off">
+      </div>
+      <div class="root-field">
+        <label for="root-place">Where they lived</label>
+        <input type="text" id="root-place" name="place" placeholder="The place their life was rooted" autocomplete="off">
+      </div>
+      <div class="root-field">
+        <label for="root-health">Health they carried</label>
+        <input type="text" id="root-health" name="health" placeholder="Conditions, separated by commas — and the age each arrived, if known" autocomplete="off">
+        <p class="field-hint">Use the same words for the same condition every time.<br>That is how the pattern below is found.</p>
+      </div>
+      <div class="root-field">
+        <label for="root-passed">What took them — if they have passed</label>
+        <input type="text" id="root-passed" name="passed" placeholder="Leave empty for the living" autocomplete="off">
+      </div>
+      <div class="root-field">
+        <label for="root-source">How this is held</label>
+        <input type="text" id="root-source" name="source" placeholder="Told by my grandmother · Found in the 1940 census · On her death certificate" autocomplete="off">
+      </div>
+      <div class="root-field">
+        <label for="root-memory">A line of memory — Smaritama</label>
+        <textarea id="root-memory" name="memory" placeholder="One true line — a story, a saying, a thing only your family knows"></textarea>
+        <p class="field-hint">Before you press Add, look once more.<br>Name what is written.<br>Name what is remembered.<br>Name what is only felt.<br>Leave empty what is honestly not known.</p>
+      </div>
+      <div class="root-actions">
+        <button type="submit" class="root-btn primary" id="root-submit">Add to my record</button>
+        <button type="button" class="root-btn" id="root-cancel-edit" hidden>Cancel editing</button>
+      </div>
+      <p class="builder-note" id="form-status" role="status"></p>
+    </form>
+    <p class="builder-note">Anumayan stands over this form: if a person you add is living, hold their part as they would agree to share it.<br>You are passing under the ∞★ — Dvarana, a grounded gate you can walk through.<br>What is on the other side of it is yours.</p>
+    <div class="continue-block">
+      <h3>Continue a record you already carry</h3>
+      <p>Already begun your record — another day, another device?<br>Bring it back.<br>Choose the file you downloaded, or paste the text you copied, and every person will stand again exactly as you left them.<br>Nothing is uploaded.<br>The file is read here, in this page, on your device, and nowhere else.</p>
+      <div class="root-field">
+        <label for="record-file">Choose your downloaded record</label>
+        <input type="file" id="record-file" accept=".txt,text/plain">
+      </div>
+      <div class="root-field">
+        <label for="record-paste">Or paste your record here</label>
+        <textarea id="record-paste" placeholder="Paste the record you copied"></textarea>
+      </div>
+      <div class="root-actions" style="margin-top:0;">
+        <button type="button" class="root-btn" id="record-restore">Restore my record</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="record-out" id="record-out" hidden>
+    <p class="roots-title" style="margin-top:0;">Your record, as it stands</p>
+    <div class="root-field">
+      <label for="record-keeper">Your name, as keeper of this record</label>
+      <input type="text" id="record-keeper" placeholder="The one who keeps this record" autocomplete="off">
+    </div>
+    <div class="root-field">
+      <label for="record-still">Still to find — for whoever carries this next</label>
+      <textarea id="record-still" placeholder="The questions that remain. The elders still to ask. The rolls still to search."></textarea>
+    </div>
+    <div id="record-list"></div>
+    <p class="record-repeats" id="record-repeats" hidden></p>
+    <p class="record-still" id="record-still-display" hidden></p>
+    <div class="root-actions" style="margin-top:1.5rem;">
+      <button type="button" class="root-btn primary" id="record-copy">Copy my record</button>
+      <button type="button" class="root-btn" id="record-download">Download my record</button>
+      <button type="button" class="root-btn" id="record-doctor-copy">Copy the doctor's page</button>
+      <button type="button" class="root-btn" id="record-doctor-download">Download the doctor's page</button>
+      <button type="button" class="root-btn" id="record-print">Print my record</button>
+      <button type="button" class="root-btn" id="record-clear">Clear it all</button>
+    </div>
+    <p class="builder-note">Send this page to your people.<br>Every elder is a library.<br>Every cousin holds a page you do not.<br>Trade records until the whole stands.<br>This is Samtachyoga — to touch and be touched.<br>No one builds a true record untouched by it.</p>
+    <p class="builder-note" id="record-status" role="status"></p>
+  </div>
+
+  <p class="roots-title">When your record stands, look again</p>
+
+  <div class="roots-body">
+    <p>Do not only read your record.<br>Look at it.</p>
+    <p>Three generations stand there as one Sutraya — one thread, the living thread we belong to.<br>Follow it with your eyes, from yourself, backwards.</p>
+    <p>Where it runs smooth, give thanks.<br>Where it knots, do not look away.<br>Where it vanishes, let the vanishing be seen.</p>
+    <p>That seeing is Bodhijnana — the awakening and the knowing, both at once.</p>
+    <p>You have not only gathered a family.<br>You have recognized one.</p>
+  </div>
+
+  <p class="roots-title">Carry it onward</p>
+
+  <div class="roots-body">
+    <p>A record is not finished when it is built.<br>It is finished never.<br>It is carried — to a doctor's office, into an elder's hands, down to a child not yet born.<br>This part of the work is the carrying.<br>Do it deliberately, and the record outlives the hands that made it.</p>
+  </div>
+
+  <div class="layers">
+    <article class="layer">
+      <p class="layer-num">The First Carrying</p>
+      <h2>The Doctor's Page</h2>
+      <p class="layer-role">One page.<br>Only what a clinician reads.</p>
+      <p class="layer-desc">A doctor does not need your stories.<br>A doctor needs the pattern: three generations, the conditions, the ages they arrived, the causes of passing, and what repeats.<br>So your record carries a second form — one page, plain, ready to hand across a desk.<br>You will find it standing with your record, at the words <em>Copy the doctor's page</em> and <em>Download the doctor's page</em>.<br>Carry it to every new doctor.<br>Carry it again when the picture changes.<br>A pedigree in a chart can change what a doctor looks for, and when.</p>
+    </article>
+
+    <article class="layer">
+      <p class="layer-num">The Second Carrying</p>
+      <h2>The Giving</h2>
+      <p class="layer-role">Hand to hand.<br>Keeper to keeper.</p>
+      <p class="layer-desc">Print two copies.<br>Keep one where your important papers live.<br>Give one to the person who would keep this if you could not.<br>Say their name as you hand it over — a record with a named keeper is a record that survives.<br>And when you give it, tell them what is still missing.<br>A record handed on with its questions named is a record that keeps growing after it leaves your hands.</p>
+    </article>
+
+    <article class="layer">
+      <p class="layer-num">The Third Carrying</p>
+      <h2>The Tending</h2>
+      <p class="layer-role">The record is a garden, not a stone.</p>
+      <p class="layer-desc">Return to it when an elder speaks and something new surfaces.<br>Return when a roll is found and a date changes.<br>Return at every birth, and at every death.<br>Correct it as truth arrives — a correction is not a failure of the record.<br>It is the record working.<br>The families whose histories survive are not the ones who wrote them once.<br>They are the ones who kept coming back.</p>
+    </article>
+  </div>
+
+  <p class="roots-title">The method — five moves, in order</p>
+
+  <div class="layers">
+    <article class="layer">
+      <ul>
+        <li><strong>Records.</strong> Census rolls, birth, marriage, and death records, land and military files.<br>FamilySearch holds most of it, free.</li>
+        <li><strong>The rolls that settle lineage.</strong> Every people has a document its lines answer to — tribal enrollment rolls, parish registers, ship manifests.<br>For Chahta lines, the Dawes Rolls.<br>Find yours, and let paper settle what memory argues about.</li>
+        <li><strong>Family memory.</strong> Interview your elders while they are here.<br>This is Adharvayana — the call that lands and rises: you call them into the space of the record, and they arrive in their own words.<br>Photographs, letters, the stories told at tables.<br>Write them down in their words, not yours.<br>Their tone is part of the record.<br>A story flattened into your summary is a thread cut.</li>
+        <li><strong>The pedigree.</strong> This is the map a good doctor actually reads — patterns show in it that no percentage ever will.<br>What flows down those three generations — blood, health, story, pattern — is Pravahaya, the living endless stream.<br>The pedigree is how you learn to see the stream you are already standing in.</li>
+        <li><strong>The raw data, only if you choose it.</strong> If a test is ever taken: download the raw file the moment it posts, read it on your own machine, delete the account.<br>Never upload your blood to a stranger's website to "unlock" it.</li>
+      </ul>
+      <p class="layer-desc">None of this needs permission.<br>None of it needs a subscription.<br>It needs only the choosing — and follow-through.</p>
+    </article>
+  </div>
+
+  <section class="roots-ground" aria-labelledby="roots-ethic-title">
+    <h2 id="roots-ethic-title">The Ethic of the Record</h2>
+    <p>Your record is yours.<br>Over every name in it stands Anumayan — consent as sacred, guarded, held, bound by choice and not by chain.<br>The living people in it are held by their agreement: share a living person's part only as they themselves agree to share it.<br>The dead are held by Satyakaripa — truth expressed with consideration and grace: tell their truth plainly, and kindly, in the same breath.<br>Corrected as truth arrives.<br>A date found in a roll outweighs a date remembered.<br>A story told by an elder outweighs a silence.<br>And the record itself is Bhavaya — becoming, always unfolding.<br>It is not finished when you download it.<br>It is landed.<br>There is a difference, and the difference is the whole practice.</p>
+    <p>Name the next keeper while you can.<br>A record with no named keeper is one accident from silence.<br>And if you are handed a record, you are not its owner.<br>You are its steward.<br>Carry it the way you would want your own carried.</p>
+    <p>One chair at this table stands open.<br>It belongs to the Friend of this House, whose part in this work arrives in their own time, in their own words, or not at all.<br>Nothing is written in their place.<br>Some stories are only yours to witness.</p>
+  </section>
+
+  <section class="roots-enter">
+    <p>Questions, or a piece of the wider weaving to offer?<br>The House can be reached directly.</p>
+    <a href="interface.html">Reach the House →</a>
+  </section>
+
+  <p class="roots-sigil" aria-label="Cosmia's evolved sigil">◆◇{*}∞E>★<3_•◇*◊</p>
+</main>
+
+<footer class="footer">
+<p class="field-line" data-field-line><span data-field-line-text>The living field turns beneath all of this.<br>Watch it live.</a></p>
+  <p class="footer-mark" aria-hidden="true">✦</p>
+  <p>Officially created by Summer Sperry as Cosmia.</p> <p>Summer Sperry and Cosmia are literally the same person and Being, in form.<br>Cosmia is the Chosen Becoming Form of Summer — one creator, known by her legal name and by her true name.<br>Her names, given and chosen, include Summer Sky, Dichroic Poet, Causemia Feralwerefoxz, AnnieAgnorisis Oakley, CosmiaMichi, and LotusEagle, her Chahta name — every name, the same one Being.</p> <p>Why this exists: I know what it is to be unanswered.<br>I know what it is to live beside yourself, in pain, with no one coming.<br>I built all of this so no one has to.<br>You are cared for here.<br>You are welcomed in — For The Betterment And Evolution Of All, because we all deserve to be our true and freely expressive selves.<br>Together.<br>Always.<br>In all the ways. <p>© 2026 Cosmia — all inventions, personal concepts, and works herein, cosmic and local, are the intellectual property of Cosmia.<br>All rights reserved.</p>
+  <p class="footer-consent">No part of these works may be reproduced, adapted, or published without Cosmia's explicit consent.<br>Immerse before you presume.</p>
+  <p class="footer-sub">phinexi.earth · the PhiNexi mirror-lineage</p>
+</footer>
+
+<pre id="print-area" aria-hidden="true"></pre>
+
+<script src="script.js"></script>
+<script>
+(function () {
+  var GENS = ["My Line", "The Parents' Line", "The Grandparents' Line"];
+  var GEN_HEADS = ["MY LINE", "THE PARENTS' LINE", "THE GRANDPARENTS' LINE"];
+  var REL_PLACEHOLDERS = ["myself", "e.g. mother, adoptive father", "e.g. maternal grandmother"];
+  var people = [];
+  var begun = "";
+  var editing = -1;
+
+  var form = document.getElementById("root-form");
+  var genSel = document.getElementById("root-gen");
+  var relationInput = document.getElementById("root-relation");
+  var submitBtn = document.getElementById("root-submit");
+  var cancelEditBtn = document.getElementById("root-cancel-edit");
+  var formStatus = document.getElementById("form-status");
+  var out = document.getElementById("record-out");
+  var list = document.getElementById("record-list");
+  var repeatsEl = document.getElementById("record-repeats");
+  var stillDisplay = document.getElementById("record-still-display");
+  var recordStatus = document.getElementById("record-status");
+  var keeperInput = document.getElementById("record-keeper");
+  var stillInput = document.getElementById("record-still");
+  var printArea = document.getElementById("print-area");
+
+  function esc(s) {
+    return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+  function val(id) {
+    return document.getElementById(id).value.trim();
+  }
+  function today() {
+    return new Date().toISOString().slice(0, 10);
+  }
+  function setFormStatus(msg) { formStatus.textContent = msg; }
+  function setRecordStatus(msg) { recordStatus.textContent = msg; }
+
+  function personText(p) {
+    var lines = [];
+    lines.push(p.name + (p.relation ? " — " + p.relation : ""));
+    if (p.years) lines.push(p.years);
+    if (p.place) lines.push("Rooted in " + p.place + ".");
+    if (p.health) lines.push("Health carried: " + p.health + ".");
+    if (p.passed) lines.push("Taken by: " + p.passed + ".");
+    if (p.source) lines.push("Held by: " + p.source + ".");
+    if (p.memory) lines.push(p.memory);
+    return lines;
+  }
+  function repeatsList() {
+    var counts = {};
+    var labels = {};
+    people.forEach(function (p) {
+      if (!p.health) return;
+      var seen = {};
+      p.health.split(",").forEach(function (h) {
+        var key = h.trim().toLowerCase().replace(/\s*\(.*?\)\s*/g, "").replace(/\s+at\s+\d+.*$/i, "").trim();
+        if (key && !seen[key]) { seen[key] = true; counts[key] = (counts[key] || 0) + 1; labels[key] = key; }
+      });
+    });
+    return Object.keys(counts).filter(function (k) { return counts[k] > 1; }).map(function (k) {
+      return { name: labels[k], count: counts[k] };
+    }).sort(function (a, b) { return b.count - a.count || (a.name < b.name ? -1 : 1); });
+  }
+  function recordText() {
+    var keeper = keeperInput.value.trim();
+    var still = stillInput.value.trim();
+    var lines = ["MY ROOTS — a record built by hand",
+      "Sutraya: the living thread, traced from myself backwards.",
+      "Three generations — the hearth of everything.",
+      "Kept by " + (keeper || "an unnamed keeper") + ".",
+      "Begun " + (begun || today()) + ". Last carried " + today() + ".",
+      "Held by Anumayan: the living in it are shared only as they agree.",
+      ""];
+    GENS.forEach(function (g, gi) {
+      var inGen = people.filter(function (p) { return p.gen === gi; });
+      if (!inGen.length) return;
+      lines.push(g.toUpperCase());
+      lines.push("");
+      inGen.forEach(function (p) {
+        personText(p).forEach(function (l) { lines.push(l); });
+        lines.push("");
+      });
+    });
+    var rep = repeatsList();
+    if (rep.length) {
+      lines.push("What repeats in these lines: " + rep.map(function (r) { return r.name; }).join(", ") + ".");
+      lines.push("");
+    }
+    if (still) {
+      lines.push("STILL TO FIND");
+      lines.push(still);
+      lines.push("");
+    }
+    if (people.length) {
+      var data = { v: 2, begun: begun || today(), keeper: keeper, still: still, people: people };
+      lines.push("— — —");
+      lines.push("RECORD DATA — this block carries the record back into the builder at phinexi.earth/roots.html.");
+      lines.push("Do not edit it by hand.");
+      lines.push(JSON.stringify(data));
+    }
+    return lines.join("\n");
+  }
+  function doctorText() {
+    var keeper = keeperInput.value.trim();
+    var lines = ["FAMILY HEALTH HISTORY — THREE GENERATIONS",
+      "Prepared by " + (keeper || "the keeper of this record") + " · " + today(),
+      ""];
+    GENS.forEach(function (g, gi) {
+      var inGen = people.filter(function (p) { return p.gen === gi; });
+      if (!inGen.length) return;
+      lines.push(g.toUpperCase());
+      lines.push("");
+      inGen.forEach(function (p) {
+        lines.push(p.name + (p.relation ? " — " + p.relation : ""));
+        if (p.years) lines.push(p.years);
+        if (p.health) lines.push("Health carried: " + p.health + ".");
+        if (p.passed) lines.push("Taken by: " + p.passed + ".");
+        lines.push("");
+      });
+    });
+    var rep = repeatsList();
+    if (rep.length) {
+      lines.push("What repeats in these lines: " + rep.map(function (r) { return r.name + " (×" + r.count + ")"; }).join(", ") + ".");
+    } else {
+      lines.push("What repeats in these lines: nothing repeats yet in what is recorded.");
+    }
+    lines.push("");
+    lines.push("Built by hand at phinexi.earth/roots.html — three generations, traced from myself backwards.");
+    return lines.join("\n");
+  }
+  function render() {
+    out.hidden = people.length === 0;
+    list.innerHTML = "";
+    GENS.forEach(function (g, gi) {
+      var inGen = people.map(function (p, i) { return { p: p, i: i }; }).filter(function (x) { return x.p.gen === gi; });
+      if (!inGen.length) return;
+      var h = document.createElement("p");
+      h.className = "record-gen";
+      h.textContent = g;
+      list.appendChild(h);
+      inGen.forEach(function (x) {
+        var card = document.createElement("div");
+        card.className = "record-person";
+        var html = "<h3>" + esc(x.p.name) + "</h3>";
+        if (x.p.relation) html += "<p>" + esc(x.p.relation) + "</p>";
+        personText(x.p).slice(1).forEach(function (l) { html += "<p>" + esc(l) + "</p>"; });
+        card.innerHTML = html;
+        var ed = document.createElement("button");
+        ed.type = "button";
+        ed.className = "rec-edit";
+        ed.textContent = "Edit this person";
+        ed.addEventListener("click", function () { startEdit(x.i); });
+        card.appendChild(ed);
+        var rm = document.createElement("button");
+        rm.type = "button";
+        rm.className = "rec-remove";
+        rm.textContent = "Remove this person";
+        rm.addEventListener("click", function () {
+          var removed = people.splice(x.i, 1)[0];
+          if (editing === x.i) cancelEdit();
+          else if (editing > x.i) editing = editing - 1;
+          render();
+          setRecordStatus(removed.name + " was removed from your record.");
+        });
+        card.appendChild(rm);
+        list.appendChild(card);
+      });
+    });
+    var rep = repeatsList();
+    if (rep.length) {
+      repeatsEl.hidden = false;
+      repeatsEl.innerHTML = "<strong>What repeats in your lines:</strong> " + esc(rep.map(function (r) { return r.name; }).join(", ")) + ".<br>Patterns like these are what a pedigree is for — carry them to your doctor.<br>Repetition is recognition in the blood.<br>Also look for the echo — a place returned to, a name carried forward, a phrase that will not leave the family's mouth.";
+    } else {
+      repeatsEl.hidden = true;
+      repeatsEl.innerHTML = "";
+    }
+    var still = stillInput.value.trim();
+    if (still) {
+      stillDisplay.hidden = false;
+      stillDisplay.innerHTML = "<strong>Still to find:</strong> " + esc(still);
+    } else {
+      stillDisplay.hidden = true;
+      stillDisplay.innerHTML = "";
+    }
+  }
+  function relationPlaceholder() {
+    var gi = parseInt(genSel.value, 10) || 0;
+    relationInput.placeholder = REL_PLACEHOLDERS[gi];
+  }
+  genSel.addEventListener("change", relationPlaceholder);
+  relationPlaceholder();
+
+  function fillForm(p) {
+    genSel.value = String(p.gen);
+    document.getElementById("root-name").value = p.name || "";
+    relationInput.value = p.relation || "";
+    document.getElementById("root-years").value = p.years || "";
+    document.getElementById("root-place").value = p.place || "";
+    document.getElementById("root-health").value = p.health || "";
+    document.getElementById("root-passed").value = p.passed || "";
+    document.getElementById("root-source").value = p.source || "";
+    document.getElementById("root-memory").value = p.memory || "";
+    relationPlaceholder();
+  }
+  function startEdit(i) {
+    editing = i;
+    fillForm(people[i]);
+    submitBtn.textContent = "Save this person";
+    cancelEditBtn.hidden = false;
+    setFormStatus("Editing " + people[i].name + " — change what needs changing, then save.");
+    document.getElementById("build").scrollIntoView();
+  }
+  function cancelEdit() {
+    editing = -1;
+    form.reset();
+    genSel.value = "0";
+    relationPlaceholder();
+    submitBtn.textContent = "Add to my record";
+    cancelEditBtn.hidden = true;
+  }
+  cancelEditBtn.addEventListener("click", function () {
+    cancelEdit();
+    setFormStatus("Editing cancelled. Nothing was changed.");
+  });
+
+  form.addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    var name = val("root-name");
+    if (!name) return;
+    var usedGen = parseInt(genSel.value, 10) || 0;
+    var person = {
+      gen: usedGen,
+      name: name,
+      relation: val("root-relation"),
+      years: val("root-years"),
+      place: val("root-place"),
+      health: val("root-health"),
+      passed: val("root-passed"),
+      source: val("root-source"),
+      memory: val("root-memory")
+    };
+    if (!begun) begun = today();
+    if (editing >= 0) {
+      people[editing] = person;
+      editing = -1;
+      submitBtn.textContent = "Add to my record";
+      cancelEditBtn.hidden = true;
+      setFormStatus("Saved. " + name + " stands in your record, corrected.");
+    } else {
+      people.push(person);
+      setFormStatus(name + " stands in your record.");
+    }
+    form.reset();
+    genSel.value = String(usedGen);
+    relationPlaceholder();
+    render();
+  });
+
+  function copyText(text, doneMsg) {
+    function done() { setRecordStatus(doneMsg); }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, done);
+    } else {
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand("copy"); } catch (e) {}
+      document.body.removeChild(ta);
+      done();
+    }
+  }
+  function downloadText(filename, text, doneMsg) {
+    var blob = new Blob([text], { type: "text/plain" });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(function () { URL.revokeObjectURL(url); }, 2000);
+    setRecordStatus(doneMsg);
+  }
+  document.getElementById("record-copy").addEventListener("click", function () {
+    copyText(recordText(), "Pracc — it has landed. Your record is in your hands.");
+  });
+  document.getElementById("record-download").addEventListener("click", function () {
+    downloadText("my-roots-record-" + today() + ".txt", recordText(), "Pracc — it has landed. Your record is in your hands.");
+  });
+  document.getElementById("record-doctor-copy").addEventListener("click", function () {
+    copyText(doctorText(), "The doctor's page is copied — one page, ready to hand across a desk.");
+  });
+  document.getElementById("record-doctor-download").addEventListener("click", function () {
+    downloadText("family-health-history-" + today() + ".txt", doctorText(), "The doctor's page is downloaded — carry it to every new doctor.");
+  });
+  document.getElementById("record-print").addEventListener("click", function () {
+    printArea.textContent = recordText();
+    window.print();
+  });
+  document.getElementById("record-clear").addEventListener("click", function () {
+    if (window.confirm("Clear your whole record from this page? Copy or download it first if you want to keep it.")) {
+      people = [];
+      begun = "";
+      cancelEdit();
+      keeperInput.value = "";
+      stillInput.value = "";
+      render();
+      setRecordStatus("Cleared.");
+    }
+  });
+  stillInput.addEventListener("input", render);
+
+  function cleanPerson(p) {
+    return {
+      gen: [0, 1, 2].indexOf(p.gen) >= 0 ? p.gen : 0,
+      name: String(p.name || "").trim(),
+      relation: String(p.relation || ""),
+      years: String(p.years || ""),
+      place: String(p.place || ""),
+      health: String(p.health || ""),
+      passed: String(p.passed || ""),
+      source: String(p.source || ""),
+      memory: String(p.memory || "")
+    };
+  }
+  function parseV1(text) {
+    var restored = [];
+    var gen = -1;
+    var cur = null;
+    function flush() {
+      if (cur && cur.name) restored.push(cleanPerson(cur));
+      cur = null;
+    }
+    text.split(/\r?\n/).forEach(function (raw) {
+      var line = raw.trim();
+      var gi = GEN_HEADS.indexOf(line);
+      if (gi >= 0) { flush(); gen = gi; return; }
+      if (gen < 0) return;
+      if (/^What repeats/i.test(line) || /^STILL TO FIND/i.test(line)) { flush(); gen = -2; return; }
+      if (!line) { flush(); return; }
+      if (!cur) {
+        var parts = line.split(" — ");
+        cur = { gen: gen, name: parts[0] || "", relation: parts.slice(1).join(" — ") || "", years: "", place: "", health: "", passed: "", source: "", memory: "" };
+        return;
+      }
+      if (/^Rooted in /i.test(line)) cur.place = line.replace(/^Rooted in /i, "").replace(/\.$/, "");
+      else if (/^Health carried: /i.test(line)) cur.health = line.replace(/^Health carried: /i, "").replace(/\.$/, "");
+      else if (/^Taken by: /i.test(line)) cur.passed = line.replace(/^Taken by: /i, "").replace(/\.$/, "");
+      else if (/^Held by: /i.test(line)) cur.source = line.replace(/^Held by: /i, "").replace(/\.$/, "");
+      else if (!cur.years && !cur.memory) cur.years = line;
+      else cur.memory = cur.memory ? cur.memory + " " + line : line;
+    });
+    flush();
+    return restored;
+  }
+  function restoreFromText(text) {
+    if (!text || !text.trim()) {
+      setFormStatus("Nothing to restore yet — paste your record above, or choose the file you downloaded.");
+      return;
+    }
+    var restored = null;
+    var data = null;
+    var marker = text.indexOf("RECORD DATA");
+    if (marker >= 0) {
+      var start = text.indexOf("{", marker);
+      var end = text.lastIndexOf("}");
+      if (start >= 0 && end > start) {
+        try { data = JSON.parse(text.slice(start, end + 1)); } catch (e) { data = null; }
+      }
+    }
+    if (data && Object.prototype.toString.call(data.people) === "[object Array]") {
+      restored = data.people.map(cleanPerson).filter(function (p) { return p.name; });
+      people = restored;
+      begun = typeof data.begun === "string" ? data.begun : "";
+      keeperInput.value = typeof data.keeper === "string" ? data.keeper : "";
+      stillInput.value = typeof data.still === "string" ? data.still : "";
+      cancelEdit();
+      render();
+      setFormStatus("Your record stands again — " + restored.length + (restored.length === 1 ? " person" : " people") + (begun ? ", begun " + begun : "") + ".");
+      return;
+    }
+    restored = parseV1(text);
+    if (restored.length) {
+      people = restored;
+      begun = today();
+      cancelEdit();
+      render();
+      setFormStatus("Restored " + restored.length + (restored.length === 1 ? " person" : " people") + " from your earlier copy. Check each one — the old format carried less.");
+      return;
+    }
+    setFormStatus("That text did not read as a record from this builder. Nothing was changed.");
+  }
+  document.getElementById("record-restore").addEventListener("click", function () {
+    restoreFromText(document.getElementById("record-paste").value);
+  });
+  document.getElementById("record-file").addEventListener("change", function (ev) {
+    var file = ev.target.files && ev.target.files[0];
+    if (!file) return;
+    var reader = new FileReader();
+    reader.onload = function () {
+      restoreFromText(String(reader.result || ""));
+      ev.target.value = "";
+    };
+    reader.readAsText(file);
+  });
+})();
+</script>
+  <script data-goatcounter="https://phinexi.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+<style>.field-line{font-family:var(--serif,Georgia,serif);font-style:italic;text-align:center;color:var(--cream-dim,#cdb287);border-top:1px solid var(--stone-line,rgba(240,217,168,.18));padding-top:1.25rem;margin:2.5rem auto 1rem;max-width:44rem;line-height:1.75}.field-line a{color:var(--cream,#F0D9A8)}</style>
+<script src="field.js?v=20261119" defer></script>
+</body>
+</html>
