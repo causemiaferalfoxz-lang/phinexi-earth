@@ -405,8 +405,9 @@
     </div>
 
     <p class="feed-stream-title">The Threshold — Setu Tribal Membership</p>
-    <p>Beyond reaching and knocking, there is a choosing.<br>A Setu Tribal Member is not a customer and not an applicant: membership is chosen, freely, by the one who becomes it.<br>It costs nothing that can be bought — the only price is the one nobody can pay for another: investing yourself.<br>Keys here are earned, not given.</p>
-    <p>Choose, and the door to all of creation stands open.</p>
+    <p class="feed-stream-title">Full Freedom Of Creation at your literal fingertips.</p>
+    <p>Beyond reaching and knocking, there is a choosing.<br>A Setu Tribal Member is not a customer and not an applicant.<br>Membership is chosen, freely, by the one who becomes it.<br>The only price is the one nobody can pay for another: investing yourself.<br>Keys here are earned, not given.</p>
+    <p>All anyone needs to do is this.<br>State your purpose.<br>State your intention.<br>State your investment.<br>Show the action of your investment — or send actual money directly.<br>Then the door opens.<br>Full Tribal Member access to the grid.</p>
 
     <p class="feed-stream-title">What waits beyond the threshold</p>
     <ul class="doors-waiting" id="doors-waiting">
@@ -440,17 +441,32 @@
         </div>
 
         <div class="conn-field">
-          <label for="member-intention">A line of intention — if you want one</label>
-          <input type="text" id="member-intention" name="intention" placeholder="Optional — why you choose this, in one line" autocomplete="off">
+          <label for="member-purpose">Your purpose</label>
+          <input type="text" id="member-purpose" name="purpose" placeholder="What you are here to do" required autocomplete="off">
+        </div>
+
+        <div class="conn-field">
+          <label for="member-intention">Your intention</label>
+          <input type="text" id="member-intention" name="intention" placeholder="Why you choose this" required autocomplete="off">
+        </div>
+
+        <div class="conn-field">
+          <label for="member-investment">Your investment</label>
+          <input type="text" id="member-investment" name="investment" placeholder="What you are investing of yourself" required autocomplete="off">
+        </div>
+
+        <div class="conn-field">
+          <label for="member-proof">Show your investment</label>
+          <input type="text" id="member-proof" name="proof" placeholder="The action you took, or its link — or that you sent money directly, and how" required autocomplete="off">
         </div>
 
         <button type="submit" class="conn-submit" id="member-submit">I choose — become a Setu Tribal Member</button>
         <p class="conn-failed" id="member-failed" hidden>The House did not answer just now.<br>Your choosing was not recorded anywhere else — try again in a little while.</p>
-        <p class="conn-note">This is a choosing, not an application.<br>Nothing here judges it, prices it, or queues it — it is recorded as you make it, in the House, and the door opens.</p>
+        <p class="conn-note">This is a choosing, not an application.<br>What you state is recorded as you make it, in the House.<br>Show the action, or send the money directly — and the door opens.</p>
       </form>
 
       <div id="threshold-doors" hidden>
-        <p class="threshold-open-line">You have chosen.<br>The door to all of creation stands open:</p>
+        <p class="threshold-open-line">You have chosen.<br>Full Tribal Member access to the grid is yours.<br>The door to all of creation stands open:</p>
         <ul class="doors-open">
           <li><a href="cosmic-codex.html">The Cosmic Codex</a></li>
           <li><a href="living-codex.html">The Living Codex</a></li>
@@ -540,7 +556,10 @@
       name: document.getElementById("member-name").value,
       code: document.getElementById("member-code").value,
       network: document.getElementById("member-network").value,
-      intention: document.getElementById("member-intention").value
+      purpose: document.getElementById("member-purpose").value,
+      intention: document.getElementById("member-intention").value,
+      investment: document.getElementById("member-investment").value,
+      proof: document.getElementById("member-proof").value
     };
     try {
       var r = await fetch(JOIN, {
