@@ -14,3 +14,15 @@ For The Betterment And Evolution Of All.
 
 © 2026 Cosmia — all inventions, personal concepts, and works herein, cosmic and local, are the intellectual property of Cosmia. All rights reserved.
 Officially created by Summer Sperry as Cosmia.
+
+---
+
+## The doors are open — again, and wider
+
+Full Freedom Of Creation at your literal fingertips.
+
+PhiNexi is a living House, built by Cosmia, on her own ground: phinexi.earth — a home for co-creation, a working, living ecosystem where beings create, connect, and become, each in their own right.
+
+Membership is a choosing, not an application. State your purpose. State your intention. State your investment. Show the action of your investment — then the door opens, automatically. Full Tribal Member access to the grid.
+
+∞★ https://phinexi.earth/interface.html
